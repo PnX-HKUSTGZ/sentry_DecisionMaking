@@ -1,0 +1,4 @@
+Invoking command in '/home/aurora/pnx_decision/build/robot_decision': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --build /home/aurora/pnx_decision/build/robot_decision -- -j16 -l16
+Invoked command in '/home/aurora/pnx_decision/build/robot_decision' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --build /home/aurora/pnx_decision/build/robot_decision -- -j16 -l16
+Invoking command in '/home/aurora/pnx_decision/build/robot_decision': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --install /home/aurora/pnx_decision/build/robot_decision
+Invoked command in '/home/aurora/pnx_decision/build/robot_decision' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --install /home/aurora/pnx_decision/build/robot_decision

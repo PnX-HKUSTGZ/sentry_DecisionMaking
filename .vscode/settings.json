@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
+    },
+    "cmake.sourceDirectory": "/home/aurora/pnx_decision/src/robot_decision"
+}
