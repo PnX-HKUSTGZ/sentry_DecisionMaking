@@ -1,1 +1,0 @@
-/home/aurora/pnx_decision/src/robot_decision/include/robot_decision/decision_node.hpp

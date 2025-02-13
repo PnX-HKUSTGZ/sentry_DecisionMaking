@@ -1,1 +1,0 @@
-/home/aurora/pnx_decision/build/robot_decision/ament_cmake_core/robot_decisionConfig-version.cmake

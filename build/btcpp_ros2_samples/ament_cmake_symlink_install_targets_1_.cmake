@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/aurora/pnx_decision/build/btcpp_ros2_samples/libsleep_plugin.so" "TARGETS" "sleep_plugin" "LIBRARY_DESTINATION" "share/btcpp_ros2_samples/bt_plugins" "ARCHIVE_DESTINATION" "share/btcpp_ros2_samples/bt_plugins" "RUNTIME_DESTINATION" "share/btcpp_ros2_samples/bt_plugins")

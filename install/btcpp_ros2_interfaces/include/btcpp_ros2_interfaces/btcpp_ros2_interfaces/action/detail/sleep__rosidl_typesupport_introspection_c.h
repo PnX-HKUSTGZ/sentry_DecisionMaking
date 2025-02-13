@@ -1,1 +1,0 @@
-/home/aurora/pnx_decision/build/btcpp_ros2_interfaces/rosidl_typesupport_introspection_c/btcpp_ros2_interfaces/action/detail/sleep__rosidl_typesupport_introspection_c.h

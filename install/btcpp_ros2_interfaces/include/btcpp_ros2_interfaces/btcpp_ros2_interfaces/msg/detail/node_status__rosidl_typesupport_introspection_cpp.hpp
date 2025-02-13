@@ -1,1 +1,0 @@
-/home/aurora/pnx_decision/build/btcpp_ros2_interfaces/rosidl_typesupport_introspection_cpp/btcpp_ros2_interfaces/msg/detail/node_status__rosidl_typesupport_introspection_cpp.hpp
