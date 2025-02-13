@@ -1,6 +1,6 @@
+/home/aurora/pnx_decision/install/robot_decision/include/robot_decision/NavigateToPose.hpp
 /home/aurora/pnx_decision/install/robot_decision/include/robot_decision/decision_node.hpp
-/home/aurora/pnx_decision/install/robot_decision/lib/robot_decision/robot_decision_node
-/home/aurora/pnx_decision/install/robot_decision/share/robot_decision/launch/decision_node_launch.py
+/home/aurora/pnx_decision/install/robot_decision/lib/robot_decision/robot_decision
 /home/aurora/pnx_decision/install/robot_decision/share/ament_index/resource_index/package_run_dependencies/robot_decision
 /home/aurora/pnx_decision/install/robot_decision/share/ament_index/resource_index/parent_prefix_path/robot_decision
 /home/aurora/pnx_decision/install/robot_decision/share/robot_decision/environment/ament_prefix_path.sh

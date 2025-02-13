@@ -1,0 +1,10 @@
+In file included from [01m[K/home/aurora/pnx_decision/src/BehaviorTree.ROS2/behaviortree_ros2/include/behaviortree_ros2/bt_utils.hpp:19[m[K,
+                 from [01m[K/home/aurora/pnx_decision/src/BehaviorTree.ROS2/behaviortree_ros2/src/bt_utils.cpp:14[m[K:
+[01m[K/home/aurora/pnx_decision/build/behaviortree_ros2/include/bt_executor_parameters.hpp:1:142:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: #include "bt_executor_parameters.hpp" is deprecated. Use #include <behaviortree_ros2/bt_executor_parameters.hpp> instead.[m[K’
+    1 | #pragma message("#include \"bt_executor_parameters.hpp\" is deprecated. Use #include <behaviortree_ros2/bt_executor_parameters.hpp> instead."[01;36m[K)[m[K
+      |                                                                                                                                              [01;36m[K^[m[K
+In file included from [01m[K/home/aurora/pnx_decision/src/BehaviorTree.ROS2/behaviortree_ros2/include/behaviortree_ros2/bt_utils.hpp:19[m[K,
+                 from [01m[K/home/aurora/pnx_decision/src/BehaviorTree.ROS2/behaviortree_ros2/src/tree_execution_server.cpp:24[m[K:
+[01m[K/home/aurora/pnx_decision/build/behaviortree_ros2/include/bt_executor_parameters.hpp:1:142:[m[K [01;36m[Knote: [m[K‘[01m[K#pragma message: #include "bt_executor_parameters.hpp" is deprecated. Use #include <behaviortree_ros2/bt_executor_parameters.hpp> instead.[m[K’
+    1 | #pragma message("#include \"bt_executor_parameters.hpp\" is deprecated. Use #include <behaviortree_ros2/bt_executor_parameters.hpp> instead."[01;36m[K)[m[K
+      |                                                                                                                                              [01;36m[K^[m[K

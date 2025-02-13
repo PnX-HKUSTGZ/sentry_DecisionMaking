@@ -316,11 +316,8 @@ ament_cmake_symlink_install_directory("/home/aurora/pnx_decision/src/robot_decis
 # install("TARGETS" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")
 include("/home/aurora/pnx_decision/build/robot_decision/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install("TARGETS" "robot_decision_node" "DESTINATION" "lib/robot_decision")
+# install("TARGETS" "robot_decision" "DESTINATION" "lib/robot_decision")
 include("/home/aurora/pnx_decision/build/robot_decision/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
-
-# install(DIRECTORY "launch" "DESTINATION" "share/robot_decision")
-ament_cmake_symlink_install_directory("/home/aurora/pnx_decision/src/robot_decision" DIRECTORY "launch" "DESTINATION" "share/robot_decision")
 
 # install(FILES "/home/aurora/pnx_decision/build/robot_decision/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_decision" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/aurora/pnx_decision/src/robot_decision" FILES "/home/aurora/pnx_decision/build/robot_decision/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_decision" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

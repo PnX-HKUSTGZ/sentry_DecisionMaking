@@ -1,0 +1,18 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Repeat num_cycles="-1">  <!-- 无限循环 -->
+      <Sequence>
+        <!-- 第一个路径点 -->
+        <Action ID="NavigateToPose" goal="[2.0, 0.0, 0.0]"/>
+        <Action ID="NavigateToPose" goal="[1.5, 1.5, 0.785]"/>
+        <Action ID="NavigateToPose" goal="[0.0, 2.0, 1.57]"/>
+        <Action ID="NavigateToPose" goal="[-1.5, 1.5, 2.356]"/>
+        <Action ID="NavigateToPose" goal="[-2.0, 0.0, 3.14]"/>
+        <Action ID="NavigateToPose" goal="[-1.5, -1.5, -2.356]"/>
+        <Action ID="NavigateToPose" goal="[0.0, -2.0, -1.57]"/>
+        <Action ID="NavigateToPose" goal="[1.5, -1.5, -0.785]"/>
+        <Action ID="NavigateToPose" goal="[2.0, 0.0, 0.0]"/>  <!-- 回到起点 -->
+      </Sequence>
+    </Repeat>
+  </BehaviorTree>
+</root>

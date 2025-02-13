@@ -198,41 +198,65 @@ robot_decision_uninstall/fast:
 .PHONY : robot_decision_uninstall/fast
 
 #=============================================================================
-# Target rules for targets named robot_decision_node
+# Target rules for targets named robot_decision
 
 # Build rule for target.
-robot_decision_node: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot_decision_node
-.PHONY : robot_decision_node
+robot_decision: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 robot_decision
+.PHONY : robot_decision
 
 # fast build rule for target.
-robot_decision_node/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision_node.dir/build.make CMakeFiles/robot_decision_node.dir/build
-.PHONY : robot_decision_node/fast
+robot_decision/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/build
+.PHONY : robot_decision/fast
 
-src/decision_node.o: src/decision_node.cpp.o
-.PHONY : src/decision_node.o
+src/NavigateToPose.o: src/NavigateToPose.cpp.o
+.PHONY : src/NavigateToPose.o
 
 # target to build an object file
-src/decision_node.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision_node.dir/build.make CMakeFiles/robot_decision_node.dir/src/decision_node.cpp.o
-.PHONY : src/decision_node.cpp.o
+src/NavigateToPose.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/src/NavigateToPose.cpp.o
+.PHONY : src/NavigateToPose.cpp.o
 
-src/decision_node.i: src/decision_node.cpp.i
-.PHONY : src/decision_node.i
+src/NavigateToPose.i: src/NavigateToPose.cpp.i
+.PHONY : src/NavigateToPose.i
 
 # target to preprocess a source file
-src/decision_node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision_node.dir/build.make CMakeFiles/robot_decision_node.dir/src/decision_node.cpp.i
-.PHONY : src/decision_node.cpp.i
+src/NavigateToPose.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/src/NavigateToPose.cpp.i
+.PHONY : src/NavigateToPose.cpp.i
 
-src/decision_node.s: src/decision_node.cpp.s
-.PHONY : src/decision_node.s
+src/NavigateToPose.s: src/NavigateToPose.cpp.s
+.PHONY : src/NavigateToPose.s
 
 # target to generate assembly for a file
-src/decision_node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision_node.dir/build.make CMakeFiles/robot_decision_node.dir/src/decision_node.cpp.s
-.PHONY : src/decision_node.cpp.s
+src/NavigateToPose.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/src/NavigateToPose.cpp.s
+.PHONY : src/NavigateToPose.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robot_decision.dir/build.make CMakeFiles/robot_decision.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -249,10 +273,13 @@ help:
 	@echo "... test"
 	@echo "... robot_decision_uninstall"
 	@echo "... uninstall"
-	@echo "... robot_decision_node"
-	@echo "... src/decision_node.o"
-	@echo "... src/decision_node.i"
-	@echo "... src/decision_node.s"
+	@echo "... robot_decision"
+	@echo "... src/NavigateToPose.o"
+	@echo "... src/NavigateToPose.i"
+	@echo "... src/NavigateToPose.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

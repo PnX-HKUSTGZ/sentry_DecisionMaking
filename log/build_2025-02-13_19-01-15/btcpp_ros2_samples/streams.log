@@ -1,0 +1,99 @@
+[0.012s] Invoking command in '/home/aurora/pnx_decision/build/btcpp_ros2_samples': AMENT_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2/lib:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/openvdb_vendor/lib:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib PYTHONPATH=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/cmake /home/aurora/pnx_decision/src/BehaviorTree.ROS2/btcpp_ros2_samples -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/aurora/pnx_decision/install/btcpp_ros2_samples
+[0.053s] -- The C compiler identification is GNU 11.4.0
+[0.094s] -- The CXX compiler identification is GNU 11.4.0
+[0.099s] -- Detecting C compiler ABI info
+[0.151s] -- Detecting C compiler ABI info - done
+[0.155s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.155s] -- Detecting C compile features
+[0.155s] -- Detecting C compile features - done
+[0.157s] -- Detecting CXX compiler ABI info
+[0.215s] -- Detecting CXX compiler ABI info - done
+[0.220s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.220s] -- Detecting CXX compile features
+[0.220s] -- Detecting CXX compile features - done
+[0.222s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.323s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.365s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.384s] -- Found behaviortree_ros2: 0.2.0 (/home/aurora/pnx_decision/install/behaviortree_ros2/share/behaviortree_ros2/cmake)
+[0.417s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.421s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.427s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.434s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.444s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.472s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.474s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.546s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.565s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.595s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.601s] -- Looking for pthread.h
+[0.656s] -- Looking for pthread.h - found
+[0.656s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.715s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.716s] -- Found Threads: TRUE  
+[0.811s] -- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)
+[0.863s] -- Configuring done
+[0.888s] -- Generating done
+[0.897s] -- Build files have been written to: /home/aurora/pnx_decision/build/btcpp_ros2_samples
+[0.906s] Invoked command in '/home/aurora/pnx_decision/build/btcpp_ros2_samples' returned '0': AMENT_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2/lib:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/openvdb_vendor/lib:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib PYTHONPATH=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/cmake /home/aurora/pnx_decision/src/BehaviorTree.ROS2/btcpp_ros2_samples -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/aurora/pnx_decision/install/btcpp_ros2_samples
+[0.908s] Invoking command in '/home/aurora/pnx_decision/build/btcpp_ros2_samples': AMENT_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2/lib:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/openvdb_vendor/lib:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib PYTHONPATH=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/cmake --build /home/aurora/pnx_decision/build/btcpp_ros2_samples -- -j16 -l16
+[0.948s] [ 22%] [32mBuilding CXX object CMakeFiles/sample_bt_executor.dir/src/sample_bt_executor.cpp.o[0m
+[0.948s] [ 22%] [32mBuilding CXX object CMakeFiles/sleep_client.dir/src/sleep_action.cpp.o[0m
+[0.948s] [ 22%] [32mBuilding CXX object CMakeFiles/sleep_plugin.dir/src/sleep_action.cpp.o[0m
+[0.948s] [ 22%] [32mBuilding CXX object CMakeFiles/sleep_client.dir/src/sleep_client.cpp.o[0m
+[0.948s] [ 33%] [32mBuilding CXX object CMakeFiles/sleep_server.dir/src/sleep_server.cpp.o[0m
+[0.948s] [ 33%] [32mBuilding CXX object CMakeFiles/bool_client.dir/src/set_bool_node.cpp.o[0m
+[0.948s] [ 38%] [32mBuilding CXX object CMakeFiles/bool_client.dir/src/bool_client.cpp.o[0m
+[0.948s] [ 44%] [32mBuilding CXX object CMakeFiles/bool_server.dir/src/bool_server.cpp.o[0m
+[0.948s] [ 50%] [32mBuilding CXX object CMakeFiles/subscriber_test.dir/src/subscriber_test.cpp.o[0m
+[3.978s] [ 55%] [32m[1mLinking CXX executable bool_server[0m
+[4.127s] [ 55%] Built target bool_server
+[6.023s] [ 61%] [32m[1mLinking CXX executable sleep_server[0m
+[6.209s] [ 61%] Built target sleep_server
+[7.104s] [ 66%] [32m[1mLinking CXX executable bool_client[0m
+[7.312s] [ 66%] Built target bool_client
+[7.443s] [ 72%] [32m[1mLinking CXX shared library libsleep_plugin.so[0m
+[7.616s] [ 72%] Built target sleep_plugin
+[7.638s] [ 77%] [32mBuilding CXX object CMakeFiles/sleep_client_dyn.dir/src/sleep_client.cpp.o[0m
+[7.734s] [ 83%] [32m[1mLinking CXX executable sleep_client[0m
+[7.970s] [ 83%] Built target sleep_client
+[9.852s] [ 88%] [32m[1mLinking CXX executable sample_bt_executor[0m
+[10.219s] [ 88%] Built target sample_bt_executor
+[10.613s] [ 94%] [32m[1mLinking CXX executable subscriber_test[0m
+[10.936s] [ 94%] Built target subscriber_test
+[11.115s] [100%] [32m[1mLinking CXX executable sleep_client_dyn[0m
+[11.216s] [100%] Built target sleep_client_dyn
+[11.227s] Invoked command in '/home/aurora/pnx_decision/build/btcpp_ros2_samples' returned '0': AMENT_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2/lib:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/openvdb_vendor/lib:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib PYTHONPATH=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/cmake --build /home/aurora/pnx_decision/build/btcpp_ros2_samples -- -j16 -l16
+[11.228s] Invoking command in '/home/aurora/pnx_decision/build/btcpp_ros2_samples': AMENT_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2/lib:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/openvdb_vendor/lib:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib PYTHONPATH=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/cmake --install /home/aurora/pnx_decision/build/btcpp_ros2_samples
+[11.235s] -- Install configuration: ""
+[11.235s] -- Execute custom install script
+[11.235s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_client
+[11.242s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_client_dyn
+[11.249s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_server
+[11.256s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/libsleep_plugin.so
+[11.263s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/subscriber_test
+[11.270s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sample_bt_executor
+[11.276s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/bool_client
+[11.283s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/bool_server
+[11.290s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/bt_plugins/libsleep_plugin.so
+[11.298s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/cross_door.xml
+[11.306s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/door_closed.xml
+[11.313s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/sleep_action.xml
+[11.321s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples//config/sample_bt_executor.yaml
+[11.328s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples//launch/sample_bt_executor.launch.xml
+[11.334s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/ament_index/resource_index/package_run_dependencies/btcpp_ros2_samples
+[11.342s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/ament_index/resource_index/parent_prefix_path/btcpp_ros2_samples
+[11.349s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/ament_prefix_path.sh
+[11.356s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/ament_prefix_path.dsv
+[11.364s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/path.sh
+[11.371s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/path.dsv
+[11.377s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.bash
+[11.383s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.sh
+[11.390s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.zsh
+[11.397s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.dsv
+[11.405s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.dsv
+[11.412s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/ament_index/resource_index/packages/btcpp_ros2_samples
+[11.420s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/ament_cmake_export_dependencies-extras.cmake
+[11.427s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/btcpp_ros2_samplesConfig.cmake
+[11.435s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/btcpp_ros2_samplesConfig-version.cmake
+[11.442s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.xml
+[11.450s] Invoked command in '/home/aurora/pnx_decision/build/btcpp_ros2_samples' returned '0': AMENT_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/aurora/pnx_decision/install/behaviortree_ros2/lib:/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/opt/openvdb_vendor/lib:/opt/ros/humble/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib PYTHONPATH=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} _=/usr/bin/env /usr/bin/cmake --install /home/aurora/pnx_decision/build/btcpp_ros2_samples

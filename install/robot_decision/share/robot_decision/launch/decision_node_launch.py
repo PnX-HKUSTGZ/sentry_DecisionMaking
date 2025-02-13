@@ -1,1 +1,0 @@
-/home/aurora/pnx_decision/src/robot_decision/launch/decision_node_launch.py

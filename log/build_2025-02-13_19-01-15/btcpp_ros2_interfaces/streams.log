@@ -1,0 +1,253 @@
+[0.010s] Invoking command in '/home/aurora/pnx_decision/build/btcpp_ros2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble _=/usr/bin/env /usr/bin/cmake /home/aurora/pnx_decision/src/BehaviorTree.ROS2/btcpp_ros2_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces
+[0.071s] -- The C compiler identification is GNU 11.4.0
+[0.126s] -- The CXX compiler identification is GNU 11.4.0
+[0.134s] -- Detecting C compiler ABI info
+[0.194s] -- Detecting C compiler ABI info - done
+[0.198s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.198s] -- Detecting C compile features
+[0.198s] -- Detecting C compile features - done
+[0.200s] -- Detecting CXX compiler ABI info
+[0.261s] -- Detecting CXX compiler ABI info - done
+[0.265s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.265s] -- Detecting CXX compile features
+[0.265s] -- Detecting CXX compile features - done
+[0.267s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.361s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.397s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.414s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.416s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.420s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.442s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.645s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.765s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.919s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.933s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[0.934s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.950s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[0.951s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.951s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.951s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.964s] -- Found PythonExtra: .so  
+[0.993s] -- Configuring done
+[1.016s] -- Generating done
+[1.023s] -- Build files have been written to: /home/aurora/pnx_decision/build/btcpp_ros2_interfaces
+[1.029s] Invoked command in '/home/aurora/pnx_decision/build/btcpp_ros2_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble _=/usr/bin/env /usr/bin/cmake /home/aurora/pnx_decision/src/BehaviorTree.ROS2/btcpp_ros2_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/aurora/pnx_decision/install/btcpp_ros2_interfaces
+[1.029s] Invoking command in '/home/aurora/pnx_decision/build/btcpp_ros2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --build /home/aurora/pnx_decision/build/btcpp_ros2_interfaces -- -j16 -l16
+[1.065s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.073s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.082s] [  4%] Built target ament_cmake_python_symlink_btcpp_ros2_interfaces
+[1.220s] running egg_info
+[1.220s] creating btcpp_ros2_interfaces.egg-info
+[1.221s] writing btcpp_ros2_interfaces.egg-info/PKG-INFO
+[1.221s] writing dependency_links to btcpp_ros2_interfaces.egg-info/dependency_links.txt
+[1.221s] writing top-level names to btcpp_ros2_interfaces.egg-info/top_level.txt
+[1.221s] writing manifest file 'btcpp_ros2_interfaces.egg-info/SOURCES.txt'
+[1.222s] reading manifest file 'btcpp_ros2_interfaces.egg-info/SOURCES.txt'
+[1.222s] writing manifest file 'btcpp_ros2_interfaces.egg-info/SOURCES.txt'
+[1.246s] [  4%] Built target ament_cmake_python_build_btcpp_ros2_interfaces_egg
+[1.541s] [  8%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/btcpp_ros2_interfaces/msg/detail/node_status__functions.c.o[0m
+[1.541s] [  8%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/btcpp_ros2_interfaces/action/detail/execute_tree__functions.c.o[0m
+[1.542s] [ 10%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_generator_c.dir/rosidl_generator_c/btcpp_ros2_interfaces/action/detail/sleep__functions.c.o[0m
+[1.543s] [ 10%] Built target btcpp_ros2_interfaces__cpp
+[1.553s] [ 17%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.553s] [ 17%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.553s] [ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.630s] [ 19%] [32m[1mLinking C shared library libbtcpp_ros2_interfaces__rosidl_generator_c.so[0m
+[1.664s] [ 19%] Built target btcpp_ros2_interfaces__rosidl_generator_c
+[1.673s] [ 25%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.673s] [ 25%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.673s] [ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.876s] [ 31%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/btcpp_ros2_interfaces/msg/node_status__type_support.cpp.o[0m
+[1.877s] [ 31%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/btcpp_ros2_interfaces/action/sleep__type_support.cpp.o[0m
+[1.877s] [ 31%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/btcpp_ros2_interfaces/action/execute_tree__type_support.cpp.o[0m
+[1.934s] [ 34%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/btcpp_ros2_interfaces/msg/detail/node_status__type_support.cpp.o[0m
+[1.935s] [ 36%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/btcpp_ros2_interfaces/action/detail/execute_tree__type_support.cpp.o[0m
+[1.936s] [ 38%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/btcpp_ros2_interfaces/action/detail/sleep__type_support.cpp.o[0m
+[2.030s] [ 44%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/btcpp_ros2_interfaces/action/execute_tree__type_support.cpp.o[0m
+[2.030s] [ 44%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/btcpp_ros2_interfaces/action/sleep__type_support.cpp.o[0m
+[2.030s] [ 44%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/btcpp_ros2_interfaces/msg/node_status__type_support.cpp.o[0m
+[2.041s] [ 46%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/btcpp_ros2_interfaces/msg/detail/dds_fastrtps/node_status__type_support.cpp.o[0m
+[2.041s] [ 51%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/btcpp_ros2_interfaces/action/detail/dds_fastrtps/execute_tree__type_support.cpp.o[0m
+[2.041s] [ 51%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/btcpp_ros2_interfaces/action/detail/dds_fastrtps/sleep__type_support.cpp.o[0m
+[2.087s] [ 53%] [32m[1mLinking CXX shared library libbtcpp_ros2_interfaces__rosidl_typesupport_c.so[0m
+[2.131s] [ 53%] Built target btcpp_ros2_interfaces__rosidl_typesupport_c
+[2.155s] [ 55%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/btcpp_ros2_interfaces/msg/detail/node_status__type_support.c.o[0m
+[2.156s] [ 57%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/btcpp_ros2_interfaces/action/detail/execute_tree__type_support.c.o[0m
+[2.156s] [ 59%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/btcpp_ros2_interfaces/action/detail/sleep__type_support.c.o[0m
+[2.212s] [ 61%] [32m[1mLinking C shared library libbtcpp_ros2_interfaces__rosidl_typesupport_introspection_c.so[0m
+[2.236s] [ 65%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/btcpp_ros2_interfaces/action/detail/sleep__type_support_c.cpp.o[0m
+[2.237s] [ 65%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/btcpp_ros2_interfaces/action/detail/execute_tree__type_support_c.cpp.o[0m
+[2.237s] [ 68%] [32mBuilding CXX object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/btcpp_ros2_interfaces/msg/detail/node_status__type_support_c.cpp.o[0m
+[2.252s] [ 70%] [32m[1mLinking CXX shared library libbtcpp_ros2_interfaces__rosidl_typesupport_cpp.so[0m
+[2.252s] [ 70%] Built target btcpp_ros2_interfaces__rosidl_typesupport_introspection_c
+[2.290s] [ 70%] Built target btcpp_ros2_interfaces__rosidl_typesupport_cpp
+[2.441s] [ 72%] [32m[1mLinking CXX shared library libbtcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[2.503s] [ 72%] Built target btcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp
+[2.509s] [ 74%] [32m[1mLinking CXX shared library libbtcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[2.510s] [ 76%] [32m[1mLinking CXX shared library libbtcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[2.567s] [ 76%] Built target btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c
+[2.567s] [ 76%] Built target btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp
+[2.584s] [ 76%] Built target btcpp_ros2_interfaces
+[2.602s] [ 78%] [34m[1mGenerating Python code for ROS interfaces[0m
+[3.417s] [ 78%] Built target btcpp_ros2_interfaces__py
+[3.434s] [ 85%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/btcpp_ros2_interfaces/action/_sleep_s.c.o[0m
+[3.434s] [ 85%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/btcpp_ros2_interfaces/msg/_node_status_s.c.o[0m
+[3.435s] [ 85%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_generator_py.dir/rosidl_generator_py/btcpp_ros2_interfaces/action/_execute_tree_s.c.o[0m
+[3.524s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/btcpp_ros2_interfaces/libbtcpp_ros2_interfaces__rosidl_generator_py.so[0m
+[3.556s] [ 87%] Built target btcpp_ros2_interfaces__rosidl_generator_py
+[3.573s] [ 93%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/btcpp_ros2_interfaces/_btcpp_ros2_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[3.573s] [ 93%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/btcpp_ros2_interfaces/_btcpp_ros2_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[3.573s] [ 93%] [32mBuilding C object CMakeFiles/btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/btcpp_ros2_interfaces/_btcpp_ros2_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[3.667s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[3.667s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[3.667s] [100%] [32m[1mLinking C shared library rosidl_generator_py/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[3.697s] [100%] Built target btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[3.697s] [100%] Built target btcpp_ros2_interfaces__rosidl_typesupport_introspection_c__pyext
+[3.697s] [100%] Built target btcpp_ros2_interfaces__rosidl_typesupport_c__pyext
+[3.708s] Invoked command in '/home/aurora/pnx_decision/build/btcpp_ros2_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --build /home/aurora/pnx_decision/build/btcpp_ros2_interfaces -- -j16 -l16
+[3.717s] Invoking command in '/home/aurora/pnx_decision/build/btcpp_ros2_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --install /home/aurora/pnx_decision/build/btcpp_ros2_interfaces
+[3.723s] -- Install configuration: ""
+[3.723s] -- Execute custom install script
+[3.723s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/ament_index/resource_index/rosidl_interfaces/btcpp_ros2_interfaces
+[3.731s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__functions.h
+[3.738s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__struct.h
+[3.746s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__type_support.h
+[3.752s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__functions.h
+[3.758s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__struct.h
+[3.766s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__type_support.h
+[3.773s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/execute_tree.h
+[3.780s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/sleep.h
+[3.787s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__functions.h
+[3.794s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__struct.h
+[3.801s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__type_support.h
+[3.808s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/node_status.h
+[3.814s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/rosidl_generator_c__visibility_control.h
+[3.821s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/library_path.sh
+[3.828s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/library_path.dsv
+[3.835s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__rosidl_typesupport_fastrtps_c.h
+[3.841s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__rosidl_typesupport_fastrtps_c.h
+[3.848s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__rosidl_typesupport_fastrtps_c.h
+[3.855s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.864s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__rosidl_typesupport_introspection_c.h
+[3.871s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__rosidl_typesupport_introspection_c.h
+[3.878s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__rosidl_typesupport_introspection_c.h
+[3.885s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.893s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__builder.hpp
+[3.900s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__struct.hpp
+[3.908s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__traits.hpp
+[3.915s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__type_support.hpp
+[3.923s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__builder.hpp
+[3.929s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__struct.hpp
+[3.937s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__traits.hpp
+[3.944s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__type_support.hpp
+[3.951s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/execute_tree.hpp
+[3.959s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/sleep.hpp
+[3.966s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__builder.hpp
+[3.973s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__struct.hpp
+[3.981s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__traits.hpp
+[3.988s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__type_support.hpp
+[3.996s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/node_status.hpp
+[4.003s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[4.011s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__rosidl_typesupport_fastrtps_cpp.hpp
+[4.019s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__rosidl_typesupport_fastrtps_cpp.hpp
+[4.026s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__rosidl_typesupport_fastrtps_cpp.hpp
+[4.033s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.040s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/execute_tree__rosidl_typesupport_introspection_cpp.hpp
+[4.047s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/action/detail/sleep__rosidl_typesupport_introspection_cpp.hpp
+[4.054s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/include/btcpp_ros2_interfaces/btcpp_ros2_interfaces/msg/detail/node_status__rosidl_typesupport_introspection_cpp.hpp
+[4.061s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/pythonpath.sh
+[4.068s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/pythonpath.dsv
+[4.076s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces-0.2.0-py3.10.egg-info/PKG-INFO
+[4.083s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces-0.2.0-py3.10.egg-info/SOURCES.txt
+[4.090s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces-0.2.0-py3.10.egg-info/dependency_links.txt
+[4.097s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces-0.2.0-py3.10.egg-info/top_level.txt
+[4.105s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/__init__.py
+[4.112s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/_btcpp_ros2_interfaces_s.ep.rosidl_typesupport_c.c
+[4.119s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/_btcpp_ros2_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[4.127s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/_btcpp_ros2_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[4.134s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/__init__.py
+[4.141s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/_execute_tree.py
+[4.147s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/_execute_tree_s.c
+[4.154s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/_sleep.py
+[4.161s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/_sleep_s.c
+[4.168s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[4.176s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[4.183s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[4.190s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/libbtcpp_ros2_interfaces__rosidl_generator_py.so
+[4.197s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/msg/__init__.py
+[4.203s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/msg/_node_status.py
+[4.211s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/msg/_node_status_s.c
+[4.219s] -- Up-to-date symlink: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[4.219s] -- Up-to-date symlink: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[4.220s] -- Up-to-date symlink: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[4.220s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/msg/NodeStatus.idl
+[4.227s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/action/ExecuteTree.idl
+[4.235s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/action/Sleep.idl
+[4.242s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/msg/NodeStatus.msg
+[4.250s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/action/ExecuteTree.action
+[4.257s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/action/Sleep.action
+[4.263s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/ament_index/resource_index/package_run_dependencies/btcpp_ros2_interfaces
+[4.270s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/ament_index/resource_index/parent_prefix_path/btcpp_ros2_interfaces
+[4.278s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/ament_prefix_path.sh
+[4.287s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/ament_prefix_path.dsv
+[4.295s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/path.sh
+[4.302s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/environment/path.dsv
+[4.310s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/local_setup.bash
+[4.318s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/local_setup.sh
+[4.325s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/local_setup.zsh
+[4.332s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/local_setup.dsv
+[4.339s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.dsv
+[4.346s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/ament_index/resource_index/packages/btcpp_ros2_interfaces
+[4.353s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/rosidl_cmake-extras.cmake
+[4.359s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.365s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.372s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[4.379s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[4.386s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.393s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.400s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfacesConfig.cmake
+[4.407s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfacesConfig-version.cmake
+[4.413s] -- Symlinking: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.xml
+[4.420s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_generator_c.so
+[4.421s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_generator_c.so" to ""
+[4.421s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c.so
+[4.421s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[4.421s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_introspection_c.so
+[4.421s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[4.421s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_c.so
+[4.421s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_c.so" to ""
+[4.421s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[4.422s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[4.422s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp.so
+[4.422s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[4.422s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_cpp.so
+[4.422s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_typesupport_cpp.so" to ""
+[4.449s] Listing '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces'...
+[4.449s] Compiling '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/__init__.py'...
+[4.449s] Listing '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action'...
+[4.449s] Compiling '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/__init__.py'...
+[4.449s] Compiling '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/_execute_tree.py'...
+[4.449s] Compiling '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/action/_sleep.py'...
+[4.449s] Listing '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/msg'...
+[4.449s] Compiling '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/msg/__init__.py'...
+[4.449s] Compiling '/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages/btcpp_ros2_interfaces/msg/_node_status.py'...
+[4.451s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_generator_py.so
+[4.452s] -- Set runtime path of "/home/aurora/pnx_decision/install/btcpp_ros2_interfaces/lib/libbtcpp_ros2_interfaces__rosidl_generator_py.so" to ""
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_generator_cExport.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_generator_cExport-noconfig.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_cExport.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[4.452s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_generator_cppExport.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_cppExport.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/btcpp_ros2_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_generator_pyExport.cmake
+[4.453s] -- Installing: /home/aurora/pnx_decision/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake/export_btcpp_ros2_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[4.455s] Invoked command in '/home/aurora/pnx_decision/build/btcpp_ros2_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble _=/usr/bin/env /usr/bin/cmake --install /home/aurora/pnx_decision/build/btcpp_ros2_interfaces
