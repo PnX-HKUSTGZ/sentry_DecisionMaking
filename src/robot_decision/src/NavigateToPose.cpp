@@ -22,9 +22,11 @@ bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
     RCLCPP_ERROR(logger(), "Invalid goal input!");
     return false;
   }
-
+  goal.pose.header.frame_id = "map";
+  goal.pose.header.stamp = this->now();
   goal.pose.pose.position.x = target[0];
   goal.pose.pose.position.y = target[1];
+  std::cout<<"x:"<<goal.pose.pose.position.x<<" "<<"y:"<<goal.pose.pose.position.y<<std::endl;
   goal.pose.pose.orientation.w = 1.0;  // 默认方向
   return true;
 }

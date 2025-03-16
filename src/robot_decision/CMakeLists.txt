@@ -33,6 +33,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## Export compile commands for clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+file(GLOB_RECURSE SRC_FILES src/*.cpp)
+
 # 使用 ament_cmake_auto
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
@@ -42,9 +44,15 @@ include_directories(include)
 
 # 添加可执行文件
 ament_auto_add_executable(robot_decision
-  src/main.cpp
-  src/NavigateToPose.cpp
+  ${SRC_FILES}
 )
 
 # 导出 package
-ament_auto_package()
+ament_auto_package(
+  INSTALL_TO_SHARE
+  launch
+  behavior_trees
+)
+
+
+

@@ -13,7 +13,7 @@ def generate_launch_description():
     robot_decision_node = Node(
         name="robot_decision",
         package="robot_decision",
-        executable="robot_decision_node",
+        executable="robot_decision",
         output="screen"
     )
 
