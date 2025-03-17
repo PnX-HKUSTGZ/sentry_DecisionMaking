@@ -6,9 +6,24 @@
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <behaviortree_cpp/loggers/bt_cout_logger.h>
 #include <filesystem>
+#include <signal.h>
+#include <atomic>
+#include <iostream>
+
+//safe shutdown
+std::atomic<bool> g_interrupt_requested(false);
+
+// Signal handler for Ctrl+C
+void signalHandler(int signum) {
+  g_interrupt_requested = true;
+  std::cout << "Interrupt received, safely shutting down..." << std::endl;
+}
 
 int main(int argc, char** argv)
 {
+  // Register signal handler
+  signal(SIGINT, signalHandler);
+
   rclcpp::init(argc, argv);
 
   //initiate navigate node
@@ -31,7 +46,7 @@ int main(int argc, char** argv)
   auto ifhealthchanged_nh = std::make_shared<rclcpp::Node>("IfHealthChanged_subscriber");
   RosNodeParams ifhealthchanged_params;
   ifhealthchanged_params.nh = ifhealthchanged_nh;
-  ifhealthchanged_params.default_port_value = "ifhealthchanged";
+  ifhealthchanged_params.default_port_value = "ifhealth";
 
   //register nodes
   BehaviorTreeFactory factory;
@@ -48,8 +63,8 @@ int main(int argc, char** argv)
 
   //运行行为树
   auto status = tree.tickOnce();
-  //std::cout << "--- status: " << toStr(status) << "\n\n";
-  while(status == NodeStatus::RUNNING) 
+  std::cout << "--- status: " << toStr(status) << "\n\n";
+  while(status == NodeStatus::RUNNING && !g_interrupt_requested) 
   {
     // Sleep to avoid busy loops.
     // do NOT use other sleep functions!
@@ -62,5 +77,16 @@ int main(int argc, char** argv)
     //std::cout << "--- status: " << toStr(status) << "\n\n";
   }
   
+  // Clean shutdown
+  if (g_interrupt_requested) {
+    std::cout << "Halting behavior tree..." << std::endl;
+    tree.haltTree();
+  }
+  
+  // Clean up ROS resources
+  rclcpp::shutdown();
+  std::cout << "Behavior tree execution completed." << std::endl;
+
   return 0;
 }
+ 

@@ -11,7 +11,9 @@ IfHealth::IfHealth(const std::string& name, const BT::NodeConfig& conf,
 
 BT::PortsList IfHealth::providedPorts()
 {
-  return {};
+  return providedBasicPorts({
+    BT::InputPort<std::string>("message"),   // 目标点坐标
+  });
 }
 
 BT::NodeStatus IfHealth::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& last_msg)
@@ -21,15 +23,29 @@ BT::NodeStatus IfHealth::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& la
     RCLCPP_ERROR(logger(), "[%s] invalid message", name().c_str());
     return BT::NodeStatus::FAILURE;
   }
-  if(last_msg->data> 150)  // empty if no new message received since the last tick
+  
+  std::string message;
+  getInput("message",message);
+  if (message== "checkhealth")
   {
-    RCLCPP_INFO(logger(), "[%s] amount of blood: %s", name().c_str(),
-                std::to_string(last_msg->data).c_str());
-    std::cout<<"IfHealth::onTick and enter if conditon"<<std::endl;
-    return BT::NodeStatus::SUCCESS;
+    if(last_msg->data > 200)  // empty if no new message received since the last tick
+    {
+      RCLCPP_INFO(logger(), "[%s] amount of blood: %s", name().c_str(),
+              std::to_string(last_msg->data).c_str());
+      return BT::NodeStatus::SUCCESS;
+    }
+    return BT::NodeStatus::FAILURE;
   }
-  std::cout<<"IfHealth::onTick"<<std::endl;
-  return BT::NodeStatus::FAILURE;
-}
+  else
+  {
+    if(last_msg->data <= 200)  // empty if no new message received since the last tick
+    {
+      RCLCPP_INFO(logger(), "[%s] amount of blood: %s", name().c_str(),
+              std::to_string(last_msg->data).c_str());
+      return BT::NodeStatus::SUCCESS;
+    }
+    return BT::NodeStatus::FAILURE;
+  }
 
-} // namespace robot_decision
+} 
+}// namespace robot_decision

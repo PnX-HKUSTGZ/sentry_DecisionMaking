@@ -7,20 +7,22 @@
       </RetryUntilSuccessful>
       
       <Repeat num_cycles="-1">
-        <Fallback>
-          <Sequence>
-            <IfHealth name = "IfHealth"/> <!-- 检查生命值 -->
-            <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
-              <NavigateToPose goal="3.0;0.45;0.0"/>  <!-- 如果健康，前增益点交战 -->
-            </RetryUntilSuccessful>
-          </Sequence>
-          <Sequence>
-            <IfHealth name = "IfHealth"/> <!-- 检查生命值,以及防止消息为空 -->
-            <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
-              <NavigateToPose goal="3.0;0.45;0.0"/>  <!-- 如果不健康，回家补血 -->
-            </RetryUntilSuccessful>
-          </Sequence>
-        </Fallback>
+        <ForceSuccess>
+          <Fallback>
+            <Sequence>
+              <IfHealth name = "IfHealth" message="checkhealth" /> <!-- 检查生命值 -->
+              <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
+                <NavigateToPose goal="3.0;0.45;0.0"/>  <!-- 如果健康，前增益点交战 -->
+              </RetryUntilSuccessful>
+            </Sequence>
+            <Sequence>
+              <IfHealth name = "IfHealth" message="checkunhealth" /> <!-- 检查生命值,以及防止消息为空(有问题) -->
+              <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
+                <NavigateToPose goal="2.0;0.45;0.0"/>  <!-- 如果不健康，回家补血 -->
+              </RetryUntilSuccessful>
+            </Sequence>
+          </Fallback>
+        </ForceSuccess> <!-- 如果都失败返回failure，repeat会退出 -->
       </Repeat>
     </Sequence>
   </BehaviorTree>
