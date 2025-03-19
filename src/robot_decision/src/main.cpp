@@ -2,6 +2,7 @@
 #include "robot_decision/IfGameStart.hpp"
 #include "robot_decision/IfHealth.hpp"       
 #include "robot_decision/IfHealthChanged.hpp" 
+#include "robot_decision/Wait.hpp"
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <behaviortree_cpp/loggers/bt_cout_logger.h>
@@ -54,12 +55,13 @@ int main(int argc, char** argv)
   factory.registerNodeType<robot_decision::IfGameStart>("IfGameStart",if_game_start_params);
   factory.registerNodeType<robot_decision::IfHealth>("IfHealth",ifhealth_params);
   factory.registerNodeType<robot_decision::IfHealthChanged>("IfHealthChanged",ifhealthchanged_params);
-  
+  factory.registerNodeType<robot_decision::Wait>("Wait");
+
   std::string bt_xml_path = ament_index_cpp::get_package_share_directory("robot_decision") + 
                           "/behavior_trees/behavior_tree.xml";
   auto tree = factory.createTreeFromFile(bt_xml_path);
   
-  BT::StdCoutLogger logger(tree);
+  //BT::StdCoutLogger logger(tree);
 
   //运行行为树
   auto status = tree.tickOnce();
