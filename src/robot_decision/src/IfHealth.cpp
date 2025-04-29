@@ -12,7 +12,7 @@ IfHealth::IfHealth(const std::string& name, const BT::NodeConfig& conf,
 BT::PortsList IfHealth::providedPorts()
 {
   return providedBasicPorts({
-    BT::InputPort<std::string>("message"),   // 目标点坐标
+    BT::InputPort<std::string>("message"),   
   });
 }
 

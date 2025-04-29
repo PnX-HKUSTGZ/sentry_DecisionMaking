@@ -1,0 +1,52 @@
+<root main_tree_to_execute="MainTree" BTCPP_format="4">
+  <BehaviorTree ID="MainTree">
+    <Sequence>
+      <Repeat num_cycles="-1">
+        <ForceSuccess>
+          <!-- 使用ReactiveFallback并行执行任务 -->
+
+          <ReactiveFallback name="MissionSelector">
+            <!-- 首先保证生存，如果不健康，直接回家补血 -->
+            <Sequence>
+              <IfHealth name = "IfHealth" message="checkunhealth" />
+              
+                <RetryUntilSuccessful num_attempts="20">
+                  <Sequence>
+                    <Wait name="WaitNode"/>
+                    <NavigateToPose point_key="1"/>
+                  </Sequence>
+                </RetryUntilSuccessful>
+              
+            </Sequence>
+
+            <!-- 守护基地，如果基地血量低于某值，登上堡垒 -->
+            <Sequence>
+              <CheckOurBase name="CheckOurBase" HPthreshold = "4000"/> <!-- 判断变量2的条件 -->
+              
+                <RetryUntilSuccessful num_attempts="20">
+                  <Sequence>
+                    <Wait name="WaitNode"/>
+                    <NavigateToPose point_key="2"/>
+                  </Sequence>
+                </RetryUntilSuccessful>
+              
+            </Sequence>
+
+            <!-- 打前哨站 -->
+            <Sequence>
+              <CheckOurOutpost name="CheckOurOutpost" HPthreshold = "0"/> <!-- 判断变量3的条件 -->
+              
+                <RetryUntilSuccessful num_attempts="20">
+                  <Sequence>
+                    <Wait name="WaitNode"/>
+                    <NavigateToPose point_key="3"/>
+                  </Sequence>
+                </RetryUntilSuccessful>
+            </Sequence>
+          </ReactiveFallback>
+
+        </ForceSuccess> <!-- 如果都失败返回failure，repeat会退出 -->
+      </Repeat>
+    </Sequence>
+  </BehaviorTree>
+</root>

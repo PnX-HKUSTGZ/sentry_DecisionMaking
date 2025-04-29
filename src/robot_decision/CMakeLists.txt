@@ -37,14 +37,19 @@ file(GLOB_RECURSE SRC_FILES src/*.cpp)
 
 # 使用 ament_cmake_auto
 find_package(ament_cmake_auto REQUIRED)
-ament_auto_find_build_dependencies()
+find_package(yaml-cpp REQUIRED)
 
+ament_auto_find_build_dependencies()
 # 头文件目录
 include_directories(include)
 
 # 添加可执行文件
 ament_auto_add_executable(robot_decision
   ${SRC_FILES}
+)
+
+target_link_libraries(robot_decision
+  yaml-cpp
 )
 
 # 导出 package

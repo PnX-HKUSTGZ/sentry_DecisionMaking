@@ -13,10 +13,11 @@ Wait::Wait(const std::string& name, const BT::NodeConfig& config)
 
 BT::NodeStatus Wait::tick()
 {
-  RCLCPP_INFO(rclcpp::get_logger("Wait"), "[%s] Waiting for 100ms", name().c_str());
+  int time_to_wait = 500;
+  RCLCPP_INFO(rclcpp::get_logger("Wait"), "[%s] Waiting for %d ms", name().c_str(), time_to_wait);
   
-  // Sleep for 100ms
-  std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  // Sleep for time_to_wait
+  std::this_thread::sleep_for(std::chrono::milliseconds(time_to_wait));
   
   RCLCPP_INFO(rclcpp::get_logger("Wait"), "[%s] Wait completed", name().c_str());
   return BT::NodeStatus::SUCCESS;

@@ -1,22 +1,16 @@
 <root main_tree_to_execute="MainTree" BTCPP_format="4">
   <BehaviorTree ID="MainTree">
     <Sequence>
-      <!-- 持续检查直到条件满足 -->
-      <RetryUntilSuccessful num_attempts="-1">  <!-- -1表示无限重试 -->
-        <IfGameStart name="IfGameStart"/>
-      </RetryUntilSuccessful>
-      
       <Repeat num_cycles="-1">
         <ForceSuccess>
-          <Sequence>
-            <Wait name="WaitNode"/>
+          <Sequence>   
             <Fallback>
               <Sequence>
                 <RetryUntilSuccessful num_attempts="20">
                   <IfHealth name = "IfHealth" message="checkhealth" /> <!-- 检查生命值 -->
                 </RetryUntilSuccessful>
                 <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
-                  <NavigateToPose goal="3.0;0.45;0.0"/>  <!-- 如果健康，前增益点交战 -->
+                  <NavigateToPose point_key="1"/>  <!-- 如果健康，前增益点交战 -->
                 </RetryUntilSuccessful>
                 <Wait name="WaitNode"/>
               </Sequence>
@@ -25,7 +19,7 @@
                   <IfHealth name = "IfHealth" message="checkunhealth" /> <!-- 检查生命值,以及防止消息为空(有问题) -->
                 </RetryUntilSuccessful>
                 <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
-                  <NavigateToPose goal="2.0;0.45;0.0"/>  <!-- 如果不健康，回家补血 -->
+                  <NavigateToPose point_key="1"/>  <!-- 如果不健康，回家补血 -->
                 </RetryUntilSuccessful>
                 <Wait name="WaitNode"/>
               </Sequence>
