@@ -24,19 +24,34 @@
           <Fallback name="BaseStatusLogic">
             <!-- 如果我方前哨站阵亡，回堡垒 -->
             <Sequence name="OurBaseDead">
-              <Condition ID="IsOurBaseDead"/>
-              <NavigateToPoint point_id="3"/>
+              <CheckOurOutpost ID="IsOurBaseDead"/>
+              <RetryUntilSuccessful num_attempts="20">
+                <Sequence>
+                  <Wait name="WaitNode" waittime="500"/>
+                  <NavigateToPose point_key="1"/>
+                </Sequence>
+              </RetryUntilSuccessful>
             </Sequence>
+
             <!-- 如果我方前哨站活着，敌方前哨站死亡，去中央高地辅助 -->
             <Sequence name="EnemyBaseDead">
-              <Condition ID="IsEnemyBaseDead"/>
-              <NavigateToPoint point_id="2"/>
+              <CheckEnemyOutpost ID="IsEnemyBaseDead"/>
+              <RetryUntilSuccessful num_attempts="20">
+                <Sequence>
+                  <Wait name="WaitNode" waittime="500"/>
+                  <NavigateToPose point_key="1"/>
+                </Sequence>
+              </RetryUntilSuccessful>
             </Sequence>
+
             <!-- 如果双方前哨站都活着，前往去打前哨站 -->
-            <Sequence name="BothBasesAlive">
-              <Condition ID="AreBasesAlive"/>
-              <NavigateToPoint point_id="1"/>
-            </Sequence>
+            <RetryUntilSuccessful num_attempts="20">
+              <Sequence>
+                <Wait name="WaitNode" waittime="500"/>
+                <NavigateToPose point_key="1"/>
+              </Sequence>
+            </RetryUntilSuccessful>
+            
           </Fallback>
         </ReactiveSequence>
 
