@@ -83,13 +83,13 @@ int main(int argc, char** argv)
   //运行行为树
   auto status = tree.tickOnce();
   std::cout << "--- status: " << toStr(status) << "\n\n";
-  while(status == NodeStatus::RUNNING && !g_interrupt_requested) 
+  while(!g_interrupt_requested) 
   {
     // Sleep to avoid busy loops.
     // do NOT use other sleep functions!
     // Small sleep time is OK, here we use a large one only to
     // have less messages on the console.
-    tree.sleep(std::chrono::milliseconds(100));
+    tree.sleep(std::chrono::milliseconds(200));
 
     //std::cout << "--- ticking\n";
     status = tree.tickOnce();

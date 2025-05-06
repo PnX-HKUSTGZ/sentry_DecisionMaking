@@ -1,11 +1,10 @@
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-    <Repeat num_cycles="-1">
-      <ForceSuccess>
+  
         <ReactiveSequence name="RootSequence">
           <!-- 最高优先级：血量检查 -->
           <Fallback name="HealthCheck">
-            <IfHealth name = "CheckIfNeedHealth" message="checkhealth" />
+            <IfHealth name = "CheckIfNeedHealth" message="checkhealth" HPthreshold="200"/>
             <RetryUntilSuccessful num_attempts="-1">
               <Sequence>
                 <Wait name="WaitNode" waittime="500"/>
@@ -13,8 +12,8 @@
                 <!-- 等到血量补满后再结束该分支 -->
                 <RetryUntilSuccessful num_attempts="-1">
                   <Sequence>
-                    <Wait name="WaitNode" waittime="500"/>
-                    <IfHealth name = "CheckIfFullHealth" message="checkhealth" />
+                    <Wait name="WaitNode" waittime="1000"/>
+                    <IfHealth name = "CheckIfFullHealth" message="checkhealth" HPthreshold="500"/>
                   </Sequence>
                 </RetryUntilSuccessful>
               </Sequence>
@@ -40,8 +39,7 @@
             </Sequence>
           </Fallback>
         </ReactiveSequence>
-      </ForceSuccess> <!-- 如果都失败返回failure，repeat会退出 -->
-    </Repeat>
+
 
   </BehaviorTree>
 </root> 

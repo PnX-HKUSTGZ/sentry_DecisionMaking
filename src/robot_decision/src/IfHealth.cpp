@@ -13,6 +13,7 @@ BT::PortsList IfHealth::providedPorts()
 {
   return providedBasicPorts({
     BT::InputPort<std::string>("message"),   
+    BT::InputPort<int>("HPthreshold"),   //
   });
 }
 
@@ -26,9 +27,11 @@ BT::NodeStatus IfHealth::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& la
   
   std::string message;
   getInput("message",message);
+  int HPthreshold;
+  getInput("HPthreshold",HPthreshold);
   if (message== "checkhealth")
   {
-    if(last_msg->data > 200)  // empty if no new message received since the last tick
+    if(last_msg->data > HPthreshold)  // empty if no new message received since the last tick
     {
       RCLCPP_INFO(logger(), "[%s] amount of blood: %s", name().c_str(),
               std::to_string(last_msg->data).c_str());
@@ -38,7 +41,7 @@ BT::NodeStatus IfHealth::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& la
   }
   else
   {
-    if(last_msg->data <= 200)  // empty if no new message received since the last tick
+    if(last_msg->data <= HPthreshold)  // empty if no new message received since the last tick
     {
       RCLCPP_INFO(logger(), "[%s] amount of blood: %s", name().c_str(),
               std::to_string(last_msg->data).c_str());
