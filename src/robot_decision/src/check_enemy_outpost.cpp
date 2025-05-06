@@ -1,22 +1,22 @@
-#include "robot_decision/check_our_base.hpp"
+#include "robot_decision/check_enemy_outpost.hpp"
 
 namespace robot_decision
 {
 
-CheckOutbase::CheckOutbase(const std::string& name, const BT::NodeConfig& conf,
+CheckEnemyposet::CheckEnemyposet(const std::string& name, const BT::NodeConfig& conf,
                              const BT::RosNodeParams& params)
   : BT::RosTopicSubNode<std_msgs::msg::UInt16>(name, conf, params)
 {
 }
 
-BT::PortsList CheckOutbase::providedPorts()
+BT::PortsList CheckEnemyposet::providedPorts()
 {
 return providedBasicPorts({
     BT::InputPort<int>("HPthreshold"),   //
 });
 }
 
-BT::NodeStatus CheckOutbase::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& last_msg)
+BT::NodeStatus CheckEnemyposet::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& last_msg)
 {
   if(!last_msg)
   {
@@ -29,7 +29,7 @@ BT::NodeStatus CheckOutbase::onTick(const std::shared_ptr<std_msgs::msg::UInt16>
  
     if(last_msg->data <= HPthreshold)  // empty if no new message received since the last tick
     {
-      RCLCPP_INFO(logger(), "[%s]  our base amount of blood: %s", name().c_str(),
+      RCLCPP_INFO(logger(), "[%s]  enemy outpost amount of blood: %s", name().c_str(),
               std::to_string(last_msg->data).c_str());
       return BT::NodeStatus::SUCCESS;
     }

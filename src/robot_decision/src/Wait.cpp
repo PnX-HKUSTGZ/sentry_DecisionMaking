@@ -11,9 +11,15 @@ Wait::Wait(const std::string& name, const BT::NodeConfig& config)
 {
 }
 
+BT::PortsList Wait::providedPorts()
+{
+return { BT::InputPort<int>("waittime") };
+}
+
 BT::NodeStatus Wait::tick()
 {
-  int time_to_wait = 500;
+  int time_to_wait;
+  getInput("waittime", time_to_wait);
   RCLCPP_INFO(rclcpp::get_logger("Wait"), "[%s] Waiting for %d ms", name().c_str(), time_to_wait);
   
   // Sleep for time_to_wait

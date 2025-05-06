@@ -1,0 +1,47 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Repeat num_cycles="-1">
+      <ForceSuccess>
+        <ReactiveSequence name="RootSequence">
+          <!-- 最高优先级：血量检查 -->
+          <Fallback name="HealthCheck">
+            <IfHealth name = "CheckIfNeedHealth" message="checkhealth" />
+            <RetryUntilSuccessful num_attempts="-1">
+              <Sequence>
+                <Wait name="WaitNode" waittime="500"/>
+                <NavigateToPose point_key="1"/>
+                <!-- 等到血量补满后再结束该分支 -->
+                <RetryUntilSuccessful num_attempts="-1">
+                  <Sequence>
+                    <Wait name="WaitNode" waittime="500"/>
+                    <IfHealth name = "CheckIfFullHealth" message="checkhealth" />
+                  </Sequence>
+                </RetryUntilSuccessful>
+              </Sequence>
+            </RetryUntilSuccessful>
+          </Fallback>
+          
+          <!-- 前哨站状态逻辑 -->
+          <Fallback name="BaseStatusLogic">
+            <!-- 如果我方前哨站阵亡，回堡垒 -->
+            <Sequence name="OurBaseDead">
+              <Condition ID="IsOurBaseDead"/>
+              <NavigateToPoint point_id="3"/>
+            </Sequence>
+            <!-- 如果我方前哨站活着，敌方前哨站死亡，去中央高地辅助 -->
+            <Sequence name="EnemyBaseDead">
+              <Condition ID="IsEnemyBaseDead"/>
+              <NavigateToPoint point_id="2"/>
+            </Sequence>
+            <!-- 如果双方前哨站都活着，前往去打前哨站 -->
+            <Sequence name="BothBasesAlive">
+              <Condition ID="AreBasesAlive"/>
+              <NavigateToPoint point_id="1"/>
+            </Sequence>
+          </Fallback>
+        </ReactiveSequence>
+      </ForceSuccess> <!-- 如果都失败返回failure，repeat会退出 -->
+    </Repeat>
+
+  </BehaviorTree>
+</root> 

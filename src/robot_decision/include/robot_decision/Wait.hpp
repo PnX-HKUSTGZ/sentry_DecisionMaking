@@ -14,8 +14,7 @@ public:
   // This method is invoked by the BT engine when the node is ticked
   BT::NodeStatus tick() override;
 
-  // The node doesn't need any port
-  static BT::PortsList providedPorts() { return {}; }
+  static BT::PortsList providedPorts();
 };
 
 } // namespace robot_decision

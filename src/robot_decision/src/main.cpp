@@ -4,6 +4,7 @@
 #include "robot_decision/Wait.hpp"
 #include "robot_decision/check_our_base.hpp"
 #include "robot_decision/check_our_outpost.hpp"
+#include "robot_decision/check_enemy_outpost.hpp"
 
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
@@ -57,6 +58,11 @@ int main(int argc, char** argv)
   check_our_outpost_params.nh = check_our_outpost_nh;
   check_our_outpost_params.default_port_value = "our_outpost_health";
 
+  auto check_enemy_outpost_nh = std::make_shared<rclcpp::Node>("CheckEnemyOutpost_subscriber");
+  RosNodeParams check_enemy_outpost_params;
+  check_enemy_outpost_params.nh = check_enemy_outpost_nh;
+  check_enemy_outpost_params.default_port_value = "enemy_outpost_health";
+
   //register nodes
   BehaviorTreeFactory factory;
   factory.registerNodeType<NavigateToPoseBT>("NavigateToPose",navigate_to_pose_params);
@@ -64,11 +70,12 @@ int main(int argc, char** argv)
   factory.registerNodeType<robot_decision::Wait>("Wait");
   factory.registerNodeType<robot_decision::CheckOutbase>("CheckOurBase",check_our_base_params);
   factory.registerNodeType<robot_decision::CheckOutposet>("CheckOurOutpost",check_our_outpost_params);
+  factory.registerNodeType<robot_decision::CheckEnemyposet>("CheckEnemyOutpost",check_enemy_outpost_params);
   factory.registerNodeType<robot_decision::IfHealthChanged>("IfHealthChanged",ifhealthchanged_params);
   
 
   std::string bt_xml_path = ament_index_cpp::get_package_share_directory("robot_decision") + 
-                          "/behavior_trees/RMUC.xml";
+                          "/behavior_trees/RMUC_test.xml";
   auto tree = factory.createTreeFromFile(bt_xml_path);
   
   BT::StdCoutLogger logger(tree);
