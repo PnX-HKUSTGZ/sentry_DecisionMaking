@@ -75,7 +75,7 @@ int main(int argc, char** argv)
   
 
   std::string bt_xml_path = ament_index_cpp::get_package_share_directory("robot_decision") + 
-                          "/behavior_trees/RMUC_test.xml";
+                          "/behavior_trees/RMUC.xml";
   auto tree = factory.createTreeFromFile(bt_xml_path);
   
   BT::StdCoutLogger logger(tree);

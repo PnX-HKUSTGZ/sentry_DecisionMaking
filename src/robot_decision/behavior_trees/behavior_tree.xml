@@ -1,32 +1,27 @@
 <root main_tree_to_execute="MainTree" BTCPP_format="4">
   <BehaviorTree ID="MainTree">
-    <Sequence>
-      <Repeat num_cycles="-1">
-        <ForceSuccess>
-          <Sequence>   
+    
+            
             <Fallback>
               <Sequence>
-                <RetryUntilSuccessful num_attempts="20">
-                  <IfHealth name = "IfHealth" message="checkhealth" /> <!-- 检查生命值 -->
+                <RetryUntilSuccessful num_attempts="26">
+                  <IfHealth name = "CheckIfHealth" message="checkhealth" HPthreshold="200"/>
                 </RetryUntilSuccessful>
                 <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
                   <NavigateToPose point_key="1"/>  <!-- 如果健康，前增益点交战 -->
                 </RetryUntilSuccessful>
-                <Wait name="WaitNode"/>
+                <Wait name="WaitNode" waittime="500"/>
               </Sequence>
               <Sequence>
-                <RetryUntilSuccessful num_attempts="20">
-                  <IfHealth name = "IfHealth" message="checkunhealth" /> <!-- 检查生命值,以及防止消息为空(有问题) -->
+                <RetryUntilSuccessful num_attempts="26">
+                  <IfHealth name = "CheckIfunHealth" message="checkunhealth" HPthreshold="500"/> <!-- 检查生命值,以及防止消息为空(有问题) -->
                 </RetryUntilSuccessful>
-                <RetryUntilSuccessful num_attempts="20">  <!-- -1表示无限重试 -->
-                  <NavigateToPose point_key="1"/>  <!-- 如果不健康，回家补血 -->
+                <RetryUntilSuccessful num_attempts="26">  <!-- -1表示无限重试 -->
+                  <NavigateToPose point_key="2"/>  <!-- 如果不健康，回家补血 -->
                 </RetryUntilSuccessful>
-                <Wait name="WaitNode"/>
+                <Wait name="WaitNode" waittime="500"/>
               </Sequence>
             </Fallback>
-          </Sequence>
-        </ForceSuccess> <!-- 如果都失败返回failure，repeat会退出 -->
-      </Repeat>
-    </Sequence>
+          
   </BehaviorTree>
 </root>

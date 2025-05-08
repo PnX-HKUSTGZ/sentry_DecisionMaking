@@ -1,53 +1,65 @@
-<root main_tree_to_execute="MainTree">
+<root main_tree_to_execute="MainTree" BTCPP_format="4">
   <BehaviorTree ID="MainTree">
   
         <ReactiveSequence name="RootSequence">
           <!-- 最高优先级：血量检查 -->
-          <Fallback name="HealthCheck">
-            <IfHealth name = "CheckIfNeedHealth" message="checkhealth" HPthreshold="200"/>
+          <Sequence name="HealthCheck">
+            <RetryUntilSuccessful num_attempts="20">
+              <IfHealth name = "CheckIfHealth" message="checkunhealth" HPthreshold="200"/>
+            </RetryUntilSuccessful>
             <RetryUntilSuccessful num_attempts="-1">
               <Sequence>
                 <Wait name="WaitNode" waittime="500"/>
-                <NavigateToPose point_key="1"/>
+                <NavigateToPose point_key="2"/>
                 <!-- 等到血量补满后再结束该分支 -->
                 <RetryUntilSuccessful num_attempts="-1">
                   <Sequence>
                     <Wait name="WaitNode" waittime="1000"/>
-                    <IfHealth name = "CheckIfFullHealth" message="checkhealth" HPthreshold="500"/>
+                    <IfHealth name = "CheckIfFullHealth" message="checkhealth" HPthreshold="499"/>
                   </Sequence>
                 </RetryUntilSuccessful>
               </Sequence>
             </RetryUntilSuccessful>
-          </Fallback>
+          </Sequence>
           
           <!-- 前哨站状态逻辑 -->
           <Fallback name="BaseStatusLogic">
             <!-- 如果我方前哨站阵亡，回堡垒 -->
             <Sequence name="OurBaseDead">
-              <CheckOurOutpost ID="IsOurBaseDead"/>
+              <RetryUntilSuccessful num_attempts="20">
+                <IfHealth name = "CheckIfHealth" message="checkunhealth" HPthreshold="200"/>
+              </RetryUntilSuccessful>
+              <RetryUntilSuccessful num_attempts="20">
+                <CheckOurOutpost name="IsOurOutpostDead" HPthreshold="0"/>
+              </RetryUntilSuccessful>
               <RetryUntilSuccessful num_attempts="20">
                 <Sequence>
-                  <Wait name="WaitNode" waittime="500"/>
+                  <Wait name="WaitNode" waittime="100"/>
                   <NavigateToPose point_key="1"/>
                 </Sequence>
               </RetryUntilSuccessful>
             </Sequence>
-
+            
             <!-- 如果我方前哨站活着，敌方前哨站死亡，去中央高地辅助 -->
             <Sequence name="EnemyBaseDead">
-              <CheckEnemyOutpost ID="IsEnemyBaseDead"/>
               <RetryUntilSuccessful num_attempts="20">
-                <Sequence>
-                  <Wait name="WaitNode" waittime="500"/>
+                <IfHealth name = "CheckIfHealth" message="checkunhealth" HPthreshold="200"/>
+              </RetryUntilSuccessful>
+              <RetryUntilSuccessful num_attempts="20">
+                <CheckEnemyOutpost name="IsEnemyOutpostDead" HPthreshold="0"/>
+              </RetryUntilSuccessful>
+              <RetryUntilSuccessful num_attempts="20">
+                
+                  
                   <NavigateToPose point_key="1"/>
-                </Sequence>
+                
               </RetryUntilSuccessful>
             </Sequence>
 
             <!-- 如果双方前哨站都活着，前往去打前哨站 -->
             <RetryUntilSuccessful num_attempts="20">
               <Sequence>
-                <Wait name="WaitNode" waittime="500"/>
+                
                 <NavigateToPose point_key="1"/>
               </Sequence>
             </RetryUntilSuccessful>
