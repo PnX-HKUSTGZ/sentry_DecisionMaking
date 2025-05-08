@@ -1,64 +1,70 @@
 <root main_tree_to_execute="MainTree" BTCPP_format="4">
   <BehaviorTree ID="MainTree">
-        
-        <ReactiveFallback name="RootSequence">
-          <!-- 最高优先级：血量检查 -->
-          <Sequence name="HealthCheck">
-            <IfHealth name = "CheckIfHealth" message="checkunhealth" HPthreshold="200"/>
-            <RetryUntilSuccessful num_attempts="-1">
-              <Sequence>
-                <Wait name="WaitNode" waittime="500"/>
-                <NavigateToPose point_key="2"/>
-                <!-- 等到血量补满后再结束该分支 -->
-                <RetryUntilSuccessful num_attempts="-1">
-                  <Sequence>
-                    <Wait name="WaitNode" waittime="1000"/>
-                    <IfHealth name = "CheckIfFullHealth" message="checkhealth" HPthreshold="499"/>
-                  </Sequence>
-                </RetryUntilSuccessful>
-              </Sequence>
-            </RetryUntilSuccessful>
+        <Sequence name="RootSequence">
+          <!-- Subscribers to ROS topics -->
+          <Sequence name="Subscribers">
+            <IfHealthSubscriber name="IfHealthSub" />
+            <OurOutpostHealthSubscriber name="OurOutpostSub" />
+            <EnemyOutpostHealthSubscriber name="EnemyOutpostSub" />
           </Sequence>
           
-          <!-- 前哨站状态逻辑 -->
-          <Fallback name="BaseStatusLogic">
-            <!-- 如果我方前哨站阵亡，回堡垒 -->
-            <Sequence name="OurOutpostDead">
-              <IfHealth name = "CheckIfHealth" message="checkhealth" HPthreshold="200"/>
-              <CheckOurOutpost name="IsOurOutpostDead" HPthreshold="0"/>
-              <RetryUntilSuccessful num_attempts="20">
+          <ReactiveFallback name="ActionSequence">
+            <!-- 最高优先级：血量检查 -->
+            <Sequence name="HealthCheck">
+              <IfHealth name="CheckIfHealth" message="checkunhealth" HPthreshold="200" health_value="{IfHealthSub.health_value}"/>
+              <RetryUntilSuccessful num_attempts="-1">
                 <Sequence>
-                  <Wait name="WaitNode" waittime="100"/>
-                  <NavigateToPose point_key="3"/>
+                  <Wait name="WaitNode" waittime="500"/>
+                  <NavigateToPose point_key="2"/>
+                  <!-- 等到血量补满后再结束该分支 -->
+                  <RetryUntilSuccessful num_attempts="-1">
+                    <Sequence>
+                      <Wait name="WaitNode" waittime="1000"/>
+                      <IfHealth name="CheckIfFullHealth" message="checkhealth" HPthreshold="499" health_value="{IfHealthSub.health_value}"/>
+                    </Sequence>
+                  </RetryUntilSuccessful>
                 </Sequence>
               </RetryUntilSuccessful>
             </Sequence>
             
-            <!-- 如果我方前哨站活着，敌方前哨站死亡，去中央高地辅助 -->
-            <Sequence name="EnemyOutpostDead">
-              <IfHealth name = "CheckIfHealth" message="checkhealth" HPthreshold="200"/>
-              <CheckEnemyOutpost name="IsEnemyOutpostDead" HPthreshold="0"/>
-              <RetryUntilSuccessful num_attempts="20">
-                <Sequence>
-                  <Wait name="WaitNode" waittime="100"/>
-                  <NavigateToPose point_key="4"/>
-                </Sequence>
-              </RetryUntilSuccessful>
-            </Sequence>
+            <!-- 前哨站状态逻辑 -->
+            <Fallback name="BaseStatusLogic">
+              <!-- 如果我方前哨站阵亡，回堡垒 -->
+              <Sequence name="OurOutpostDead">
+                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{IfHealthSub.health_value}"/>
+                <CheckOurOutpost name="IsOurOutpostDead" HPthreshold="0" outpost_health_value="{OurOutpostSub.outpost_health_value}"/>
+                <RetryUntilSuccessful num_attempts="20">
+                  <Sequence>
+                    <Wait name="WaitNode" waittime="100"/>
+                    <NavigateToPose point_key="3"/>
+                  </Sequence>
+                </RetryUntilSuccessful>
+              </Sequence>
+              
+              <!-- 如果我方前哨站活着，敌方前哨站死亡，去中央高地辅助 -->
+              <Sequence name="EnemyOutpostDead">
+                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{IfHealthSub.health_value}"/>
+                <CheckEnemyOutpost name="IsEnemyOutpostDead" HPthreshold="0" enemy_outpost_health_value="{EnemyOutpostSub.enemy_outpost_health_value}"/>
+                <RetryUntilSuccessful num_attempts="20">
+                  <Sequence>
+                    <Wait name="WaitNode" waittime="100"/>
+                    <NavigateToPose point_key="4"/>
+                  </Sequence>
+                </RetryUntilSuccessful>
+              </Sequence>
 
-            <!-- 如果双方前哨站都活着，前往去打前哨站 -->
-            <Sequence name="BothOutpostAlive">
-              <IfHealth name = "CheckIfHealth" message="checkhealth" HPthreshold="200"/>
-              <RetryUntilSuccessful num_attempts="20">
-                <Sequence>
-                  <Wait name="WaitNode" waittime="100"/>
-                  <NavigateToPose point_key="1"/>
-                </Sequence>
-              </RetryUntilSuccessful>
-            </Sequence>
-          </Fallback>
-        </ReactiveFallback >
-
-
+              <!-- 如果双方前哨站都活着，前往去打前哨站 -->
+              <Sequence name="BothOutpostAlive">
+                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{IfHealthSub.health_value}"/>
+                <RetryUntilSuccessful num_attempts="20">
+                  <Sequence>
+                    <Wait name="WaitNode" waittime="100"/>
+                    <NavigateToPose point_key="1"/>
+                  </Sequence>
+                </RetryUntilSuccessful>
+              </Sequence>
+            </Fallback>
+          </ReactiveFallback>
+        </Sequence>
   </BehaviorTree>
-</root> 
+</root>

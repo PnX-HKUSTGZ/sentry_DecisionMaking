@@ -5,6 +5,11 @@
 #include "robot_decision/check_our_base.hpp"
 #include "robot_decision/check_our_outpost.hpp"
 #include "robot_decision/check_enemy_outpost.hpp"
+// New subscriber includes
+#include "robot_decision/ifhealth_subscriber.hpp"
+#include "robot_decision/our_base_health_subscriber.hpp"
+#include "robot_decision/our_outpost_health_subscriber.hpp"
+#include "robot_decision/enemy_outpost_health_subscriber.hpp"
 
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
@@ -38,40 +43,42 @@ int main(int argc, char** argv)
   navigate_to_pose_params.nh = navigate_to_pose_nh;
   navigate_to_pose_params.default_port_value = "navigate_to_pose";
 
-  auto ifhealth_nh = std::make_shared<rclcpp::Node>("IfHealth_subscriber");
-  RosNodeParams ifhealth_params;
-  ifhealth_params.nh = ifhealth_nh;
-  ifhealth_params.default_port_value = "ifhealth";
+  auto ifhealth_sub_nh = std::make_shared<rclcpp::Node>("IfHealthSub_subscriber");
+  RosNodeParams ifhealth_sub_params;
+  ifhealth_sub_params.nh = ifhealth_sub_nh;
+  ifhealth_sub_params.default_port_value = "ifhealth";
 
-  auto ifhealthchanged_nh = std::make_shared<rclcpp::Node>("IfHealthChanged_subscriber");
-  RosNodeParams ifhealthchanged_params;
-  ifhealthchanged_params.nh = ifhealthchanged_nh;
-  ifhealthchanged_params.default_port_value = "ifhealth";
+  auto our_base_health_sub_nh = std::make_shared<rclcpp::Node>("OurBaseHealthSub_subscriber");
+  RosNodeParams our_base_health_sub_params;
+  our_base_health_sub_params.nh = our_base_health_sub_nh;
+  our_base_health_sub_params.default_port_value = "our_base_health";
 
-  auto check_our_base_nh = std::make_shared<rclcpp::Node>("CheckOurBase_subscriber");
-  RosNodeParams check_our_base_params;
-  check_our_base_params.nh = check_our_base_nh;
-  check_our_base_params.default_port_value = "our_base_health";
+  auto our_outpost_health_sub_nh = std::make_shared<rclcpp::Node>("OurOutpostHealthSub_subscriber");
+  RosNodeParams our_outpost_health_sub_params;
+  our_outpost_health_sub_params.nh = our_outpost_health_sub_nh;
+  our_outpost_health_sub_params.default_port_value = "our_outpost_health";
 
-  auto check_our_outpost_nh = std::make_shared<rclcpp::Node>("CheckOurOutpost_subscriber");
-  RosNodeParams check_our_outpost_params;
-  check_our_outpost_params.nh = check_our_outpost_nh;
-  check_our_outpost_params.default_port_value = "our_outpost_health";
-
-  auto check_enemy_outpost_nh = std::make_shared<rclcpp::Node>("CheckEnemyOutpost_subscriber");
-  RosNodeParams check_enemy_outpost_params;
-  check_enemy_outpost_params.nh = check_enemy_outpost_nh;
-  check_enemy_outpost_params.default_port_value = "enemy_outpost_health";
+  auto enemy_outpost_health_sub_nh = std::make_shared<rclcpp::Node>("EnemyOutpostHealthSub_subscriber");
+  RosNodeParams enemy_outpost_health_sub_params;
+  enemy_outpost_health_sub_params.nh = enemy_outpost_health_sub_nh;
+  enemy_outpost_health_sub_params.default_port_value = "enemy_outpost_health";
 
   //register nodes
   BehaviorTreeFactory factory;
-  factory.registerNodeType<NavigateToPoseBT>("NavigateToPose",navigate_to_pose_params);
-  factory.registerNodeType<robot_decision::IfHealth>("IfHealth",ifhealth_params);
+  factory.registerNodeType<NavigateToPoseBT>("NavigateToPose", navigate_to_pose_params);
+  
+  // Register the new subscriber nodes
+  factory.registerNodeType<robot_decision::IfHealthSubscriber>("IfHealthSubscriber", ifhealth_sub_params);
+  factory.registerNodeType<robot_decision::OurBaseHealthSubscriber>("OurBaseHealthSubscriber", our_base_health_sub_params);
+  factory.registerNodeType<robot_decision::OurOutpostHealthSubscriber>("OurOutpostHealthSubscriber", our_outpost_health_sub_params);
+  factory.registerNodeType<robot_decision::EnemyOutpostHealthSubscriber>("EnemyOutpostHealthSubscriber", enemy_outpost_health_sub_params);
+  
+  // Register the modified action nodes (now regular nodes, not subscribers)
+  factory.registerNodeType<robot_decision::IfHealth>("IfHealth");
   factory.registerNodeType<robot_decision::Wait>("Wait");
-  factory.registerNodeType<robot_decision::CheckOutbase>("CheckOurBase",check_our_base_params);
-  factory.registerNodeType<robot_decision::CheckOutposet>("CheckOurOutpost",check_our_outpost_params);
-  factory.registerNodeType<robot_decision::CheckEnemyposet>("CheckEnemyOutpost",check_enemy_outpost_params);
-  factory.registerNodeType<robot_decision::IfHealthChanged>("IfHealthChanged",ifhealthchanged_params);
+  factory.registerNodeType<robot_decision::CheckOutbase>("CheckOurBase");
+  factory.registerNodeType<robot_decision::CheckOutposet>("CheckOurOutpost");
+  factory.registerNodeType<robot_decision::CheckEnemyposet>("CheckEnemyOutpost");
   
 
   std::string bt_xml_path = ament_index_cpp::get_package_share_directory("robot_decision") + 
@@ -108,4 +115,3 @@ int main(int argc, char** argv)
 
   return 0;
 }
- 

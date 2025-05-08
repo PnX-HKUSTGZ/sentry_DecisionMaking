@@ -1,41 +1,46 @@
 #include "robot_decision/check_our_base.hpp"
+#include <rclcpp/rclcpp.hpp>
 
 namespace robot_decision
 {
 
-CheckOutbase::CheckOutbase(const std::string& name, const BT::NodeConfig& conf,
-                             const BT::RosNodeParams& params)
-  : BT::RosTopicSubNode<std_msgs::msg::UInt16>(name, conf, params)
+CheckOutbase::CheckOutbase(const std::string& name, const BT::NodeConfig& conf)
+  : BT::SyncActionNode(name, conf)
 {
 }
 
 BT::PortsList CheckOutbase::providedPorts()
 {
-return providedBasicPorts({
-    BT::InputPort<int>("HPthreshold"),   //
-});
+  return {
+    BT::InputPort<int>("HPthreshold"),
+    BT::InputPort<uint16_t>("base_health_value")
+  };
 }
 
-BT::NodeStatus CheckOutbase::onTick(const std::shared_ptr<std_msgs::msg::UInt16>& last_msg)
+BT::NodeStatus CheckOutbase::tick()
 {
-  if(!last_msg)
-  {
-    RCLCPP_ERROR(logger(), "[%s] invalid message", name().c_str());
+  int HPthreshold;
+  if (!getInput("HPthreshold", HPthreshold)) {
     return BT::NodeStatus::FAILURE;
   }
   
-  int HPthreshold;
-  getInput("HPthreshold",HPthreshold);
- 
-    if(last_msg->data <= HPthreshold)  // empty if no new message received since the last tick
-    {
-      RCLCPP_INFO(logger(), "[%s]  our base amount of blood: %s", name().c_str(),
-              std::to_string(last_msg->data).c_str());
-      return BT::NodeStatus::SUCCESS;
-    }
+  uint16_t base_health;
+  if (!getInput("base_health_value", base_health)) {
+    RCLCPP_ERROR(rclcpp::get_logger("CheckOutbase"), "[%s] Missing base_health_value input", name().c_str());
     return BT::NodeStatus::FAILURE;
+  }
   
+  // Check if base health is at or below threshold (critical)
+  if (base_health <= HPthreshold)
+  {
+    RCLCPP_INFO(rclcpp::get_logger("CheckOutbase"), "[%s] Our base health: %d (critical)", 
+                name().c_str(), base_health);
+    return BT::NodeStatus::SUCCESS;
+  }
+  
+  RCLCPP_INFO(rclcpp::get_logger("CheckOutbase"), "[%s] Our base health: %d (good)", 
+              name().c_str(), base_health);
+  return BT::NodeStatus::FAILURE;
+}
 
-
-} 
-}// namespace robot_decision
+} // namespace robot_decision
