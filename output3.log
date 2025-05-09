@@ -1,0 +1,1232 @@
+[INFO] [launch]: All log files can be found below /home/aurora/.ros/log/2025-05-09-00-20-42-375958-aurora-2052158
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [robot_decision-1]: process started with pid [2052178]
+[robot_decision-1] [WARN] [1746721242.445656337] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[robot_decision-1] [WARN] [1746721242.463069445] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[robot_decision-1] [WARN] [1746721242.482717220] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[robot_decision-1] [WARN] [1746721242.493280818] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[robot_decision-1] [INFO] [1746721242.510688477] [robot_decision]: Node [IfHealthSub] created Subscriber to topic [ifhealth]
+[robot_decision-1] [INFO] [1746721242.515533863] [robot_decision]: Node [OurOutpostSub] created Subscriber to topic [our_outpost_health]
+[robot_decision-1] [INFO] [1746721242.517164758] [robot_decision]: Node [EnemyOutpostSub] created Subscriber to topic [enemy_outpost_health]
+[robot_decision-1] [INFO] [1746721242.545717494] [robot_decision]: Loading points from: /home/aurora/pnx_decision/install/robot_decision/share/robot_decision/behavior_trees/RMUC_point.yaml
+[robot_decision-1] [INFO] [1746721242.545932326] [robot_decision]: Points loaded successfully
+[robot_decision-1] [INFO] [1746721242.546161656] [robot_decision]: Loading points from: /home/aurora/pnx_decision/install/robot_decision/share/robot_decision/behavior_trees/RMUC_point.yaml
+[robot_decision-1] [INFO] [1746721242.546243439] [robot_decision]: Points loaded successfully
+[robot_decision-1] [INFO] [1746721242.546360428] [robot_decision]: Loading points from: /home/aurora/pnx_decision/install/robot_decision/share/robot_decision/behavior_trees/RMUC_point.yaml
+[robot_decision-1] [INFO] [1746721242.546428857] [robot_decision]: Points loaded successfully
+[robot_decision-1] [INFO] [1746721242.546520528] [robot_decision]: Loading points from: /home/aurora/pnx_decision/install/robot_decision/share/robot_decision/behavior_trees/RMUC_point.yaml
+[robot_decision-1] [INFO] [1746721242.546602903] [robot_decision]: Points loaded successfully
+[robot_decision-1] [1746721242.547]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721242.547]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721242.547]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [ERROR] [1746721242.546878289] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721242.547]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721242.547]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.547]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721242.547]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.547]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721242.547]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.547]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721242.547]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] --- status: SUCCESS
+[robot_decision-1] 
+[robot_decision-1] [1746721242.747]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721242.747]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721242.747]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [ERROR] [1746721242.747253648] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721242.748]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721242.748]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.748]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721242.748]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.748]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721242.748]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.748]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721242.748]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.948]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721242.948]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721242.948]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [ERROR] [1746721242.947727431] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721242.948]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721242.948]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.948]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721242.948]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.948]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721242.948]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721242.948]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721242.948]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.148]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.148]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.148]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [ERROR] [1746721243.148000297] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721243.148]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.148]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.148]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.148]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.148]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.148]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.148]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.148]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.348]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.348]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.348]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [ERROR] [1746721243.348219663] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721243.348]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.348]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.348]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.348]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.348]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.348]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.348]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.348]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.548]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.548]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.548]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721243.548440842] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721243.548480977] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721243.548497538] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [INFO] [1746721243.548525841] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [INFO] [1746721243.548532113] [CheckOutposet]: [IsOurOutpostDead] Our outpost health: 1500 (alive)
+[robot_decision-1] [INFO] [1746721243.548542412] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [INFO] [1746721243.548547812] [CheckEnemyposet]: [IsEnemyOutpostDead] Enemy outpost health: 1500 (alive)
+[robot_decision-1] [INFO] [1746721243.548557651] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [1746721243.548]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.548]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.549]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.549]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.549]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: BaseStatusLogic           [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: OurOutpostDead            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.549]: IsOurOutpostDead          [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: IsOurOutpostDead          [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: OurOutpostDead            [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: EnemyOutpostDead          [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.549]: IsEnemyOutpostDead        [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: IsEnemyOutpostDead        [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: EnemyOutpostDead          [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.549]: BothOutpostAlive          [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.549]: RetryUntilSuccessful      [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: Sequence                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: WaitNode                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.549]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.549]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.749]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721243.748802374] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721243.748894016] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721243.748922028] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721243.749]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.749]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.749]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.749]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.749]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.749]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.749]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.749]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.749]: WaitNode                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.749]: NavigateToPose            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] Point key: 1 x:3 y:0.45
+[robot_decision-1] [1746721243.749]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.749]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.950]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721243.949643304] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721243.949686144] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721243.949703767] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721243.950]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.950]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.950]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.950]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721243.950]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.950]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721243.950]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.950]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721243.950]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721243.950]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.150]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721244.150012169] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721244.150063595] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721244.150097038] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721244.150]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.150]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.150]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.150]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.150]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.150]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.150]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.150]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.150]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.150]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.350]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.350]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721244.350496660] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721244.350552234] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721244.350579886] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721244.351]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.351]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.351]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.351]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.351]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.351]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.351]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.351]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.351]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.351]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.351]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.351]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.351]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.351]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.351]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.551]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721244.551027207] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721244.551118048] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721244.551189572] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721244.551]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.551]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.551]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.551]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.551]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.551]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.551]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.551]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.551]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.551]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.751]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.751]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721244.751567012] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721244.751650248] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721244.751679483] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721244.752]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.752]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.752]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.752]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.752]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.752]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.752]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.752]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.752]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.752]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.752]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.752]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.752]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.752]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.752]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.952]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721244.952000207] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721244.952052505] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721244.952]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.952]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.952]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.952]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721244.952]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.952]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721244.952]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.952]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721244.952]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721244.952]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721244.952069958] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721245.152]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.152]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721245.152364663] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721245.152420547] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721245.152]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.152]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.152]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.152]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.152]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.152]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.152]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.152]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.152]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.152]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.152]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.152]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.152]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.153]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.153]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721245.152438761] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721245.353]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.353]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721245.352776016] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721245.352847119] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721245.352885250] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721245.353]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.353]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.353]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.353]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.353]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.353]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.353]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.353]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.353]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.353]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.353]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.353]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.353]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.353]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.353]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.553]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721245.553381352] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721245.553419694] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721245.553436014] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721245.553]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.553]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.553]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.553]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.553]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.553]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.553]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.553]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.553]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.553]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.754]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721245.753896790] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721245.754008228] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721245.754039627] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721245.754]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.754]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.754]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.754]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.754]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.754]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.754]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.754]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.754]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.754]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.954]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.954]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721245.954493951] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721245.954599218] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721245.955]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.955]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.955]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.955]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.955]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.955]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.955]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721245.955]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.955]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.955]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721245.955]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.955]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.955]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721245.955]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721245.955]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721245.954639253] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721246.155]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.155]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721246.155163587] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721246.155239379] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721246.155270317] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721246.155]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.155]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.155]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.155]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.155]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.155]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.155]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.155]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.155]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.155]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.155]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.155]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.155]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.155]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.155]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.355]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.356]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721246.355591299] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721246.355636814] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721246.355653586] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721246.356]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.356]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.356]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.356]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.356]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.356]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.356]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.356]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.356]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.356]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.356]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.356]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.356]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.356]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.356]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.556]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721246.555959991] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721246.556021526] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721246.556049629] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721246.556]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.556]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.556]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.556]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.556]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.556]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.556]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.556]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.556]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.556]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.756]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.756]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721246.756770771] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721246.757210775] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721246.757294612] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721246.757]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.757]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.757]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.757]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.757]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.757]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.757]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.757]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.757]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.757]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.757]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.757]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.757]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.758]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.758]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.958]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721246.958030863] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721246.958140729] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721246.958175644] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721246.958]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.958]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.958]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.958]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721246.958]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.958]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721246.958]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.958]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721246.958]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721246.958]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.158]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.158]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721247.158578439] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721247.158633091] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721247.158652007] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721247.159]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.159]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.159]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.159]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.159]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.159]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.159]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.159]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.159]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.159]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.159]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.159]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.159]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.159]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.159]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.359]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721247.358917464] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721247.358956908] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721247.358971856] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721247.359]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.359]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.359]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.359]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.359]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.359]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.359]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.359]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.359]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.359]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.559]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721247.559264314] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721247.559320219] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721247.559336229] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721247.559]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.559]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.559]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.559]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.559]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.559]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.559]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.559]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.559]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.559]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.760]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721247.759681265] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721247.759811860] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721247.759852355] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721247.760]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.760]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.760]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.760]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.760]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.760]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.760]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.760]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.760]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.760]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.960]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721247.960179208] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721247.960240903] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721247.960265560] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721247.960]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.960]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.960]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.960]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721247.960]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.960]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721247.960]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.960]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721247.960]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721247.960]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.160]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.160]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721248.160580158] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721248.160650410] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721248.160678232] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721248.161]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.161]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.161]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.161]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.161]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.161]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.161]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.161]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.161]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.161]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.161]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.161]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.161]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.161]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.161]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.361]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.361]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721248.361376719] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721248.361449726] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721248.361473370] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721248.361]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.361]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.361]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.361]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.361]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.361]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.361]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.361]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.361]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.361]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.361]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.361]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.361]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.362]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.362]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.562]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721248.561838904] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721248.561910548] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721248.561936918] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721248.562]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.562]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.562]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.562]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.562]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.562]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.562]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.562]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.562]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.562]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.762]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.762]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721248.762320986] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721248.762393361] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721248.762421925] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [WARN] [1746721248.762509138] [robot_decision]: NavigateToPose failure: SEND_GOAL_TIMEOUT
+[robot_decision-1] [1746721248.762]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.762]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.762]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.762]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.762]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.762]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.762]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.762]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.762]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.762]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.762]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.762]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.762]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.763]: NavigateToPose            [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.763]: WaitNode                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.763]: NavigateToPose            [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.763]: Sequence                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.763]: Sequence                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.763]: Sequence                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.763]: WaitNode                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.763]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.763]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.963]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721248.962843534] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721248.962901883] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721248.962927862] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721248.963]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.963]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.963]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.963]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.963]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.963]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721248.963]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.963]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721248.963]: WaitNode                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721248.963]: NavigateToPose            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] Point key: 1 x:3 y:0.45
+[robot_decision-1] [1746721248.963]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721248.963]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.163]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.163]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721249.163598867] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721249.163926300] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721249.164017281] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721249.164]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.164]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.164]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.164]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.164]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.164]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.164]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.164]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.164]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.164]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.164]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.164]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.164]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.164]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.164]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.365]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721249.364608756] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721249.364654191] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721249.365]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.365]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.365]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.365]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.365]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.365]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.365]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.365]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.365]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.365]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721249.364671784] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721249.565]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.565]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721249.565178842] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721249.565339313] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721249.565381401] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721249.565]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.565]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.565]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.565]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.565]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.565]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.565]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.565]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.565]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.565]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.565]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.565]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.565]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.566]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.566]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.766]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721249.765932702] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721249.766264954] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721249.766307875] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721249.766]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.766]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.766]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.766]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.766]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.766]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.766]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.766]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.766]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.766]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.967]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721249.966799253] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721249.966890233] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721249.966921882] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721249.967]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.967]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.967]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.967]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721249.967]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.967]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721249.967]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.967]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721249.967]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721249.967]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.167]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.167]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721250.167285210] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721250.167358477] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.167385047] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721250.167]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.167]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.167]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.167]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.167]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.167]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.167]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.167]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.167]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.167]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.167]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.167]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.167]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.168]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.168]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.368]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721250.367843983] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721250.367904166] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.367930014] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721250.368]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.368]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.368]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.368]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.368]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.368]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.368]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.368]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.368]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.368]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.568]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721250.568262374] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721250.568335801] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.568367581] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721250.568]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.568]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.568]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.568]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.568]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.568]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.568]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.568]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.568]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.568]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.769]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721250.768729365] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721250.768785750] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.768802572] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.768863085] [robot_decision]: Navigation Success!
+[robot_decision-1] [ERROR] [1746721250.768895175] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721250.769]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.769]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.769]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.769]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] onResultReceived: 4
+[robot_decision-1] [1746721250.769]: NavigateToPose            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: WaitNode                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: NavigateToPose            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: Sequence                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: Sequence                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: RetryUntilSuccessful      [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: RetryUntilSuccessful      [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: BothOutpostAlive          [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: OurOutpostDead            [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: EnemyOutpostDead          [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: BothOutpostAlive          [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: BaseStatusLogic           [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: BaseStatusLogic           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.769]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.769]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.769]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.769]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.769]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.769]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.769]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721250.969097692] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721250.969157494] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.969184544] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [INFO] [1746721250.969234438] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [INFO] [1746721250.969248775] [CheckOutposet]: [IsOurOutpostDead] Our outpost health: 1500 (alive)
+[robot_decision-1] [INFO] [1746721250.969273291] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [INFO] [1746721250.969286074] [CheckEnemyposet]: [IsEnemyOutpostDead] Enemy outpost health: 1500 (alive)
+[robot_decision-1] [INFO] [1746721250.969308817] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [1746721250.969]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: BaseStatusLogic           [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: OurOutpostDead            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: IsOurOutpostDead          [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: IsOurOutpostDead          [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: OurOutpostDead            [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: EnemyOutpostDead          [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: IsEnemyOutpostDead        [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: IsEnemyOutpostDead        [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: EnemyOutpostDead          [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721250.969]: BothOutpostAlive          [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721250.969]: RetryUntilSuccessful      [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: Sequence                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: WaitNode                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721250.969]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721250.969]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.169]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.169]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721251.169554844] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [1746721251.170]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.170]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.170]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.170]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.170]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.170]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.170]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.170]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.170]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.170]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.170]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.170]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.170]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.170]: WaitNode                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.170]: NavigateToPose            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] Point key: 1 x:3 y:0.45
+[robot_decision-1] [INFO] [1746721251.169621108] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721251.169645563] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721251.170]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.170]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.370]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721251.370222319] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721251.370275058] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721251.370]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.370]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.370]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.370]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.370]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.370]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.370]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.370]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.370]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.370]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721251.370295587] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721251.571]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.571]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721251.570797783] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721251.570927325] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721251.571]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.571]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.571]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.571]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.571]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.571]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.571]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.571]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.571]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.571]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.571]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.571]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.571]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.571]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.571]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721251.570959516] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721251.771]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.771]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721251.771405657] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721251.771476179] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721251.771501937] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721251.771]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.771]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.772]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.772]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.772]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.772]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.772]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.772]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.772]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.772]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.772]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.772]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.772]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.772]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.772]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.972]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.972]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721251.972529648] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721251.972903468] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721251.973106088] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721251.973]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.973]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.973]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.973]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.973]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.973]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.973]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721251.973]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.973]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.973]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721251.973]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.973]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.973]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721251.973]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721251.973]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.174]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721252.173835879] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721252.173949302] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721252.174]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.174]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.174]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.174]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] onResultReceived: 4
+[robot_decision-1] [1746721252.174]: NavigateToPose            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: WaitNode                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: NavigateToPose            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: Sequence                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: Sequence                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: RetryUntilSuccessful      [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: RetryUntilSuccessful      [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: BothOutpostAlive          [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: OurOutpostDead            [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: EnemyOutpostDead          [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: BothOutpostAlive          [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: BaseStatusLogic           [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: BaseStatusLogic           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.174]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.174]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.174]: IfHealthSub               [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.174]: IfHealthSub               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: Subscribers               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.174]: Subscribers               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: Inverter                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: Inverter                  [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.174]: ActionSequence            [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.174]: ActionSequence            [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [INFO] [1746721252.174038098] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [INFO] [1746721252.174200903] [robot_decision]: Navigation Success!
+[robot_decision-1] [ERROR] [1746721252.174263991] [robot_decision]: [IfHealthSub] invalid message
+[robot_decision-1] [1746721252.375]: ActionSequence            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721252.374675346] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721252.374765515] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721252.374803456] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [INFO] [1746721252.374859391] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [INFO] [1746721252.374871523] [CheckOutposet]: [IsOurOutpostDead] Our outpost health: 1500 (alive)
+[robot_decision-1] [INFO] [1746721252.374890208] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [INFO] [1746721252.374900347] [CheckEnemyposet]: [IsEnemyOutpostDead] Enemy outpost health: 1500 (alive)
+[robot_decision-1] [INFO] [1746721252.374918642] [IfHealth]: [CheckIfHealth] amount of blood: 500
+[robot_decision-1] [1746721252.375]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: BaseStatusLogic           [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: OurOutpostDead            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: IsOurOutpostDead          [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: IsOurOutpostDead          [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: OurOutpostDead            [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: EnemyOutpostDead          [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: IsEnemyOutpostDead        [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: IsEnemyOutpostDead        [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: EnemyOutpostDead          [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.375]: BothOutpostAlive          [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: CheckIfHealth             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.375]: RetryUntilSuccessful      [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: Sequence                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: WaitNode                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.375]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.375]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.575]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721252.575178012] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721252.575226222] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [1746721252.575]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.575]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.575]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.575]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.575]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.575]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.575]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.575]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.575]: WaitNode                  [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.575]: NavigateToPose            [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] Point key: 1 x:3 y:0.45
+[robot_decision-1] [INFO] [1746721252.575244376] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721252.575]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.575]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.776]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721252.775761169] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721252.775831300] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721252.775866155] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721252.776]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.776]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.776]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.776]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.776]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.776]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.776]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.776]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.776]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.776]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.976]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.976]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721252.976340577] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721252.976420527] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721252.976462385] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721252.976]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.976]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.976]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.976]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.976]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.976]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.976]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721252.976]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.976]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.976]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721252.977]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.977]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.977]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721252.977]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721252.977]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721253.177]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721253.176984408] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721253.177050451] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721253.177094684] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721253.177]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.177]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.177]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.177]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.177]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721253.177]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721253.177]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721253.177]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721253.177]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.177]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.377]: Inverter                  [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721253.377]: Subscribers               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [INFO] [1746721253.377582081] [robot_decision]: [IfHealthSub] health value: 500
+[robot_decision-1] [INFO] [1746721253.377645269] [robot_decision]: [OurOutpostSub] our outpost health value: 1500
+[robot_decision-1] [INFO] [1746721253.377673141] [robot_decision]: [EnemyOutpostSub] enemy outpost health value: 1500
+[robot_decision-1] [1746721253.378]: IfHealthSub               [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.378]: OurOutpostSub             [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.378]: EnemyOutpostSub           [36mIDLE[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.378]: IfHealthSub               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.378]: OurOutpostSub             [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.378]: EnemyOutpostSub           [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.378]: Subscribers               [33mRUNNING[0m -> [32mSUCCESS[0m
+[robot_decision-1] [1746721253.378]: Subscribers               [32mSUCCESS[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.378]: Inverter                  [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721253.378]: HealthCheck               [36mIDLE[0m -> [33mRUNNING[0m
+[robot_decision-1] [1746721253.378]: CheckIfHealth             [36mIDLE[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721253.378]: CheckIfHealth             [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.378]: HealthCheck               [33mRUNNING[0m -> [31mFAILURE[0m
+[robot_decision-1] [1746721253.378]: Inverter                  [31mFAILURE[0m -> [36mIDLE[0m
+[robot_decision-1] [1746721253.378]: HealthCheck               [31mFAILURE[0m -> [36mIDLE[0m

@@ -96,7 +96,7 @@ int main(int argc, char** argv)
     // do NOT use other sleep functions!
     // Small sleep time is OK, here we use a large one only to
     // have less messages on the console.
-    tree.sleep(std::chrono::milliseconds(200));
+    tree.sleep(std::chrono::milliseconds(500));
 
     //std::cout << "--- ticking\n";
     status = tree.tickOnce();

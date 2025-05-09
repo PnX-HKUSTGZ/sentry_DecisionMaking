@@ -1,14 +1,16 @@
 <root main_tree_to_execute="MainTree" BTCPP_format="4">
   <BehaviorTree ID="MainTree">
-        <Sequence name="RootSequence">
-          <!-- Subscribers to ROS topics -->
-          <Sequence name="Subscribers">
-            <IfHealthSubscriber name="IfHealthSub" health_value="{health_value}"/>
-            <OurOutpostHealthSubscriber name="OurOutpostSub" outpost_health_value="{outpost_health_value}"/>
-            <EnemyOutpostHealthSubscriber name="EnemyOutpostSub" enemy_outpost_health_value="{enemy_outpost_health_value}"/>
-          </Sequence>
-          
           <ReactiveFallback name="ActionSequence">
+
+            <!-- Subscribers to ROS topics -->
+            <Inverter name="Inverter">
+              <Sequence name="Subscribers">
+                <IfHealthSubscriber name="IfHealthSub" health_value="{health_value}"/>
+                <OurOutpostHealthSubscriber name="OurOutpostSub" outpost_health_value="{outpost_health_value}"/>
+                <EnemyOutpostHealthSubscriber name="EnemyOutpostSub" enemy_outpost_health_value="{enemy_outpost_health_value}"/>
+              </Sequence>
+            </Inverter>
+
             <!-- 最高优先级：血量检查 -->
             <Sequence name="HealthCheck">
               <IfHealth name="CheckIfHealth" message="checkunhealth" HPthreshold="200" health_value="{health_value}"/>
@@ -65,6 +67,5 @@
               </Sequence>
             </Fallback>
           </ReactiveFallback>
-        </Sequence>
   </BehaviorTree>
 </root>
