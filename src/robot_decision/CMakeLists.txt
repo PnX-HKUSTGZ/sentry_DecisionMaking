@@ -33,7 +33,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## Export compile commands for clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-file(GLOB_RECURSE SRC_FILES src/*.cpp src/subscriber/*.cpp)
+file(GLOB_RECURSE SRC_FILES src/*.cpp src/subscriber/*.cpp src/client/*.cpp
+ src/controller/*.cpp)
 
 # 使用 ament_cmake_auto
 find_package(ament_cmake_auto REQUIRED)

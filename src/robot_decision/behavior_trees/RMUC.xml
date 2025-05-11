@@ -18,6 +18,7 @@
                 <Sequence>
                   <Wait name="WaitNode" waittime="500"/>
                   <NavigateToPose point_key="2"/>
+                  <Reloading name="Reloading"/>
                   <!-- 等到血量补满后再结束该分支 -->
                   <RetryUntilSuccessful num_attempts="-1">
                     <Sequence>

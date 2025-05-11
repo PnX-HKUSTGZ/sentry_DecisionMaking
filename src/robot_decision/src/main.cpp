@@ -10,6 +10,7 @@
 #include "robot_decision/our_base_health_subscriber.hpp"
 #include "robot_decision/our_outpost_health_subscriber.hpp"
 #include "robot_decision/enemy_outpost_health_subscriber.hpp"
+#include "robot_decision/set_bool_node.hpp"
 
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
@@ -43,6 +44,11 @@ int main(int argc, char** argv)
   navigate_to_pose_params.nh = navigate_to_pose_nh;
   navigate_to_pose_params.default_port_value = "navigate_to_pose";
 
+  auto set_bool_nh = std::make_shared<rclcpp::Node>("SetBool_client");
+  RosNodeParams set_bool_params;
+  set_bool_params.nh = set_bool_nh;
+  set_bool_params.default_port_value = "set_bool";
+
   auto ifhealth_sub_nh = std::make_shared<rclcpp::Node>("IfHealthSub_subscriber");
   RosNodeParams ifhealth_sub_params;
   ifhealth_sub_params.nh = ifhealth_sub_nh;
@@ -66,7 +72,8 @@ int main(int argc, char** argv)
   //register nodes
   BehaviorTreeFactory factory;
   factory.registerNodeType<NavigateToPoseBT>("NavigateToPose", navigate_to_pose_params);
-  
+  factory.registerNodeType<SetBoolService>("Reloading", set_bool_params);
+
   // Register the new subscriber nodes
   factory.registerNodeType<robot_decision::IfHealthSubscriber>("IfHealthSubscriber", ifhealth_sub_params);
   factory.registerNodeType<robot_decision::OurBaseHealthSubscriber>("OurBaseHealthSubscriber", our_base_health_sub_params);
