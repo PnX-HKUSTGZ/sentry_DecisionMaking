@@ -14,6 +14,7 @@
             <!-- 最高优先级：血量检查 -->
             <Sequence name="HealthCheck">
               <IfHealth name="CheckIfHealth" message="checkunhealth" HPthreshold="200" health_value="{health_value}"/>
+              <Reloading name="Reloading" value="0"/>
               <RetryUntilSuccessful num_attempts="-1">
                 <Sequence>
                   <Wait name="WaitNode" waittime="500"/>
@@ -36,6 +37,7 @@
               <Sequence name="OurOutpostDead">
                 <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{health_value}"/>
                 <CheckOurOutpost name="IsOurOutpostDead" HPthreshold="0" outpost_health_value="{outpost_health_value}"/>
+                <Reloading name="Reloading" value="0"/>
                 <RetryUntilSuccessful num_attempts="10">
                   <SequenceWithMemory name="GoTofort">
                     <Wait name="WaitNode" waittime="100"/>
@@ -58,6 +60,7 @@
               <Sequence name="EnemyOutpostDead">
                 <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{health_value}"/>
                 <CheckEnemyOutpost name="IsEnemyOutpostDead" HPthreshold="0" enemy_outpost_health_value="{enemy_outpost_health_value}"/>
+                <Reloading name="Reloading" value="0"/>
                 <RetryUntilSuccessful num_attempts="20">
                   <Sequence>
                     <Wait name="WaitNode" waittime="100"/>
@@ -73,6 +76,7 @@
                   <Sequence>
                     <Wait name="WaitNode" waittime="100"/>
                     <NavigateToPose point_key="1"/>
+                    <Reloading name="Reloading" value="1"/>
                   </Sequence> 
                 </RetryUntilSuccessful>
               </Sequence>

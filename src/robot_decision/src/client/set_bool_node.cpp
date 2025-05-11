@@ -1,10 +1,17 @@
 #include "robot_decision/set_bool_node.hpp"
 
+
 bool SetBoolService::setRequest(Request::SharedPtr& request)
 {
-  request->data = 1;
+  bool value;
+  if (!getInput("value", value)) {
+    RCLCPP_ERROR(logger(), "Failed to get decision input!");
+    return false;
+  }
+
+  request->data = value;
   return true;
-  std::cout<<"set request"  <<std::endl;
+  std::cout<<"set request:"<<value<<std::endl;
 }
 
 BT::NodeStatus SetBoolService::onResponseReceived(const Response::SharedPtr& response)
