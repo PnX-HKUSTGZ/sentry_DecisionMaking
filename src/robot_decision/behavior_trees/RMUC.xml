@@ -35,11 +35,21 @@
               <Sequence name="OurOutpostDead">
                 <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{health_value}"/>
                 <CheckOurOutpost name="IsOurOutpostDead" HPthreshold="0" outpost_health_value="{outpost_health_value}"/>
-                <RetryUntilSuccessful num_attempts="20">
-                  <Sequence>
+                <RetryUntilSuccessful num_attempts="10">
+                  <SequenceWithMemory name="GoTofort">
                     <Wait name="WaitNode" waittime="100"/>
                     <NavigateToPose point_key="3"/>
-                  </Sequence>
+                    
+                      <RetryUntilSuccessful num_attempts="10">
+                        <Delay delay_msec="100">
+                          <NavigateToPose point_key="5"/>
+                        </Delay>
+                      </RetryUntilSuccessful>
+                      <Repeat name="StayAtFort" num_cycles="-1">
+                        <Wait name="WaitNode" waittime="1000"/>
+                      </Repeat>
+                    
+                  </SequenceWithMemory>
                 </RetryUntilSuccessful>
               </Sequence>
               
@@ -62,7 +72,7 @@
                   <Sequence>
                     <Wait name="WaitNode" waittime="100"/>
                     <NavigateToPose point_key="1"/>
-                  </Sequence>
+                  </Sequence> 
                 </RetryUntilSuccessful>
               </Sequence>
             </Fallback>

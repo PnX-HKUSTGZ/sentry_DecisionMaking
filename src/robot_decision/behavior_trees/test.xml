@@ -3,8 +3,7 @@
   <BehaviorTree ID="MainTree">
     <RetryUntilSuccessful num_attempts="20">
       <Sequence>
-        <Wait name="WaitNode"/>
-        <NavigateToPose point_key="1"/>
+        <NavigateToPose point_key="3"/>
       </Sequence>
     </RetryUntilSuccessful>
   </BehaviorTree>

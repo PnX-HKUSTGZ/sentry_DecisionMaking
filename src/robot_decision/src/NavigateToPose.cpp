@@ -100,7 +100,7 @@ NodeStatus NavigateToPoseBT::onResultReceived(const RosActionNode::WrappedResult
       // 任务取消
       RCLCPP_WARN(logger(), "Navigation canceled.");
       return NodeStatus::FAILURE;
-
+    
     default:
       // 任务失败或出现未知错误
       RCLCPP_ERROR(logger(), "Unknown result code");
