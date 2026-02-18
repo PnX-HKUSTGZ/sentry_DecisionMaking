@@ -3,8 +3,8 @@
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <iostream>
 #include <yaml-cpp/yaml.h>
-#include <fstream>
 #include <string>
+#include <filesystem>
 
 NavigateToPoseBT::NavigateToPoseBT(const std::string& name, 
                                    const NodeConfig& conf, 
@@ -18,14 +18,43 @@ NavigateToPoseBT::NavigateToPoseBT(const std::string& name,
 // Function to load points from YAML file
 void NavigateToPoseBT::loadPointsFromYaml() {
   try {
-    // Path to the YAML file containing points
-    std::string yaml_path = ament_index_cpp::get_package_share_directory("robot_decision") + 
-                          "/behavior_trees/RMUC_point.yaml";
+    // Default path for backward compatibility.
+    const std::string default_yaml_path =
+      ament_index_cpp::get_package_share_directory("robot_decision") + "/behavior_trees/RMUC_point.yaml";
 
-    RCLCPP_INFO(logger(), "Loading points from: %s", yaml_path.c_str());
+    points_yaml_path_ = default_yaml_path;
+    target_frame_id_ = "map";
+
+    // Read runtime configuration from the ROS node when available.
+    if (auto node = node_.lock()) {
+      if (!node->has_parameter("points_yaml_path")) {
+        node->declare_parameter<std::string>("points_yaml_path", default_yaml_path);
+      }
+      if (!node->has_parameter("target_frame_id")) {
+        node->declare_parameter<std::string>("target_frame_id", "map");
+      }
+
+      points_yaml_path_ = node->get_parameter("points_yaml_path").as_string();
+      if (points_yaml_path_.empty()) {
+        points_yaml_path_ = default_yaml_path;
+      }
+
+      target_frame_id_ = node->get_parameter("target_frame_id").as_string();
+      if (target_frame_id_.empty()) {
+        target_frame_id_ = "map";
+      }
+    }
+
+    RCLCPP_INFO(logger(), "Loading points from: %s", points_yaml_path_.c_str());
+    RCLCPP_INFO(logger(), "NavigateToPose target frame: %s", target_frame_id_.c_str());
+
+    if (!std::filesystem::exists(points_yaml_path_)) {
+      RCLCPP_ERROR(logger(), "Points YAML does not exist: %s", points_yaml_path_.c_str());
+      return;
+    }
     
     // Load YAML file
-    YAML::Node config = YAML::LoadFile(yaml_path);
+    YAML::Node config = YAML::LoadFile(points_yaml_path_);
     
     if (config["points"]) {
       points_map_ = config["points"];
@@ -47,6 +76,11 @@ PortsList NavigateToPoseBT::providedPorts()
 
 bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
 {
+  if (!points_map_ || !points_map_.IsMap()) {
+    RCLCPP_ERROR(logger(), "Points are not loaded. Check points_yaml_path parameter.");
+    return false;
+  }
+
   int point_key;
   if (!getInput("point_key", point_key))
   {
@@ -71,7 +105,7 @@ bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
     return false;
   }
   
-  goal.pose.header.frame_id = "map";
+  goal.pose.header.frame_id = target_frame_id_;
   goal.pose.header.stamp = this->now();
   goal.pose.pose.position.x = target[0];
   goal.pose.pose.position.y = target[1];

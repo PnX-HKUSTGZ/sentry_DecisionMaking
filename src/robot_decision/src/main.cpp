@@ -15,10 +15,14 @@
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <behaviortree_cpp/loggers/bt_cout_logger.h>
+#include <yaml-cpp/yaml.h>
 #include <filesystem>
 #include <signal.h>
 #include <atomic>
 #include <iostream>
+#include <algorithm>
+#include <vector>
+#include <sstream>
 
 //safe shutdown
 std::atomic<bool> g_interrupt_requested(false);
@@ -36,8 +40,138 @@ int main(int argc, char** argv)
 
   rclcpp::init(argc, argv);
 
+  const std::string package_share_dir =
+    ament_index_cpp::get_package_share_directory("robot_decision");
+
+  auto resolve_to_absolute_path = [&](const std::string& path) -> std::string {
+    if (path.empty()) {
+      return {};
+    }
+    std::filesystem::path p(path);
+    if (p.is_absolute()) {
+      return p.string();
+    }
+    return (std::filesystem::path(package_share_dir) / p).string();
+  };
+
+  auto list_yaml_keys = [](const YAML::Node& map_node) -> std::string {
+    if (!map_node || !map_node.IsMap()) {
+      return "<none>";
+    }
+    std::vector<std::string> keys;
+    keys.reserve(map_node.size());
+    for (const auto& item : map_node) {
+      keys.push_back(item.first.as<std::string>());
+    }
+    std::sort(keys.begin(), keys.end());
+    std::ostringstream oss;
+    for (size_t i = 0; i < keys.size(); ++i) {
+      if (i > 0) {
+        oss << ", ";
+      }
+      oss << keys[i];
+    }
+    return oss.str();
+  };
+
+  // Configuration node: parameters can be set directly from launch.
+  auto config_nh = std::make_shared<rclcpp::Node>("robot_decision");
+  const std::string default_profile_config =
+    (std::filesystem::path(package_share_dir) / "config" / "decision_profiles.yaml").string();
+
+  const std::string profile_config_path =
+    config_nh->declare_parameter<std::string>("profile_config_path", default_profile_config);
+  const std::string requested_map_profile =
+    config_nh->declare_parameter<std::string>("map_profile", "");
+  const std::string requested_strategy_profile =
+    config_nh->declare_parameter<std::string>("strategy_profile", "");
+  const std::string bt_xml_override =
+    config_nh->declare_parameter<std::string>("bt_xml_override", "");
+  const std::string points_yaml_override =
+    config_nh->declare_parameter<std::string>("points_yaml_override", "");
+  const std::string target_frame_override =
+    config_nh->declare_parameter<std::string>("target_frame_id", "");
+
+  YAML::Node profile_root;
+  try {
+    profile_root = YAML::LoadFile(profile_config_path);
+  } catch (const std::exception& e) {
+    RCLCPP_ERROR(config_nh->get_logger(),
+                 "Failed to load profile config: %s, error: %s",
+                 profile_config_path.c_str(), e.what());
+    rclcpp::shutdown();
+    return 1;
+  }
+
+  const std::string default_map_profile =
+    profile_root["default_map_profile"] ? profile_root["default_map_profile"].as<std::string>() : "";
+  const std::string default_strategy_profile =
+    profile_root["default_strategy_profile"] ? profile_root["default_strategy_profile"].as<std::string>() : "";
+
+  const std::string selected_map_profile =
+    requested_map_profile.empty() ? default_map_profile : requested_map_profile;
+  const std::string selected_strategy_profile =
+    requested_strategy_profile.empty() ? default_strategy_profile : requested_strategy_profile;
+
+  YAML::Node map_profiles = profile_root["map_profiles"];
+  YAML::Node strategy_profiles = profile_root["strategy_profiles"];
+
+  if (selected_map_profile.empty() || !map_profiles || !map_profiles[selected_map_profile]) {
+    RCLCPP_ERROR(config_nh->get_logger(),
+                 "Invalid map_profile '%s'. Available map profiles: %s",
+                 selected_map_profile.c_str(), list_yaml_keys(map_profiles).c_str());
+    rclcpp::shutdown();
+    return 1;
+  }
+  if (selected_strategy_profile.empty() || !strategy_profiles || !strategy_profiles[selected_strategy_profile]) {
+    RCLCPP_ERROR(config_nh->get_logger(),
+                 "Invalid strategy_profile '%s'. Available strategy profiles: %s",
+                 selected_strategy_profile.c_str(), list_yaml_keys(strategy_profiles).c_str());
+    rclcpp::shutdown();
+    return 1;
+  }
+
+  const YAML::Node map_profile = map_profiles[selected_map_profile];
+  const YAML::Node strategy_profile = strategy_profiles[selected_strategy_profile];
+
+  const std::string bt_xml_raw = bt_xml_override.empty()
+    ? strategy_profile["bt_xml"].as<std::string>("")
+    : bt_xml_override;
+  const std::string points_yaml_raw = points_yaml_override.empty()
+    ? map_profile["points_yaml"].as<std::string>("")
+    : points_yaml_override;
+
+  std::string target_frame_id = target_frame_override.empty()
+    ? map_profile["target_frame_id"].as<std::string>("map")
+    : target_frame_override;
+  if (target_frame_id.empty()) {
+    target_frame_id = "map";
+  }
+
+  const std::string bt_xml_path = resolve_to_absolute_path(bt_xml_raw);
+  const std::string points_yaml_path = resolve_to_absolute_path(points_yaml_raw);
+
+  if (bt_xml_path.empty() || !std::filesystem::exists(bt_xml_path)) {
+    RCLCPP_ERROR(config_nh->get_logger(), "Behavior tree XML does not exist: %s", bt_xml_path.c_str());
+    rclcpp::shutdown();
+    return 1;
+  }
+  if (points_yaml_path.empty() || !std::filesystem::exists(points_yaml_path)) {
+    RCLCPP_ERROR(config_nh->get_logger(), "Points YAML does not exist: %s", points_yaml_path.c_str());
+    rclcpp::shutdown();
+    return 1;
+  }
+
+  RCLCPP_INFO(config_nh->get_logger(), "Using map_profile: %s", selected_map_profile.c_str());
+  RCLCPP_INFO(config_nh->get_logger(), "Using strategy_profile: %s", selected_strategy_profile.c_str());
+  RCLCPP_INFO(config_nh->get_logger(), "Behavior tree XML: %s", bt_xml_path.c_str());
+  RCLCPP_INFO(config_nh->get_logger(), "Points YAML: %s", points_yaml_path.c_str());
+  RCLCPP_INFO(config_nh->get_logger(), "Target frame: %s", target_frame_id.c_str());
+
   //initiate node
   auto navigate_to_pose_nh = std::make_shared<rclcpp::Node>("navigate_to_pose_client");
+  navigate_to_pose_nh->declare_parameter<std::string>("points_yaml_path", points_yaml_path);
+  navigate_to_pose_nh->declare_parameter<std::string>("target_frame_id", target_frame_id);
   RosNodeParams navigate_to_pose_params;
   // lengthen the time of waiting for the action server to confirm the goal
   navigate_to_pose_params.server_timeout = std::chrono::milliseconds(5000);
@@ -88,8 +222,6 @@ int main(int argc, char** argv)
   factory.registerNodeType<robot_decision::CheckEnemyposet>("CheckEnemyOutpost");
   
 
-  std::string bt_xml_path = ament_index_cpp::get_package_share_directory("robot_decision") + 
-                          "/behavior_trees/RMUC.xml";
   auto tree = factory.createTreeFromFile(bt_xml_path);
   
   BT::StdCoutLogger logger(tree);

@@ -45,6 +45,8 @@ private:
   
   // Store points map from YAML
   YAML::Node points_map_;
+  std::string points_yaml_path_;
+  std::string target_frame_id_{"map"};
   
   // Flag to indicate if node has been halted
   std::atomic<bool> is_halted_{false}; // Thread-safe flag to indicate halted state

@@ -1,0 +1,27 @@
+# Multi-map and multi-strategy profile configuration for robot_decision.
+# Relative paths are resolved against this package share directory.
+
+default_map_profile: "RMUL26"
+default_strategy_profile: "vp_center_control"
+
+map_profiles:
+  RMUL26:
+    points_yaml: "behavior_trees/RMUC_point.yaml"
+    target_frame_id: "map"
+
+  GENERIC:
+    points_yaml: "behavior_trees/RMUC_point.yaml"
+    target_frame_id: "map"
+
+strategy_profiles:
+  vp_center_control:
+    bt_xml: "behavior_trees/RMUC.xml"
+
+  rmuc_regression:
+    bt_xml: "behavior_trees/RMUC_test.xml"
+
+  simple_health:
+    bt_xml: "behavior_trees/behavior_tree.xml"
+
+  test_minimal:
+    bt_xml: "behavior_trees/test.xml"
