@@ -1,8 +1,23 @@
-#navigate points
+# Navigate points (map frame, meters)
+#
+# point_key semantics (from RMUC.xml):
+#   1: go attack / contest objective (used when both outposts alive)
+#   2: go supply / heal (used when HP low)
+#   3: go fort / our base area (used when our outpost dead)
+#   4: go central high ground / engagement area (used when enemy outpost dead)
+#   5: secondary fort staging point (used after 3)
+#
+# RMUL_26 rough coordinates (user-provided anchors):
+#   our spawn:   (-5.0,  3.0)
+#   enemy spawn: ( 5.0, -3.0)
+#   center engagement/control: roughly around (0,0)
+#   control zone: square, side length 3m, centered at (0,0)
+#                 x in [-1.5, 1.5], y in [-1.5, 1.5]
+#   our supply is at upper-left corner relative to our spawn
 points:
-  1: [3.0,0.45,0.0]
-  2: [2.0, 0.7, 0.0]
-  3: [0.0, 0.3, 0.0]
-  4: [4.5, 0.45, 0.0]
-  5: [0.0, 1.5, 0.0]
-  
+  # Two in-zone contest points for center-area cycling (both inside control square)
+  1: [1.1, 1.1, 0.0]
+  2: [-6.0, 4.0, 0.0]
+  3: [-5.0, 3.0, 0.0]
+  4: [-1.1, -1.1, 0.0]
+  5: [-5.8, 3.8, 0.0]

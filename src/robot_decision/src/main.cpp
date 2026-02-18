@@ -15,6 +15,7 @@
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <behaviortree_cpp/loggers/bt_cout_logger.h>
+#include <rclcpp/rclcpp.hpp>
 #include <yaml-cpp/yaml.h>
 #include <filesystem>
 #include <signal.h>
@@ -91,6 +92,16 @@ int main(int argc, char** argv)
     config_nh->declare_parameter<std::string>("points_yaml_override", "");
   const std::string target_frame_override =
     config_nh->declare_parameter<std::string>("target_frame_id", "");
+  const bool use_sim_time =
+    config_nh->declare_parameter<bool>("use_sim_time", true);
+
+  auto apply_use_sim_time = [use_sim_time](const rclcpp::Node::SharedPtr& node) {
+    if (!node->has_parameter("use_sim_time")) {
+      node->declare_parameter<bool>("use_sim_time", use_sim_time);
+    }
+    node->set_parameter(rclcpp::Parameter("use_sim_time", use_sim_time));
+  };
+  apply_use_sim_time(config_nh);
 
   YAML::Node profile_root;
   try {
@@ -167,9 +178,11 @@ int main(int argc, char** argv)
   RCLCPP_INFO(config_nh->get_logger(), "Behavior tree XML: %s", bt_xml_path.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "Points YAML: %s", points_yaml_path.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "Target frame: %s", target_frame_id.c_str());
+  RCLCPP_INFO(config_nh->get_logger(), "use_sim_time: %s", use_sim_time ? "true" : "false");
 
   //initiate node
   auto navigate_to_pose_nh = std::make_shared<rclcpp::Node>("navigate_to_pose_client");
+  apply_use_sim_time(navigate_to_pose_nh);
   navigate_to_pose_nh->declare_parameter<std::string>("points_yaml_path", points_yaml_path);
   navigate_to_pose_nh->declare_parameter<std::string>("target_frame_id", target_frame_id);
   RosNodeParams navigate_to_pose_params;
@@ -179,26 +192,31 @@ int main(int argc, char** argv)
   navigate_to_pose_params.default_port_value = "navigate_to_pose";
 
   auto set_bool_nh = std::make_shared<rclcpp::Node>("SetBool_client");
+  apply_use_sim_time(set_bool_nh);
   RosNodeParams set_bool_params;
   set_bool_params.nh = set_bool_nh;
   set_bool_params.default_port_value = "set_bool";
 
   auto ifhealth_sub_nh = std::make_shared<rclcpp::Node>("IfHealthSub_subscriber");
+  apply_use_sim_time(ifhealth_sub_nh);
   RosNodeParams ifhealth_sub_params;
   ifhealth_sub_params.nh = ifhealth_sub_nh;
   ifhealth_sub_params.default_port_value = "ifhealth";
 
   auto our_base_health_sub_nh = std::make_shared<rclcpp::Node>("OurBaseHealthSub_subscriber");
+  apply_use_sim_time(our_base_health_sub_nh);
   RosNodeParams our_base_health_sub_params;
   our_base_health_sub_params.nh = our_base_health_sub_nh;
   our_base_health_sub_params.default_port_value = "our_base_health";
 
   auto our_outpost_health_sub_nh = std::make_shared<rclcpp::Node>("OurOutpostHealthSub_subscriber");
+  apply_use_sim_time(our_outpost_health_sub_nh);
   RosNodeParams our_outpost_health_sub_params;
   our_outpost_health_sub_params.nh = our_outpost_health_sub_nh;
   our_outpost_health_sub_params.default_port_value = "our_outpost_health";
 
   auto enemy_outpost_health_sub_nh = std::make_shared<rclcpp::Node>("EnemyOutpostHealthSub_subscriber");
+  apply_use_sim_time(enemy_outpost_health_sub_nh);
   RosNodeParams enemy_outpost_health_sub_params;
   enemy_outpost_health_sub_params.nh = enemy_outpost_health_sub_nh;
   enemy_outpost_health_sub_params.default_port_value = "enemy_outpost_health";

@@ -41,6 +41,11 @@ def generate_launch_description():
         default_value="",
         description="Optional override for goal frame_id. Empty uses map profile value.",
     )
+    use_sim_time_arg = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true",
+        description="Set true when running with Gazebo/Nav2 simulation clock.",
+    )
 
     robot_decision_node = Node(
         name="robot_decision",
@@ -54,6 +59,7 @@ def generate_launch_description():
             "bt_xml_override": LaunchConfiguration("bt_xml_override"),
             "points_yaml_override": LaunchConfiguration("points_yaml_override"),
             "target_frame_id": LaunchConfiguration("target_frame_id"),
+            "use_sim_time": LaunchConfiguration("use_sim_time"),
         }]
     )
 
@@ -63,6 +69,7 @@ def generate_launch_description():
     ld.add_action(bt_xml_override_arg)
     ld.add_action(points_yaml_override_arg)
     ld.add_action(target_frame_id_arg)
+    ld.add_action(use_sim_time_arg)
     ld.add_action(robot_decision_node)
 
     return ld

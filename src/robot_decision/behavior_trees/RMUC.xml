@@ -11,9 +11,21 @@
               </Sequence>
             </Inverter>
 
+            <!-- 战亡近似（纯XML）：health=0 连续三次检查后进入驻留 -->
+            <SequenceWithMemory name="DeadHoldApprox">
+              <IfHealth name="DeadCheck1" message="checkunhealth" HPthreshold="0" health_value="{health_value}"/>
+              <Wait name="DeadWait1" waittime="500"/>
+              <IfHealth name="DeadCheck2" message="checkunhealth" HPthreshold="0" health_value="{health_value}"/>
+              <Wait name="DeadWait2" waittime="500"/>
+              <IfHealth name="DeadCheck3" message="checkunhealth" HPthreshold="0" health_value="{health_value}"/>
+              <Repeat name="HoldWhenDeadApprox" num_cycles="-1">
+                <Wait name="DeadHoldWait" waittime="1000"/>
+              </Repeat>
+            </SequenceWithMemory>
+
             <!-- 最高优先级：血量检查 -->
             <Sequence name="HealthCheck">
-              <IfHealth name="CheckIfHealth" message="checkunhealth" HPthreshold="200" health_value="{health_value}"/>
+              <IfHealth name="CheckIfHealth" message="checkunhealth" HPthreshold="260" health_value="{health_value}"/>
               <Reloading name="Reloading" value="0"/>
               <RetryUntilSuccessful num_attempts="-1">
                 <Sequence>
@@ -35,7 +47,7 @@
             <Fallback name="BaseStatusLogic">
               <!-- 如果我方前哨站阵亡，回堡垒 -->
               <Sequence name="OurOutpostDead">
-                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{health_value}"/>
+                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="260" health_value="{health_value}"/>
                 <CheckOurOutpost name="IsOurOutpostDead" HPthreshold="0" outpost_health_value="{outpost_health_value}"/>
                 <Reloading name="Reloading" value="0"/>
                 <RetryUntilSuccessful num_attempts="10">
@@ -58,7 +70,7 @@
               
               <!-- 如果我方前哨站活着，敌方前哨站死亡，去中央高地辅助 -->
               <Sequence name="EnemyOutpostDead">
-                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{health_value}"/>
+                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="260" health_value="{health_value}"/>
                 <CheckEnemyOutpost name="IsEnemyOutpostDead" HPthreshold="0" enemy_outpost_health_value="{enemy_outpost_health_value}"/>
                 <Reloading name="Reloading" value="0"/>
                 <RetryUntilSuccessful num_attempts="20">
@@ -71,7 +83,7 @@
 
               <!-- 如果双方前哨站都活着，前往去打前哨站 -->
               <Sequence name="BothOutpostAlive">
-                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="200" health_value="{health_value}"/>
+                <IfHealth name="CheckIfHealth" message="checkhealth" HPthreshold="260" health_value="{health_value}"/>
                 <RetryUntilSuccessful num_attempts="20">
                   <Sequence>
                     <Wait name="WaitNode" waittime="100"/>

@@ -5,7 +5,13 @@ default_map_profile: "RMUL26"
 default_strategy_profile: "vp_center_control"
 
 map_profiles:
+  # Recommended profile for RMUL_26 simulation map.
   RMUL26:
+    points_yaml: "behavior_trees/RMUC_point.yaml"
+    target_frame_id: "map"
+
+  # Alias: keep underscore version for launch-time readability.
+  RMUL_26:
     points_yaml: "behavior_trees/RMUC_point.yaml"
     target_frame_id: "map"
 
