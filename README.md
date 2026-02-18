@@ -4,6 +4,7 @@ ROS 2 Humble decision package for sentry robot BehaviorTree control.
 
 Detailed setup and reproducible runbook:
 - `src/README.md`
+- `docs/RMUL26_REPRO_RELEASE.md` (cross-repo pinned release note)
 
 Quick start:
 
