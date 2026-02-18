@@ -6,8 +6,8 @@ This release note pins the cross-repo pair validated for RMUL_26 simulation.
 
 ## Pinned commits
 
-- Decision repo: `924b5dc19ef7e16646dca32bb3b9e826447cde28`
-- Navigation repo: `b93f3d4f6ed2a5b343b5555d47e102e34aeadcea`
+- Decision repo: `bd8f3489fb40e51da7e1f30db0fa143ab158a915`
+- Navigation repo: `3e26b2bf52fb9da17ed5d4ad5549d0f4f4f53494`
 
 ## Runtime profile
 
