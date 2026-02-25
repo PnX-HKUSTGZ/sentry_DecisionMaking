@@ -25,3 +25,12 @@ ros2 launch robot_decision decision_node_launch.py \
   strategy_profile:=vp_center_control \
   use_sim_time:=true
 ```
+
+Important:
+- If the tree appears idle in simulation, publish BT stub topics first:
+
+```bash
+bash tools/publish_bt_stubs.sh
+```
+
+- Full reproducible details are in `src/README.md`.
