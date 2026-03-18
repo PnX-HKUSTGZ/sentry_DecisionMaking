@@ -39,6 +39,7 @@ file(GLOB_RECURSE SRC_FILES src/*.cpp src/subscriber/*.cpp src/client/*.cpp
 # 使用 ament_cmake_auto
 find_package(ament_cmake_auto REQUIRED)
 find_package(yaml-cpp REQUIRED)
+find_package(behaviortree_ros2 REQUIRED)
 
 ament_auto_find_build_dependencies()
 # 头文件目录
@@ -52,6 +53,7 @@ ament_auto_add_executable(robot_decision
 target_link_libraries(robot_decision
   yaml-cpp
 )
+ament_target_dependencies(robot_decision behaviortree_ros2)
 
 # 导出 package
 ament_auto_package(
@@ -60,5 +62,4 @@ ament_auto_package(
   behavior_trees
   config
 )
-
 

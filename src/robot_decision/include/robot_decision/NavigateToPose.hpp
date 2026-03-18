@@ -8,7 +8,6 @@
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <yaml-cpp/yaml.h>
-#include <atomic>
 
 using namespace BT;
 using NavigateToPose = nav2_msgs::action::NavigateToPose;
@@ -47,9 +46,6 @@ private:
   YAML::Node points_map_;
   std::string points_yaml_path_;
   std::string target_frame_id_{"map"};
-  
-  // Flag to indicate if node has been halted
-  std::atomic<bool> is_halted_{false}; // Thread-safe flag to indicate halted state
 };
 
 #endif // NAVIGATE_TO_POSE_BT_HPP

@@ -17,6 +17,11 @@ public:
   static BT::PortsList providedPorts();
 
   BT::NodeStatus onTick(const std::shared_ptr<std_msgs::msg::UInt16>& last_msg) override;
+  bool latchLastMessage() const override { return true; }
+
+private:
+  const void* last_message_identity_ = nullptr;
+  bool waiting_for_first_message_logged_ = false;
 };
 
 } // namespace robot_decision

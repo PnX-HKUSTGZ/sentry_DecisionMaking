@@ -92,12 +92,23 @@ int main(int argc, char** argv)
     config_nh->declare_parameter<std::string>("points_yaml_override", "");
   const std::string target_frame_override =
     config_nh->declare_parameter<std::string>("target_frame_id", "");
-  const bool use_sim_time =
-    config_nh->declare_parameter<bool>("use_sim_time", true);
+  const int navigate_to_pose_server_timeout_ms =
+    config_nh->declare_parameter<int>("navigate_to_pose_server_timeout_ms", 20000);
+  bool use_sim_time = true;
+  try {
+    use_sim_time = config_nh->declare_parameter<bool>("use_sim_time", true);
+  } catch (const rclcpp::exceptions::ParameterAlreadyDeclaredException&) {
+    use_sim_time = config_nh->get_parameter("use_sim_time").as_bool();
+  }
 
   auto apply_use_sim_time = [use_sim_time](const rclcpp::Node::SharedPtr& node) {
-    if (!node->has_parameter("use_sim_time")) {
-      node->declare_parameter<bool>("use_sim_time", use_sim_time);
+    try {
+      if (!node->has_parameter("use_sim_time")) {
+        node->declare_parameter<bool>("use_sim_time", use_sim_time);
+      }
+    } catch (const rclcpp::exceptions::ParameterAlreadyDeclaredException&) {
+      // Launch/parameter overrides may predeclare this parameter for every
+      // node created in-process. In that case we only need to set it.
     }
     node->set_parameter(rclcpp::Parameter("use_sim_time", use_sim_time));
   };
@@ -186,8 +197,11 @@ int main(int argc, char** argv)
   navigate_to_pose_nh->declare_parameter<std::string>("points_yaml_path", points_yaml_path);
   navigate_to_pose_nh->declare_parameter<std::string>("target_frame_id", target_frame_id);
   RosNodeParams navigate_to_pose_params;
-  // lengthen the time of waiting for the action server to confirm the goal
-  navigate_to_pose_params.server_timeout = std::chrono::milliseconds(5000);
+  // Joint demo startup can overlap with Nav2 lifecycle and controller reconfiguration.
+  // Keep this timeout configurable so decision does not misclassify transient startup
+  // or replanning latency as SEND_GOAL_TIMEOUT.
+  navigate_to_pose_params.server_timeout = std::chrono::milliseconds(
+    std::max(navigate_to_pose_server_timeout_ms, 1000));
   navigate_to_pose_params.nh = navigate_to_pose_nh;
   navigate_to_pose_params.default_port_value = "navigate_to_pose";
 
@@ -196,6 +210,8 @@ int main(int argc, char** argv)
   RosNodeParams set_bool_params;
   set_bool_params.nh = set_bool_nh;
   set_bool_params.default_port_value = "set_bool";
+  set_bool_params.server_timeout = std::chrono::milliseconds(3000);
+  set_bool_params.wait_for_server_timeout = std::chrono::milliseconds(3000);
 
   auto ifhealth_sub_nh = std::make_shared<rclcpp::Node>("IfHealthSub_subscriber");
   apply_use_sim_time(ifhealth_sub_nh);

@@ -41,6 +41,11 @@ def generate_launch_description():
         default_value="",
         description="Optional override for goal frame_id. Empty uses map profile value.",
     )
+    navigate_to_pose_server_timeout_ms_arg = DeclareLaunchArgument(
+        "navigate_to_pose_server_timeout_ms",
+        default_value="20000",
+        description="Action server wait timeout for NavigateToPoseBT in milliseconds.",
+    )
     use_sim_time_arg = DeclareLaunchArgument(
         "use_sim_time",
         default_value="true",
@@ -59,6 +64,7 @@ def generate_launch_description():
             "bt_xml_override": LaunchConfiguration("bt_xml_override"),
             "points_yaml_override": LaunchConfiguration("points_yaml_override"),
             "target_frame_id": LaunchConfiguration("target_frame_id"),
+            "navigate_to_pose_server_timeout_ms": LaunchConfiguration("navigate_to_pose_server_timeout_ms"),
             "use_sim_time": LaunchConfiguration("use_sim_time"),
         }]
     )
@@ -69,6 +75,7 @@ def generate_launch_description():
     ld.add_action(bt_xml_override_arg)
     ld.add_action(points_yaml_override_arg)
     ld.add_action(target_frame_id_arg)
+    ld.add_action(navigate_to_pose_server_timeout_ms_arg)
     ld.add_action(use_sim_time_arg)
     ld.add_action(robot_decision_node)
 

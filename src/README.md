@@ -118,6 +118,6 @@ Then run decision + stubs and check `NavigateToPose` goals keep being produced.
 ## 7. Files You Usually Tune
 
 - Behavior tree logic: `src/robot_decision/behavior_trees/RMUC.xml`
-- RMUL_26 points: `src/robot_decision/behavior_trees/RMUC_point.yaml`
+- RMUL_26 points: `src/robot_decision/behavior_trees/RMUL26_point.yaml`
 - Profile mapping: `src/robot_decision/config/decision_profiles.yaml`
 - Launch args: `src/robot_decision/launch/decision_node_launch.py`

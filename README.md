@@ -26,6 +26,9 @@ ros2 launch robot_decision decision_node_launch.py \
   use_sim_time:=true
 ```
 
+RMUL_26 points are now maintained in:
+- `src/robot_decision/behavior_trees/RMUL26_point.yaml`
+
 Important:
 - If the tree appears idle in simulation, publish BT stub topics first:
 

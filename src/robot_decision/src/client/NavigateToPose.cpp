@@ -87,7 +87,7 @@ bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
     RCLCPP_ERROR(logger(), "Failed to get point_key input!");
     return false;
   }
-  
+
   // Convert to string for YAML lookup
   std::string key_str = std::to_string(point_key);
   

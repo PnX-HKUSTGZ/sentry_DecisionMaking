@@ -1,0 +1,18 @@
+# Navigate points for RMUL26 (map frame, meters)
+#
+# point_key semantics (from RMUC.xml):
+#   1: go attack / contest objective (used when both outposts alive)
+#   2: go supply / heal (used when HP low)
+#   3: go fort / our base area (used when our outpost dead)
+#   4: go central high ground / engagement area (used when enemy outpost dead)
+#   5: secondary fort staging point (used after 3)
+#
+# Notes:
+# - 2/5 are offset from the upper-left wall to stay in free space on RMUL2026.
+# - Coordinates were revalidated against navigation2/src/rm_nav_bringup/map/RMUL2026.pgm.
+points:
+  1: [1.1, 1.1, 0.0]
+  2: [-5.625, 3.675, 0.0]
+  3: [-5.0, 3.0, 0.0]
+  4: [-1.1, -1.1, 0.0]
+  5: [-5.375, 3.425, 0.0]

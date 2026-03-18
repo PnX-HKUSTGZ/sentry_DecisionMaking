@@ -20,16 +20,24 @@ BT::NodeStatus IfHealthSubscriber::onTick(const std::shared_ptr<std_msgs::msg::U
 {
   if(!last_msg)
   {
-    RCLCPP_ERROR(logger(), "[%s] invalid message", name().c_str());
+    if(!waiting_for_first_message_logged_)
+    {
+      RCLCPP_WARN(logger(), "[%s] waiting for first valid message", name().c_str());
+      waiting_for_first_message_logged_ = true;
+    }
     return BT::NodeStatus::FAILURE;
   }
-  
-  // Set the output port with the health value
+
+  waiting_for_first_message_logged_ = false;
   setOutput("health_value", last_msg->data);
-  
-  RCLCPP_INFO(logger(), "[%s] health value: %d", name().c_str(), last_msg->data);
-  
-  // Always return success when we receive a valid message
+
+  const void* current_identity = last_msg.get();
+  if(current_identity != last_message_identity_)
+  {
+    RCLCPP_INFO(logger(), "[%s] health value: %u", name().c_str(), last_msg->data);
+    last_message_identity_ = current_identity;
+  }
+
   return BT::NodeStatus::SUCCESS;
 }
 

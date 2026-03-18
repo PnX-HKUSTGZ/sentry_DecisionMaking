@@ -7,6 +7,9 @@
 #   4: go central high ground / engagement area (used when enemy outpost dead)
 #   5: secondary fort staging point (used after 3)
 #
+# Legacy generic points file.
+# RMUL_26 now uses RMUL26_point.yaml to avoid mixing RMUC/RMUL tuning.
+#
 # RMUL_26 rough coordinates (user-provided anchors):
 #   our spawn:   (-5.0,  3.0)
 #   enemy spawn: ( 5.0, -3.0)

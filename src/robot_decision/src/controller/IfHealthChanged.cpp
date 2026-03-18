@@ -19,10 +19,15 @@ BT::NodeStatus IfHealthChanged::onTick(const std::shared_ptr<std_msgs::msg::UInt
   //检查消息是否为空，防止指针访问错误
   if(!last_msg)
   {
-    RCLCPP_ERROR(logger(), "[%s] invalid message", name().c_str());
+    if(!waiting_for_first_message_logged_)
+    {
+      RCLCPP_WARN(logger(), "[%s] waiting for first valid message", name().c_str());
+      waiting_for_first_message_logged_ = true;
+    }
     return BT::NodeStatus::FAILURE;
   }
 
+  waiting_for_first_message_logged_ = false;
   IfHealthChanged::curr_state = (last_msg->data >= 150);
   if(IfHealthChanged::curr_state != IfHealthChanged::prev_state)  // empty if no new message received since the last tick
   {
