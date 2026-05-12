@@ -1,0 +1,284 @@
+<root main_tree_to_execute="MainTree" BTCPP_format="4">
+  <!--
+    RMUC26 主决策树。
+    顶层使用 ReactiveFallback：每个 tick 都会从上往下重新评估优先级，
+    因此低血、基地低血等高优先级状态可以打断后面的常规进攻逻辑。
+  -->
+  <BehaviorTree ID="MainTree">
+    <ReactiveFallback name="RMUC26Decision">
+      <!--
+        等待所有必要状态首次到达。
+        这里外面套 Inverter：订阅成功时该分支返回 FAILURE，让后续策略继续执行；
+        任一订阅还没有消息时 Sequence 失败，Inverter 返回 SUCCESS，主树本 tick 停在这里等待。
+      -->
+      <Inverter name="WaitForSubscribers">
+        <Sequence name="Subscribers">
+          <!-- 自身血量，用于低血回家和兑换弹量时的血量门槛。 -->
+          <IfHealthSubscriber name="SelfHealthSub" health_value="{health_value}"/>
+          <!-- 基地血量，用于触发堡垒防守。 -->
+          <OurBaseHealthSubscriber name="OurBaseHealthSub" base_health_value="{base_health_value}"/>
+          <!-- 是否可以复活我方前哨站，来自 /can_rebuild_outpost。 -->
+          <CanRebuildOutpostSubscriber name="CanRebuildOutpostSub" can_rebuild_outpost="{can_rebuild_outpost}"/>
+          <!-- 剩余弹量，来自 /remain_ammo。 -->
+          <RemainAmmoSubscriber name="RemainAmmoSub" remain_ammo="{remain_ammo}"/>
+        </Sequence>
+      </Inverter>
+
+      <!--
+        最高优先级：低血回补给区。
+        血量 <=190 时去点5补给区，调用补给服务，然后一直等待到血量 >390 再退出该分支。
+        进入分支先关闭 follow mark，避免上一个跨区动作被抢占后留下 follow 状态。
+      -->
+      <SequenceWithMemory name="LowHealthReturnHome">
+        <IfHealth name="IsLowHealth" message="checkunhealth" HPthreshold="190" health_value="{health_value}"/>
+        <SubTree ID="ClearFollowMark"/>
+        <SubTree ID="GoPoint5"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <Reloading name="ReloadAtSupply" value="1"/>
+        </RetryUntilSuccessful>
+        <RetryUntilSuccessful num_attempts="-1">
+          <Sequence name="WaitForRecovery">
+            <Wait name="RecoveryPollWait" waittime="500"/>
+            <IfHealth name="IsRecovered" message="checkhealth" HPthreshold="390" health_value="{health_value}"/>
+          </Sequence>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+
+      <!--
+        第二优先级：基地血量危险时去堡垒防守。
+        阈值从赛前 YAML 的 pre_match.base_critical_hp 读取，默认 3000。
+        点4有特殊 follow mark 机制，实际由 GoPoint4 子树处理。
+      -->
+      <SequenceWithMemory name="BaseCriticalDefense">
+        <CheckConfiguredUInt16 name="IsBaseCritical" key="base_critical_hp" value="{base_health_value}" comparison="le"/>
+        <SubTree ID="ClearFollowMark"/>
+        <SubTree ID="GoPoint4"/>
+      </SequenceWithMemory>
+
+      <!--
+        第三优先级：允许复活前哨站时去点3前哨增益区。
+        该状态由外部裁判/状态节点发布，这里只消费布尔结果。
+      -->
+      <SequenceWithMemory name="RebuildOutpost">
+        <CheckBool name="CanRebuildOutpost" value="{can_rebuild_outpost}" expected="true"/>
+        <SubTree ID="ClearFollowMark"/>
+        <SubTree ID="GoPoint3"/>
+      </SequenceWithMemory>
+
+      <!--
+        第四优先级：自动发弹量兑换。
+        条件：血量不低于回家线、弹量为 0、兑换量可用。
+        兑换量节点当前默认永远 SUCCESS，后续如果有真实兑换量 topic，可替换该条件节点实现。
+      -->
+      <Fallback name="AmmoExchange">
+        <!-- 如果当前已经在点4堡垒，则回点5补给区兑换。 -->
+        <SequenceWithMemory name="AmmoExchangeFromFort">
+          <IfHealth name="AmmoExchangeHealthGate" message="checkhealth" HPthreshold="190" health_value="{health_value}"/>
+          <CheckUInt16 name="IsAmmoEmptyAtFort" value="{remain_ammo}" threshold="0" comparison="eq"/>
+          <CheckAmmoExchangeAvailable name="AmmoExchangeAvailableAtFort"/>
+          <CheckCurrentPoint name="CurrentPointIsFort" point_key="4"/>
+          <SubTree ID="ClearFollowMark"/>
+          <SubTree ID="GoPoint5"/>
+          <RetryUntilSuccessful num_attempts="-1">
+            <Reloading name="ReloadAfterFortExchange" value="1"/>
+          </RetryUntilSuccessful>
+        </SequenceWithMemory>
+        <!-- 如果不在点4，则去点3前哨增益区兑换。 -->
+        <SequenceWithMemory name="AmmoExchangeAwayFromFort">
+          <IfHealth name="AmmoExchangeHealthGate2" message="checkhealth" HPthreshold="190" health_value="{health_value}"/>
+          <CheckUInt16 name="IsAmmoEmptyAwayFromFort" value="{remain_ammo}" threshold="0" comparison="eq"/>
+          <CheckAmmoExchangeAvailable name="AmmoExchangeAvailableAwayFromFort"/>
+          <Inverter name="NotAtFort">
+            <CheckCurrentPoint name="CurrentPointIsNotFort" point_key="4"/>
+          </Inverter>
+          <SubTree ID="ClearFollowMark"/>
+          <SubTree ID="GoPoint3"/>
+          <RetryUntilSuccessful num_attempts="-1">
+            <Reloading name="ReloadAfterBuffExchange" value="1"/>
+          </RetryUntilSuccessful>
+        </SequenceWithMemory>
+      </Fallback>
+
+      <!--
+        低优先级默认行为：开局/常规抓工程。
+        该逻辑持续可抢占：只要上面高优先级任务不成立，就按赛前配置选择点2或点1。
+        enemy_engineer_can_climb_stairs=true 时认为工程能上台阶，去点2台阶进攻点。
+      -->
+      <SequenceWithMemory name="OpeningCatchEngineerOnStairs">
+        <CheckConfiguredBool name="EnemyEngineerCanClimbStairs" key="enemy_engineer_can_climb_stairs" expected="true"/>
+        <SubTree ID="ClearFollowMark"/>
+        <SubTree ID="GoPoint2"/>
+      </SequenceWithMemory>
+
+      <!-- enemy_engineer_can_climb_stairs=false 时去点1前哨进攻点抓工程。 -->
+      <SequenceWithMemory name="OpeningCatchEngineerAtOutpost">
+        <CheckConfiguredBool name="EnemyEngineerCannotClimbStairs" key="enemy_engineer_can_climb_stairs" expected="false"/>
+        <SubTree ID="ClearFollowMark"/>
+        <SubTree ID="GoPoint1"/>
+      </SequenceWithMemory>
+    </ReactiveFallback>
+  </BehaviorTree>
+
+  <!-- 关闭 follow mark。用于进入每个高层任务前清理状态，也用于跨区完成后恢复普通导航。 -->
+  <BehaviorTree ID="ClearFollowMark">
+    <RetryUntilSuccessful num_attempts="-1">
+      <SetFollowMark name="ClearFollowMarkService" value="0"/>
+    </RetryUntilSuccessful>
+  </BehaviorTree>
+
+  <!-- 打开 follow mark。跨起伏点或进堡垒点4时使用。 -->
+  <BehaviorTree ID="SetFollowMarkOn">
+    <RetryUntilSuccessful num_attempts="-1">
+      <SetFollowMark name="SetFollowMarkOnService" value="1"/>
+    </RetryUntilSuccessful>
+  </BehaviorTree>
+
+  <!-- A 区点位集合：4 堡垒、5 补给区、6 堡垒前、7 起伏A。 -->
+  <BehaviorTree ID="IsAZone">
+    <Fallback name="AZonePoints">
+      <CheckCurrentPoint name="AtPoint4" point_key="4"/>
+      <CheckCurrentPoint name="AtPoint5" point_key="5"/>
+      <CheckCurrentPoint name="AtPoint6" point_key="6"/>
+      <CheckCurrentPoint name="AtPoint7" point_key="7"/>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- B 区点位集合：1 前哨进攻点、2 台阶进攻点、3 前哨增益区、8 起伏B。 -->
+  <BehaviorTree ID="IsBZone">
+    <Fallback name="BZonePoints">
+      <CheckCurrentPoint name="AtPoint1" point_key="1"/>
+      <CheckCurrentPoint name="AtPoint2" point_key="2"/>
+      <CheckCurrentPoint name="AtPoint3" point_key="3"/>
+      <CheckCurrentPoint name="AtPoint8" point_key="8"/>
+    </Fallback>
+  </BehaviorTree>
+
+  <!--
+    确保机器人位于 A 区。
+    若当前已经在 A 区，直接成功；若在 B 区或未知为非 A 区，则执行 B 到 A 的跨区路线：
+    先到点8起伏B，打开 follow mark，穿越到点7起伏A，再关闭 follow mark。
+  -->
+  <BehaviorTree ID="EnsureAZone">
+    <Fallback name="EnsureAZoneFallback">
+      <SubTree ID="IsAZone"/>
+      <SequenceWithMemory name="CrossBToA">
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="8"/>
+        </RetryUntilSuccessful>
+        <SubTree ID="SetFollowMarkOn"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="7"/>
+        </RetryUntilSuccessful>
+        <SubTree ID="ClearFollowMark"/>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!--
+    确保机器人位于 B 区。
+    若当前已经在 B 区，直接成功；否则执行 A 到 B 的跨区路线：
+    先到点7起伏A，打开 follow mark，穿越到点8起伏B，再关闭 follow mark。
+  -->
+  <BehaviorTree ID="EnsureBZone">
+    <Fallback name="EnsureBZoneFallback">
+      <SubTree ID="IsBZone"/>
+      <SequenceWithMemory name="CrossAToB">
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="7"/>
+        </RetryUntilSuccessful>
+        <SubTree ID="SetFollowMarkOn"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="8"/>
+        </RetryUntilSuccessful>
+        <SubTree ID="ClearFollowMark"/>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- 去点1前哨进攻点。若已在点1则直接成功，避免重复发送同一导航目标。 -->
+  <BehaviorTree ID="GoPoint1">
+    <Fallback name="GoPoint1IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint1" point_key="1"/>
+      <SequenceWithMemory name="GoOutpostAttackPoint">
+        <SubTree ID="EnsureBZone"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="1"/>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- 去点2台阶进攻点。点2属于 B 区，因此先确保位于 B 区。 -->
+  <BehaviorTree ID="GoPoint2">
+    <Fallback name="GoPoint2IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint2" point_key="2"/>
+      <SequenceWithMemory name="GoStairAttackPoint">
+        <SubTree ID="EnsureBZone"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="2"/>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- 去点3前哨增益区，用于复活前哨站或非堡垒位置的弹量兑换。 -->
+  <BehaviorTree ID="GoPoint3">
+    <Fallback name="GoPoint3IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint3" point_key="3"/>
+      <SequenceWithMemory name="GoOutpostBuffPoint">
+        <SubTree ID="EnsureBZone"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="3"/>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!--
+    去点4堡垒。
+    点4有特殊机制：先确保在 A 区，再到点6堡垒前；
+    从点6打开 follow mark 导航到点4，到达后关闭 follow mark。
+  -->
+  <BehaviorTree ID="GoPoint4">
+    <Fallback name="GoPoint4IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint4" point_key="4"/>
+      <SequenceWithMemory name="GoFortPoint">
+        <SubTree ID="EnsureAZone"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="6"/>
+        </RetryUntilSuccessful>
+        <SubTree ID="SetFollowMarkOn"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="4"/>
+        </RetryUntilSuccessful>
+        <SubTree ID="ClearFollowMark"/>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- 去点5补给区，用于低血回家或在堡垒点4时弹量兑换。 -->
+  <BehaviorTree ID="GoPoint5">
+    <Fallback name="GoPoint5IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint5" point_key="5"/>
+      <SequenceWithMemory name="GoSupplyPoint">
+        <SubTree ID="EnsureAZone"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="5"/>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- 去点6堡垒前。当前主流程主要由 GoPoint4 内部调用，也保留为可复用目标点子树。 -->
+  <BehaviorTree ID="GoPoint6">
+    <Fallback name="GoPoint6IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint6" point_key="6"/>
+      <SequenceWithMemory name="GoBeforeFortPoint">
+        <SubTree ID="EnsureAZone"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <NavigateToPose point_key="6"/>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+</root>

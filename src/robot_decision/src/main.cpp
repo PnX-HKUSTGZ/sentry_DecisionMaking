@@ -10,7 +10,10 @@
 #include "robot_decision/our_base_health_subscriber.hpp"
 #include "robot_decision/our_outpost_health_subscriber.hpp"
 #include "robot_decision/enemy_outpost_health_subscriber.hpp"
+#include "robot_decision/can_rebuild_outpost_subscriber.hpp"
+#include "robot_decision/remain_ammo_subscriber.hpp"
 #include "robot_decision/set_bool_node.hpp"
+#include "robot_decision/decision_conditions.hpp"
 
 #include "behaviortree_cpp/bt_factory.h"
 #include <ament_index_cpp/get_package_share_directory.hpp>
@@ -90,6 +93,8 @@ int main(int argc, char** argv)
     config_nh->declare_parameter<std::string>("bt_xml_override", "");
   const std::string points_yaml_override =
     config_nh->declare_parameter<std::string>("points_yaml_override", "");
+  const std::string pre_match_yaml_raw =
+    config_nh->declare_parameter<std::string>("pre_match_yaml_path", "config/decision_profiles.yaml");
   const std::string target_frame_override =
     config_nh->declare_parameter<std::string>("target_frame_id", "");
   const int navigate_to_pose_server_timeout_ms =
@@ -172,6 +177,7 @@ int main(int argc, char** argv)
 
   const std::string bt_xml_path = resolve_to_absolute_path(bt_xml_raw);
   const std::string points_yaml_path = resolve_to_absolute_path(points_yaml_raw);
+  const std::string pre_match_yaml_path = resolve_to_absolute_path(pre_match_yaml_raw);
 
   if (bt_xml_path.empty() || !std::filesystem::exists(bt_xml_path)) {
     RCLCPP_ERROR(config_nh->get_logger(), "Behavior tree XML does not exist: %s", bt_xml_path.c_str());
@@ -183,11 +189,17 @@ int main(int argc, char** argv)
     rclcpp::shutdown();
     return 1;
   }
+  if (!pre_match_yaml_path.empty() && !std::filesystem::exists(pre_match_yaml_path)) {
+    RCLCPP_ERROR(config_nh->get_logger(), "Pre-match YAML does not exist: %s", pre_match_yaml_path.c_str());
+    rclcpp::shutdown();
+    return 1;
+  }
 
   RCLCPP_INFO(config_nh->get_logger(), "Using map_profile: %s", selected_map_profile.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "Using strategy_profile: %s", selected_strategy_profile.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "Behavior tree XML: %s", bt_xml_path.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "Points YAML: %s", points_yaml_path.c_str());
+  RCLCPP_INFO(config_nh->get_logger(), "Pre-match YAML: %s", pre_match_yaml_path.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "Target frame: %s", target_frame_id.c_str());
   RCLCPP_INFO(config_nh->get_logger(), "use_sim_time: %s", use_sim_time ? "true" : "false");
 
@@ -213,6 +225,14 @@ int main(int argc, char** argv)
   set_bool_params.server_timeout = std::chrono::milliseconds(3000);
   set_bool_params.wait_for_server_timeout = std::chrono::milliseconds(3000);
 
+  auto follow_mark_nh = std::make_shared<rclcpp::Node>("FollowMark_client");
+  apply_use_sim_time(follow_mark_nh);
+  RosNodeParams follow_mark_params;
+  follow_mark_params.nh = follow_mark_nh;
+  follow_mark_params.default_port_value = "/change_follow_mark";
+  follow_mark_params.server_timeout = std::chrono::milliseconds(3000);
+  follow_mark_params.wait_for_server_timeout = std::chrono::milliseconds(3000);
+
   auto ifhealth_sub_nh = std::make_shared<rclcpp::Node>("IfHealthSub_subscriber");
   apply_use_sim_time(ifhealth_sub_nh);
   RosNodeParams ifhealth_sub_params;
@@ -237,16 +257,37 @@ int main(int argc, char** argv)
   enemy_outpost_health_sub_params.nh = enemy_outpost_health_sub_nh;
   enemy_outpost_health_sub_params.default_port_value = "enemy_outpost_health";
 
+  auto can_rebuild_outpost_sub_nh = std::make_shared<rclcpp::Node>("CanRebuildOutpostSub_subscriber");
+  apply_use_sim_time(can_rebuild_outpost_sub_nh);
+  RosNodeParams can_rebuild_outpost_sub_params;
+  can_rebuild_outpost_sub_params.nh = can_rebuild_outpost_sub_nh;
+  can_rebuild_outpost_sub_params.default_port_value = "/can_rebuild_outpost";
+
+  auto remain_ammo_sub_nh = std::make_shared<rclcpp::Node>("RemainAmmoSub_subscriber");
+  apply_use_sim_time(remain_ammo_sub_nh);
+  RosNodeParams remain_ammo_sub_params;
+  remain_ammo_sub_params.nh = remain_ammo_sub_nh;
+  remain_ammo_sub_params.default_port_value = "/remain_ammo";
+
+  auto configured_bool_nh = std::make_shared<rclcpp::Node>("ConfiguredBool_condition");
+  apply_use_sim_time(configured_bool_nh);
+  configured_bool_nh->declare_parameter<std::string>("pre_match_yaml_path", pre_match_yaml_path);
+  RosNodeParams configured_bool_params;
+  configured_bool_params.nh = configured_bool_nh;
+
   //register nodes
   BehaviorTreeFactory factory;
   factory.registerNodeType<NavigateToPoseBT>("NavigateToPose", navigate_to_pose_params);
   factory.registerNodeType<SetBoolService>("Reloading", set_bool_params);
+  factory.registerNodeType<SetBoolService>("SetFollowMark", follow_mark_params);
 
   // Register the new subscriber nodes
   factory.registerNodeType<robot_decision::IfHealthSubscriber>("IfHealthSubscriber", ifhealth_sub_params);
   factory.registerNodeType<robot_decision::OurBaseHealthSubscriber>("OurBaseHealthSubscriber", our_base_health_sub_params);
   factory.registerNodeType<robot_decision::OurOutpostHealthSubscriber>("OurOutpostHealthSubscriber", our_outpost_health_sub_params);
   factory.registerNodeType<robot_decision::EnemyOutpostHealthSubscriber>("EnemyOutpostHealthSubscriber", enemy_outpost_health_sub_params);
+  factory.registerNodeType<robot_decision::CanRebuildOutpostSubscriber>("CanRebuildOutpostSubscriber", can_rebuild_outpost_sub_params);
+  factory.registerNodeType<robot_decision::RemainAmmoSubscriber>("RemainAmmoSubscriber", remain_ammo_sub_params);
   
   // Register the modified action nodes (now regular nodes, not subscribers)
   factory.registerNodeType<robot_decision::IfHealth>("IfHealth");
@@ -254,6 +295,12 @@ int main(int argc, char** argv)
   factory.registerNodeType<robot_decision::CheckOutbase>("CheckOurBase");
   factory.registerNodeType<robot_decision::CheckOutposet>("CheckOurOutpost");
   factory.registerNodeType<robot_decision::CheckEnemyposet>("CheckEnemyOutpost");
+  factory.registerNodeType<robot_decision::CheckBool>("CheckBool");
+  factory.registerNodeType<robot_decision::CheckUInt16>("CheckUInt16");
+  factory.registerNodeType<robot_decision::CheckConfiguredBool>("CheckConfiguredBool", configured_bool_params);
+  factory.registerNodeType<robot_decision::CheckConfiguredUInt16>("CheckConfiguredUInt16", configured_bool_params);
+  factory.registerNodeType<robot_decision::CheckCurrentPoint>("CheckCurrentPoint");
+  factory.registerNodeType<robot_decision::CheckAmmoExchangeAvailable>("CheckAmmoExchangeAvailable");
   
 
   auto tree = factory.createTreeFromFile(bt_xml_path);

@@ -36,6 +36,11 @@ def generate_launch_description():
         default_value="",
         description="Optional override for points YAML file path.",
     )
+    pre_match_yaml_arg = DeclareLaunchArgument(
+        "pre_match_yaml_path",
+        default_value=default_profile,
+        description="YAML file for pre-match strategy switches.",
+    )
     target_frame_id_arg = DeclareLaunchArgument(
         "target_frame_id",
         default_value="",
@@ -63,6 +68,7 @@ def generate_launch_description():
             "strategy_profile": LaunchConfiguration("strategy_profile"),
             "bt_xml_override": LaunchConfiguration("bt_xml_override"),
             "points_yaml_override": LaunchConfiguration("points_yaml_override"),
+            "pre_match_yaml_path": LaunchConfiguration("pre_match_yaml_path"),
             "target_frame_id": LaunchConfiguration("target_frame_id"),
             "navigate_to_pose_server_timeout_ms": LaunchConfiguration("navigate_to_pose_server_timeout_ms"),
             "use_sim_time": LaunchConfiguration("use_sim_time"),
@@ -74,6 +80,7 @@ def generate_launch_description():
     ld.add_action(strategy_profile_arg)
     ld.add_action(bt_xml_override_arg)
     ld.add_action(points_yaml_override_arg)
+    ld.add_action(pre_match_yaml_arg)
     ld.add_action(target_frame_id_arg)
     ld.add_action(navigate_to_pose_server_timeout_ms_arg)
     ld.add_action(use_sim_time_arg)

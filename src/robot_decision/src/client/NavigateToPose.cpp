@@ -6,6 +6,8 @@
 #include <string>
 #include <filesystem>
 
+std::atomic<int> NavigateToPoseBT::current_point_key_{5};
+
 NavigateToPoseBT::NavigateToPoseBT(const std::string& name, 
                                    const NodeConfig& conf, 
                                    const RosNodeParams& params)
@@ -67,6 +69,16 @@ void NavigateToPoseBT::loadPointsFromYaml() {
   }
 }
 
+int NavigateToPoseBT::currentPointKey()
+{
+  return current_point_key_.load();
+}
+
+void NavigateToPoseBT::setCurrentPointKey(int point_key)
+{
+  current_point_key_.store(point_key);
+}
+
 PortsList NavigateToPoseBT::providedPorts()
 {
   return providedBasicPorts({
@@ -87,6 +99,7 @@ bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
     RCLCPP_ERROR(logger(), "Failed to get point_key input!");
     return false;
   }
+  active_point_key_ = point_key;
 
   // Convert to string for YAML lookup
   std::string key_str = std::to_string(point_key);
@@ -122,6 +135,8 @@ NodeStatus NavigateToPoseBT::onResultReceived(const RosActionNode::WrappedResult
   switch (wr.code) {
     case rclcpp_action::ResultCode::SUCCEEDED:
       // 任务成功
+      setCurrentPointKey(active_point_key_);
+      RCLCPP_INFO(logger(), "Current point updated to %d", active_point_key_);
       RCLCPP_INFO(logger(), "Navigation Success!");
       return NodeStatus::SUCCESS;
 

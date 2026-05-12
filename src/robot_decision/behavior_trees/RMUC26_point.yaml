@@ -1,0 +1,22 @@
+# Navigate points for RMUC26 (map frame, meters)
+#
+# point_key semantics:
+#   1: 前哨进攻点
+#   2: 台阶进攻点
+#   3: 前哨增益区
+#   4: 堡垒
+#   5: 补给区
+#   6: 堡垒前
+#   7: 起伏A
+#   8: 起伏B
+#
+# Coordinates are placeholders. Fill real match coordinates before running.
+points:
+  1: [0.0, 0.0, 0.0]
+  2: [0.0, 0.0, 0.0]
+  3: [0.0, 0.0, 0.0]
+  4: [0.0, 0.0, 0.0]
+  5: [0.0, 0.0, 0.0]
+  6: [0.0, 0.0, 0.0]
+  7: [0.0, 0.0, 0.0]
+  8: [0.0, 0.0, 0.0]

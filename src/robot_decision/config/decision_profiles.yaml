@@ -4,6 +4,12 @@
 default_map_profile: "RMUL26"
 default_strategy_profile: "vp_center_control"
 
+# Pre-match switches. These are read once at startup by CheckConfiguredBool.
+pre_match:
+  # true: opening goes to point 2; false: opening goes to point 1.
+  enemy_engineer_can_climb_stairs: false
+  base_critical_hp: 3000
+
 map_profiles:
   # Recommended profile for RMUL_26 simulation map.
   RMUL26:
@@ -24,6 +30,10 @@ map_profiles:
     points_yaml: "behavior_trees/RMUC_point.yaml"
     target_frame_id: "map"
 
+  RMUC26:
+    points_yaml: "behavior_trees/RMUC26_point.yaml"
+    target_frame_id: "map"
+
 strategy_profiles:
   vp_center_control:
     bt_xml: "behavior_trees/RMUC.xml"
@@ -36,3 +46,6 @@ strategy_profiles:
 
   test_minimal:
     bt_xml: "behavior_trees/test.xml"
+
+  rmuc26:
+    bt_xml: "behavior_trees/RMUC26.xml"

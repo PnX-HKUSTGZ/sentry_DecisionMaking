@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <atomic>
 #include "behaviortree_ros2/bt_action_node.hpp"
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include <rclcpp/rclcpp.hpp>
@@ -21,6 +22,9 @@ public:
 
   // 提供端口 (behavior tree input/output)
   static PortsList providedPorts();
+
+  static int currentPointKey();
+  static void setCurrentPointKey(int point_key);
 
 protected:
   // 设置目标 (发送到 action server)
@@ -46,6 +50,9 @@ private:
   YAML::Node points_map_;
   std::string points_yaml_path_;
   std::string target_frame_id_{"map"};
+  int active_point_key_{5};
+
+  static std::atomic<int> current_point_key_;
 };
 
 #endif // NAVIGATE_TO_POSE_BT_HPP
