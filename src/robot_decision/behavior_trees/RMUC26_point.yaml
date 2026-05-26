@@ -9,6 +9,7 @@
 #   6: 堡垒前
 #   7: 起伏A
 #   8: 起伏B
+#   9: 不过起伏的前哨进攻点
 #
 # Coordinates are placeholders. Fill real match coordinates before running.
 points:
@@ -20,3 +21,4 @@ points:
   6: [3.2, 1.0, 0.0]
   7: [3.5, -3.5, 0.0]
   8: [7.2, -3.5, 0.0]
+  9: [6.2, 0.5, 0.0]

@@ -231,9 +231,34 @@
     </Fallback>
   </BehaviorTree>
 
-  <!-- 去点1前哨进攻点。若已在点1则直接成功，避免重复发送同一导航目标。 -->
+  <!-- 不过起伏模式下，所有 B 区目标统一改去点9前哨进攻点。 -->
+  <BehaviorTree ID="GoPoint9WhenNoUndulation">
+    <Sequence name="NoUndulationGate">
+      <CheckConfiguredBool name="NoUndulationEnabled" key="allow_cross_undulation" expected="false"/>
+      <SubTree ID="GoPoint9"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- 去点9不过起伏的前哨进攻点。若从点4堡垒出发，先按堡垒机制退到点6。 -->
+  <BehaviorTree ID="GoPoint9">
+    <Fallback name="GoPoint9IfNeeded">
+      <CheckCurrentPoint name="AlreadyAtPoint9" point_key="9"/>
+      <SequenceWithMemory name="GoNoUndulationOutpostAttackPoint">
+        <SubTree ID="LeaveFortViaPoint6"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <SequenceWithMemory name="GoNoUndulationOutpostAttackPoint9">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="9" decision="RMUC26 no-undulation outpost attack"/>
+          </SequenceWithMemory>
+        </RetryUntilSuccessful>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!-- 去点1前哨进攻点。若不过起伏则改去点9；若已在点1则直接成功，避免重复发送同一导航目标。 -->
   <BehaviorTree ID="GoPoint1">
     <Fallback name="GoPoint1IfNeeded">
+      <SubTree ID="GoPoint9WhenNoUndulation"/>
       <CheckCurrentPoint name="AlreadyAtPoint1" point_key="1"/>
       <SequenceWithMemory name="GoOutpostAttackPoint">
         <SubTree ID="EnsureBZone"/>
@@ -247,9 +272,10 @@
     </Fallback>
   </BehaviorTree>
 
-  <!-- 去点2台阶进攻点。点2属于 B 区，因此先确保位于 B 区。 -->
+  <!-- 去点2台阶进攻点。若不过起伏则改去点9；否则先确保位于 B 区。 -->
   <BehaviorTree ID="GoPoint2">
     <Fallback name="GoPoint2IfNeeded">
+      <SubTree ID="GoPoint9WhenNoUndulation"/>
       <CheckCurrentPoint name="AlreadyAtPoint2" point_key="2"/>
       <SequenceWithMemory name="GoStairAttackPoint">
         <SubTree ID="EnsureBZone"/>
@@ -263,9 +289,10 @@
     </Fallback>
   </BehaviorTree>
 
-  <!-- 去点3前哨增益区，用于复活前哨站或非堡垒位置的弹量兑换。 -->
+  <!-- 去点3前哨增益区。若不过起伏则改去点9；否则用于复活前哨站或非堡垒位置的弹量兑换。 -->
   <BehaviorTree ID="GoPoint3">
     <Fallback name="GoPoint3IfNeeded">
+      <SubTree ID="GoPoint9WhenNoUndulation"/>
       <CheckCurrentPoint name="AlreadyAtPoint3" point_key="3"/>
       <SequenceWithMemory name="GoOutpostBuffPoint">
         <SubTree ID="EnsureBZone"/>

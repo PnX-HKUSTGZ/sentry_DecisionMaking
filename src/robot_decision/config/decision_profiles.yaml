@@ -8,6 +8,8 @@ default_strategy_profile: "rmuc26"
 pre_match:
   # true: opening goes to point 2; false: opening goes to point 1.
   enemy_engineer_can_climb_stairs: false
+  # true: use points 7/8 to cross the undulation; false: redirect B-zone goals to point 9.
+  allow_cross_undulation: true
   base_critical_hp: 3000
 
 map_profiles:
