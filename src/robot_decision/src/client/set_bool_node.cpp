@@ -37,9 +37,18 @@ BT::NodeStatus SetBoolService::onStart()
     return BT::NodeStatus::FAILURE;
   }
 
+  bool required = true;
+  getInput("required", required);
+  request_required_ = required;
+
   if (!client_->service_is_ready()) {
-    RCLCPP_ERROR(logger(), "SetBool service '%s' is not reachable.", service_name_.c_str());
-    return BT::NodeStatus::FAILURE;
+    if (required) {
+      RCLCPP_ERROR(logger(), "SetBool service '%s' is not reachable.", service_name_.c_str());
+      return BT::NodeStatus::FAILURE;
+    }
+    RCLCPP_WARN(logger(), "Optional SetBool service '%s' is not reachable; continuing.",
+                service_name_.c_str());
+    return BT::NodeStatus::SUCCESS;
   }
 
   pending_request_ = std::make_shared<SetBool::Request>();
@@ -56,7 +65,7 @@ BT::NodeStatus SetBoolService::onRunning()
   if (!future_response_.valid()) {
     RCLCPP_ERROR(logger(), "SetBool future lost its associated state");
     pending_request_.reset();
-    return BT::NodeStatus::FAILURE;
+    return request_required_ ? BT::NodeStatus::FAILURE : BT::NodeStatus::SUCCESS;
   }
 
   if (future_response_.wait_for(std::chrono::milliseconds(0)) != std::future_status::ready) {
@@ -66,7 +75,7 @@ BT::NodeStatus SetBoolService::onRunning()
       RCLCPP_ERROR(logger(), "SetBool service timed out after %ld ms", server_timeout_.count());
       future_response_ = {};
       pending_request_.reset();
-      return BT::NodeStatus::FAILURE;
+      return request_required_ ? BT::NodeStatus::FAILURE : BT::NodeStatus::SUCCESS;
     }
     return BT::NodeStatus::RUNNING;
   }
@@ -78,7 +87,7 @@ BT::NodeStatus SetBoolService::onRunning()
 
     if (!response) {
       RCLCPP_ERROR(logger(), "SetBool service returned an empty response");
-      return BT::NodeStatus::FAILURE;
+      return request_required_ ? BT::NodeStatus::FAILURE : BT::NodeStatus::SUCCESS;
     }
 
     if (response->success) {
@@ -87,12 +96,12 @@ BT::NodeStatus SetBoolService::onRunning()
     }
 
     RCLCPP_INFO(logger(), "SetBool service failed: %s", response->message.c_str());
-    return BT::NodeStatus::FAILURE;
+    return request_required_ ? BT::NodeStatus::FAILURE : BT::NodeStatus::SUCCESS;
   } catch (const std::future_error& ex) {
     RCLCPP_ERROR(logger(), "SetBool future_error: %s", ex.what());
     future_response_ = {};
     pending_request_.reset();
-    return BT::NodeStatus::FAILURE;
+    return request_required_ ? BT::NodeStatus::FAILURE : BT::NodeStatus::SUCCESS;
   }
 }
 
@@ -100,4 +109,5 @@ void SetBoolService::onHalted()
 {
   future_response_ = {};
   pending_request_.reset();
+  request_required_ = true;
 }

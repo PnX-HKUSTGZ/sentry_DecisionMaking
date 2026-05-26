@@ -33,8 +33,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ## Export compile commands for clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-file(GLOB_RECURSE SRC_FILES src/*.cpp src/subscriber/*.cpp src/client/*.cpp
- src/controller/*.cpp)
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
+  src/*.cpp
+)
 
 # 使用 ament_cmake_auto
 find_package(ament_cmake_auto REQUIRED)
@@ -62,4 +63,3 @@ ament_auto_package(
   behavior_trees
   config
 )
-

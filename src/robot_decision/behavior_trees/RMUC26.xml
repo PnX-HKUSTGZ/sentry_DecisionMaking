@@ -121,16 +121,17 @@
 
   <!-- 关闭 follow mark。用于进入每个高层任务前清理状态，也用于跨区完成后恢复普通导航。 -->
   <BehaviorTree ID="ClearFollowMark">
-    <RetryUntilSuccessful num_attempts="-1">
-      <SetFollowMark name="ClearFollowMarkService" value="0"/>
-    </RetryUntilSuccessful>
+    <SetFollowMark name="ClearFollowMarkService" value="0" required="true"/>
   </BehaviorTree>
 
   <!-- 打开 follow mark。跨起伏点或进堡垒点4时使用。 -->
   <BehaviorTree ID="SetFollowMarkOn">
-    <RetryUntilSuccessful num_attempts="-1">
-      <SetFollowMark name="SetFollowMarkOnService" value="1"/>
-    </RetryUntilSuccessful>
+    <SetFollowMark name="SetFollowMarkOnService" value="1" required="true"/>
+  </BehaviorTree>
+
+  <!-- 导航决策节流。RMUC 的导航前通常有 100ms 等待，这里保持相近节奏。 -->
+  <BehaviorTree ID="DecisionThrottle">
+    <Wait name="DecisionThrottleWait" waittime="100"/>
   </BehaviorTree>
 
   <!-- A 区点位集合：4 堡垒、5 补给区、6 堡垒前、7 起伏A。 -->
@@ -163,11 +164,39 @@
       <SubTree ID="IsAZone"/>
       <SequenceWithMemory name="CrossBToA">
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="8"/>
+          <SequenceWithMemory name="GoCrossBToAEntryPoint8">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="8" decision="RMUC26 CrossBToA entry"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
         <SubTree ID="SetFollowMarkOn"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="7"/>
+          <SequenceWithMemory name="GoCrossBToAExitPoint7">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="7" decision="RMUC26 CrossBToA exit with follow mark"/>
+          </SequenceWithMemory>
+        </RetryUntilSuccessful>
+        <SubTree ID="ClearFollowMark"/>
+      </SequenceWithMemory>
+    </Fallback>
+  </BehaviorTree>
+
+  <!--
+    从点4堡垒离开时必须先退回点6堡垒前。
+    4 和 6 之间沿用堡垒的 follow mark 机制；不在点4时直接成功。
+  -->
+  <BehaviorTree ID="LeaveFortViaPoint6">
+    <Fallback name="LeaveFortViaPoint6IfNeeded">
+      <Inverter name="NotAtPoint4">
+        <CheckCurrentPoint name="CurrentlyAtPoint4" point_key="4"/>
+      </Inverter>
+      <SequenceWithMemory name="BackFortToPoint6">
+        <SubTree ID="SetFollowMarkOn"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <SequenceWithMemory name="GoLeaveFortPoint6">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="6" decision="RMUC26 leave fort via point 6"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
         <SubTree ID="ClearFollowMark"/>
       </SequenceWithMemory>
@@ -177,18 +206,25 @@
   <!--
     确保机器人位于 B 区。
     若当前已经在 B 区，直接成功；否则执行 A 到 B 的跨区路线：
-    先到点7起伏A，打开 follow mark，穿越到点8起伏B，再关闭 follow mark。
+    如果当前在点4堡垒，先退回点6；再到点7起伏A，打开 follow mark，穿越到点8起伏B，再关闭 follow mark。
   -->
   <BehaviorTree ID="EnsureBZone">
     <Fallback name="EnsureBZoneFallback">
       <SubTree ID="IsBZone"/>
       <SequenceWithMemory name="CrossAToB">
+        <SubTree ID="LeaveFortViaPoint6"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="7"/>
+          <SequenceWithMemory name="GoCrossAToBEntryPoint7">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="7" decision="RMUC26 CrossAToB entry"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
         <SubTree ID="SetFollowMarkOn"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="8"/>
+          <SequenceWithMemory name="GoCrossAToBExitPoint8">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="8" decision="RMUC26 CrossAToB exit with follow mark"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
         <SubTree ID="ClearFollowMark"/>
       </SequenceWithMemory>
@@ -202,7 +238,10 @@
       <SequenceWithMemory name="GoOutpostAttackPoint">
         <SubTree ID="EnsureBZone"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="1"/>
+          <SequenceWithMemory name="GoOutpostAttackPoint1">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="1" decision="RMUC26 outpost attack / opening catch engineer"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
       </SequenceWithMemory>
     </Fallback>
@@ -215,7 +254,10 @@
       <SequenceWithMemory name="GoStairAttackPoint">
         <SubTree ID="EnsureBZone"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="2"/>
+          <SequenceWithMemory name="GoStairAttackPoint2">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="2" decision="RMUC26 stair attack / opening catch engineer"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
       </SequenceWithMemory>
     </Fallback>
@@ -228,7 +270,10 @@
       <SequenceWithMemory name="GoOutpostBuffPoint">
         <SubTree ID="EnsureBZone"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="3"/>
+          <SequenceWithMemory name="GoOutpostBuffPoint3">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="3" decision="RMUC26 outpost buff / rebuild or ammo exchange"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
       </SequenceWithMemory>
     </Fallback>
@@ -245,11 +290,17 @@
       <SequenceWithMemory name="GoFortPoint">
         <SubTree ID="EnsureAZone"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="6"/>
+          <SequenceWithMemory name="GoFortStagingPoint6">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="6" decision="RMUC26 fort staging"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
         <SubTree ID="SetFollowMarkOn"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="4"/>
+          <SequenceWithMemory name="GoFortPoint4">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="4" decision="RMUC26 base critical defense fort"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
         <SubTree ID="ClearFollowMark"/>
       </SequenceWithMemory>
@@ -262,8 +313,12 @@
       <CheckCurrentPoint name="AlreadyAtPoint5" point_key="5"/>
       <SequenceWithMemory name="GoSupplyPoint">
         <SubTree ID="EnsureAZone"/>
+        <SubTree ID="LeaveFortViaPoint6"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="5"/>
+          <SequenceWithMemory name="GoSupplyPoint5">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="5" decision="RMUC26 supply / reload"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
       </SequenceWithMemory>
     </Fallback>
@@ -273,10 +328,24 @@
   <BehaviorTree ID="GoPoint6">
     <Fallback name="GoPoint6IfNeeded">
       <CheckCurrentPoint name="AlreadyAtPoint6" point_key="6"/>
+      <SequenceWithMemory name="ReturnFromFortToPoint6">
+        <CheckCurrentPoint name="AtPoint4BeforeReturningPoint6" point_key="4"/>
+        <SubTree ID="SetFollowMarkOn"/>
+        <RetryUntilSuccessful num_attempts="-1">
+          <SequenceWithMemory name="GoReturnFromFortPoint6">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="6" decision="RMUC26 return from fort"/>
+          </SequenceWithMemory>
+        </RetryUntilSuccessful>
+        <SubTree ID="ClearFollowMark"/>
+      </SequenceWithMemory>
       <SequenceWithMemory name="GoBeforeFortPoint">
         <SubTree ID="EnsureAZone"/>
         <RetryUntilSuccessful num_attempts="-1">
-          <NavigateToPose point_key="6"/>
+          <SequenceWithMemory name="GoBeforeFortPoint6">
+            <SubTree ID="DecisionThrottle"/>
+            <NavigateToPose point_key="6" decision="RMUC26 before fort point"/>
+          </SequenceWithMemory>
         </RetryUntilSuccessful>
       </SequenceWithMemory>
     </Fallback>

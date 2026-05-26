@@ -1,8 +1,8 @@
 # Multi-map and multi-strategy profile configuration for robot_decision.
 # Relative paths are resolved against this package share directory.
 
-default_map_profile: "RMUL26"
-default_strategy_profile: "vp_center_control"
+default_map_profile: "RMUC26"
+default_strategy_profile: "rmuc26"
 
 # Pre-match switches. These are read once at startup by CheckConfiguredBool.
 pre_match:

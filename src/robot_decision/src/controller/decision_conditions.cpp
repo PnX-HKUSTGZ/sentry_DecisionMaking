@@ -6,6 +6,8 @@
 #include <cctype>
 #include <limits>
 #include <sstream>
+#include <stdexcept>
+#include <unordered_map>
 #include <vector>
 
 namespace robot_decision
@@ -74,6 +76,20 @@ bool yamlNodeToBool(const YAML::Node& node, bool& value)
   return false;
 }
 
+bool stringToBool(const std::string& raw_value, bool& value)
+{
+  const std::string raw = toLower(raw_value);
+  if (raw == "true" || raw == "yes" || raw == "on" || raw == "1") {
+    value = true;
+    return true;
+  }
+  if (raw == "false" || raw == "no" || raw == "off" || raw == "0") {
+    value = false;
+    return true;
+  }
+  return false;
+}
+
 bool yamlNodeToUInt16(const YAML::Node& node, uint16_t& value)
 {
   if (!node || !node.IsScalar()) {
@@ -89,6 +105,45 @@ bool yamlNodeToUInt16(const YAML::Node& node, uint16_t& value)
     return true;
   } catch (const YAML::Exception&) {
     return false;
+  }
+}
+
+bool stringToUInt16(const std::string& raw_value, uint16_t& value)
+{
+  try {
+    size_t parsed_chars = 0;
+    const int parsed = std::stoi(raw_value, &parsed_chars, 10);
+    if (parsed_chars != raw_value.size() ||
+        parsed < 0 || parsed > std::numeric_limits<uint16_t>::max()) {
+      return false;
+    }
+    value = static_cast<uint16_t>(parsed);
+    return true;
+  } catch (const std::exception&) {
+    return false;
+  }
+}
+
+void collectScalarValues(const YAML::Node& node, const std::string& prefix,
+                         std::unordered_map<std::string, std::string>& values)
+{
+  if (!node) {
+    return;
+  }
+
+  if (node.IsScalar()) {
+    values[prefix] = node.as<std::string>();
+    return;
+  }
+
+  if (!node.IsMap()) {
+    return;
+  }
+
+  for (const auto& item : node) {
+    const std::string key = item.first.as<std::string>();
+    const std::string path = prefix.empty() ? key : prefix + "." + key;
+    collectScalarValues(item.second, path, values);
   }
 }
 
@@ -213,6 +268,7 @@ CheckConfiguredBool::CheckConfiguredBool(
       return;
     }
     config_ = YAML::LoadFile(yaml_path_);
+    collectScalarValues(config_, "", config_values_);
     config_loaded_ = true;
     RCLCPP_INFO(logger(), "Loaded pre-match config: %s", yaml_path_.c_str());
   } catch (const std::exception& e) {
@@ -239,6 +295,14 @@ rclcpp::Logger CheckConfiguredBool::logger() const
 
 bool CheckConfiguredBool::lookupBool(const std::string& key, bool& value) const
 {
+  auto item = config_values_.find(key);
+  if (item == config_values_.end()) {
+    item = config_values_.find("pre_match." + key);
+  }
+  if (item != config_values_.end()) {
+    return stringToBool(item->second, value);
+  }
+
   YAML::Node node = findByPath(config_, key);
   if (!node && config_["pre_match"]) {
     node = findByPath(config_["pre_match"], key);
@@ -296,6 +360,7 @@ CheckConfiguredUInt16::CheckConfiguredUInt16(
       return;
     }
     config_ = YAML::LoadFile(yaml_path_);
+    collectScalarValues(config_, "", config_values_);
     config_loaded_ = true;
     RCLCPP_INFO(logger(), "Loaded pre-match config: %s", yaml_path_.c_str());
   } catch (const std::exception& e) {
@@ -323,6 +388,14 @@ rclcpp::Logger CheckConfiguredUInt16::logger() const
 
 bool CheckConfiguredUInt16::lookupUInt16(const std::string& key, uint16_t& value) const
 {
+  auto item = config_values_.find(key);
+  if (item == config_values_.end()) {
+    item = config_values_.find("pre_match." + key);
+  }
+  if (item != config_values_.end()) {
+    return stringToUInt16(item->second, value);
+  }
+
   YAML::Node node = findByPath(config_, key);
   if (!node && config_["pre_match"]) {
     node = findByPath(config_["pre_match"], key);

@@ -83,6 +83,7 @@ PortsList NavigateToPoseBT::providedPorts()
 {
   return providedBasicPorts({
     InputPort<int>("point_key"),   // 目标点的键值 (1, 2, 3, etc.)
+    InputPort<std::string>("decision", "", "Debug description for why this target was selected"),
   });
 }
 
@@ -99,6 +100,8 @@ bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
     RCLCPP_ERROR(logger(), "Failed to get point_key input!");
     return false;
   }
+  std::string decision_info;
+  getInput("decision", decision_info);
   active_point_key_ = point_key;
 
   // Convert to string for YAML lookup
@@ -122,7 +125,15 @@ bool NavigateToPoseBT::setGoal(RosActionNode::Goal& goal)
   goal.pose.header.stamp = this->now();
   goal.pose.pose.position.x = target[0];
   goal.pose.pose.position.y = target[1];
-  std::cout<<"Point key: " << point_key << " x:" << goal.pose.pose.position.x << " y:" << goal.pose.pose.position.y << std::endl;
+  if (decision_info.empty()) {
+    RCLCPP_INFO(logger(), "[DecisionTarget] point=%d x=%.3f y=%.3f frame=%s",
+                point_key, goal.pose.pose.position.x, goal.pose.pose.position.y,
+                target_frame_id_.c_str());
+  } else {
+    RCLCPP_INFO(logger(), "[DecisionTarget] %s -> point=%d x=%.3f y=%.3f frame=%s",
+                decision_info.c_str(), point_key, goal.pose.pose.position.x,
+                goal.pose.pose.position.y, target_frame_id_.c_str());
+  }
   
   goal.pose.pose.orientation.w = 1.0;
   return true;

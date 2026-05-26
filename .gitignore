@@ -169,4 +169,5 @@ Temporary Items
 build
 install
 log
+.cache/
 # End of https://www.gitignore.io/api/c++,linux,macos,clion

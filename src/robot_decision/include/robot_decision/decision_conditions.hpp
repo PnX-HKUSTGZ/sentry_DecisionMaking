@@ -7,6 +7,7 @@
 #include <yaml-cpp/yaml.h>
 #include <cstdint>
 #include <string>
+#include <unordered_map>
 
 namespace robot_decision
 {
@@ -48,6 +49,7 @@ private:
   rclcpp::Node::SharedPtr node_;
   std::string yaml_path_;
   YAML::Node config_;
+  std::unordered_map<std::string, std::string> config_values_;
   bool config_loaded_ = false;
 };
 
@@ -68,6 +70,7 @@ private:
   rclcpp::Node::SharedPtr node_;
   std::string yaml_path_;
   YAML::Node config_;
+  std::unordered_map<std::string, std::string> config_values_;
   bool config_loaded_ = false;
 };
 

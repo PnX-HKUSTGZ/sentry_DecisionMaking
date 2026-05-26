@@ -18,7 +18,10 @@ public:
 
   static BT::PortsList providedPorts()
   {
-    return { BT::InputPort<bool>("value") };
+    return {
+      BT::InputPort<bool>("value"),
+      BT::InputPort<bool>("required", true, "Whether service failure should fail the BT node")
+    };
   }
 
   BT::NodeStatus onStart() override;
@@ -37,5 +40,5 @@ private:
   SetBool::Request::SharedPtr pending_request_;
   std::shared_future<SetBool::Response::SharedPtr> future_response_;
   rclcpp::Time request_sent_time_{0, 0, RCL_ROS_TIME};
+  bool request_required_{true};
 };
-

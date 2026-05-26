@@ -53,7 +53,7 @@ def generate_launch_description():
     )
     use_sim_time_arg = DeclareLaunchArgument(
         "use_sim_time",
-        default_value="true",
+        default_value="false",
         description="Set true when running with Gazebo/Nav2 simulation clock.",
     )
 
