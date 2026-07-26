@@ -17,8 +17,8 @@ SetBoolService::SetBoolService(const std::string& name, const BT::NodeConfig& co
   callback_group_ =
     node_->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive, false);
   executor_.add_callback_group(callback_group_, node_->get_node_base_interface());
-  client_ = node_->create_client<SetBool>(service_name_, rmw_qos_profile_services_default,
-                                          callback_group_);
+  client_ = node_->create_client<SetBool>(
+    service_name_, rclcpp::ServicesQoS(), callback_group_);
 }
 
 rclcpp::Logger SetBoolService::logger() const

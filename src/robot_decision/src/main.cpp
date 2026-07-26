@@ -20,29 +20,30 @@
 #include <behaviortree_cpp/loggers/bt_cout_logger.h>
 #include <rclcpp/rclcpp.hpp>
 #include <yaml-cpp/yaml.h>
-#include <filesystem>
-#include <signal.h>
 #include <atomic>
+#include <csignal>
+#include <filesystem>
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <sstream>
 
-//safe shutdown
-std::atomic<bool> g_interrupt_requested(false);
+namespace
+{
+std::atomic_bool interrupt_requested{false};
 
-// Signal handler for Ctrl+C
-void signalHandler(int signum) {
-  g_interrupt_requested = true;
-  std::cout << "Interrupt received, safely shutting down..." << std::endl;
+void handleSignal(int)
+{
+  interrupt_requested.store(true);
 }
+}  // namespace
 
 int main(int argc, char** argv)
 {
-  // Register signal handler
-  signal(SIGINT, signalHandler);
-
-  rclcpp::init(argc, argv);
+  rclcpp::init(
+    argc, argv, rclcpp::InitOptions(), rclcpp::SignalHandlerOptions::None);
+  std::signal(SIGINT, handleSignal);
+  std::signal(SIGTERM, handleSignal);
 
   const std::string package_share_dir =
     ament_index_cpp::get_package_share_directory("robot_decision");
@@ -99,9 +100,9 @@ int main(int argc, char** argv)
     config_nh->declare_parameter<std::string>("target_frame_id", "");
   const int navigate_to_pose_server_timeout_ms =
     config_nh->declare_parameter<int>("navigate_to_pose_server_timeout_ms", 20000);
-  bool use_sim_time = true;
+  bool use_sim_time = false;
   try {
-    use_sim_time = config_nh->declare_parameter<bool>("use_sim_time", true);
+    use_sim_time = config_nh->declare_parameter<bool>("use_sim_time", false);
   } catch (const rclcpp::exceptions::ParameterAlreadyDeclaredException&) {
     use_sim_time = config_nh->get_parameter("use_sim_time").as_bool();
   }
@@ -118,6 +119,11 @@ int main(int argc, char** argv)
     node->set_parameter(rclcpp::Parameter("use_sim_time", use_sim_time));
   };
   apply_use_sim_time(config_nh);
+
+  const auto make_auxiliary_node = [&](const std::string& name) {
+    auto options = rclcpp::NodeOptions().use_global_arguments(false);
+    return std::make_shared<rclcpp::Node>(name, config_nh->get_namespace(), options);
+  };
 
   YAML::Node profile_root;
   try {
@@ -204,7 +210,7 @@ int main(int argc, char** argv)
   RCLCPP_INFO(config_nh->get_logger(), "use_sim_time: %s", use_sim_time ? "true" : "false");
 
   //initiate node
-  auto navigate_to_pose_nh = std::make_shared<rclcpp::Node>("navigate_to_pose_client");
+  auto navigate_to_pose_nh = make_auxiliary_node("navigate_to_pose_client");
   apply_use_sim_time(navigate_to_pose_nh);
   navigate_to_pose_nh->declare_parameter<std::string>("points_yaml_path", points_yaml_path);
   navigate_to_pose_nh->declare_parameter<std::string>("target_frame_id", target_frame_id);
@@ -217,7 +223,7 @@ int main(int argc, char** argv)
   navigate_to_pose_params.nh = navigate_to_pose_nh;
   navigate_to_pose_params.default_port_value = "navigate_to_pose";
 
-  auto set_bool_nh = std::make_shared<rclcpp::Node>("SetBool_client");
+  auto set_bool_nh = make_auxiliary_node("SetBool_client");
   apply_use_sim_time(set_bool_nh);
   RosNodeParams set_bool_params;
   set_bool_params.nh = set_bool_nh;
@@ -225,7 +231,7 @@ int main(int argc, char** argv)
   set_bool_params.server_timeout = std::chrono::milliseconds(3000);
   set_bool_params.wait_for_server_timeout = std::chrono::milliseconds(3000);
 
-  auto follow_mark_nh = std::make_shared<rclcpp::Node>("FollowMark_client");
+  auto follow_mark_nh = make_auxiliary_node("FollowMark_client");
   apply_use_sim_time(follow_mark_nh);
   RosNodeParams follow_mark_params;
   follow_mark_params.nh = follow_mark_nh;
@@ -233,43 +239,43 @@ int main(int argc, char** argv)
   follow_mark_params.server_timeout = std::chrono::milliseconds(3000);
   follow_mark_params.wait_for_server_timeout = std::chrono::milliseconds(3000);
 
-  auto ifhealth_sub_nh = std::make_shared<rclcpp::Node>("IfHealthSub_subscriber");
+  auto ifhealth_sub_nh = make_auxiliary_node("IfHealthSub_subscriber");
   apply_use_sim_time(ifhealth_sub_nh);
   RosNodeParams ifhealth_sub_params;
   ifhealth_sub_params.nh = ifhealth_sub_nh;
   ifhealth_sub_params.default_port_value = "ifhealth";
 
-  auto our_base_health_sub_nh = std::make_shared<rclcpp::Node>("OurBaseHealthSub_subscriber");
+  auto our_base_health_sub_nh = make_auxiliary_node("OurBaseHealthSub_subscriber");
   apply_use_sim_time(our_base_health_sub_nh);
   RosNodeParams our_base_health_sub_params;
   our_base_health_sub_params.nh = our_base_health_sub_nh;
   our_base_health_sub_params.default_port_value = "our_base_health";
 
-  auto our_outpost_health_sub_nh = std::make_shared<rclcpp::Node>("OurOutpostHealthSub_subscriber");
+  auto our_outpost_health_sub_nh = make_auxiliary_node("OurOutpostHealthSub_subscriber");
   apply_use_sim_time(our_outpost_health_sub_nh);
   RosNodeParams our_outpost_health_sub_params;
   our_outpost_health_sub_params.nh = our_outpost_health_sub_nh;
   our_outpost_health_sub_params.default_port_value = "our_outpost_health";
 
-  auto enemy_outpost_health_sub_nh = std::make_shared<rclcpp::Node>("EnemyOutpostHealthSub_subscriber");
+  auto enemy_outpost_health_sub_nh = make_auxiliary_node("EnemyOutpostHealthSub_subscriber");
   apply_use_sim_time(enemy_outpost_health_sub_nh);
   RosNodeParams enemy_outpost_health_sub_params;
   enemy_outpost_health_sub_params.nh = enemy_outpost_health_sub_nh;
   enemy_outpost_health_sub_params.default_port_value = "enemy_outpost_health";
 
-  auto can_rebuild_outpost_sub_nh = std::make_shared<rclcpp::Node>("CanRebuildOutpostSub_subscriber");
+  auto can_rebuild_outpost_sub_nh = make_auxiliary_node("CanRebuildOutpostSub_subscriber");
   apply_use_sim_time(can_rebuild_outpost_sub_nh);
   RosNodeParams can_rebuild_outpost_sub_params;
   can_rebuild_outpost_sub_params.nh = can_rebuild_outpost_sub_nh;
   can_rebuild_outpost_sub_params.default_port_value = "/can_rebuild_outpost";
 
-  auto remain_ammo_sub_nh = std::make_shared<rclcpp::Node>("RemainAmmoSub_subscriber");
+  auto remain_ammo_sub_nh = make_auxiliary_node("RemainAmmoSub_subscriber");
   apply_use_sim_time(remain_ammo_sub_nh);
   RosNodeParams remain_ammo_sub_params;
   remain_ammo_sub_params.nh = remain_ammo_sub_nh;
   remain_ammo_sub_params.default_port_value = "/remain_ammo";
 
-  auto configured_bool_nh = std::make_shared<rclcpp::Node>("ConfiguredBool_condition");
+  auto configured_bool_nh = make_auxiliary_node("ConfiguredBool_condition");
   apply_use_sim_time(configured_bool_nh);
   configured_bool_nh->declare_parameter<std::string>("pre_match_yaml_path", pre_match_yaml_path);
   RosNodeParams configured_bool_params;
@@ -310,7 +316,7 @@ int main(int argc, char** argv)
   //运行行为树
   auto status = tree.tickOnce();
   std::cout << "--- status: " << toStr(status) << "\n\n";
-  while(!g_interrupt_requested) 
+  while (!interrupt_requested.load() && rclcpp::ok())
   {
     // Sleep to avoid busy loops.
     // do NOT use other sleep functions!
@@ -318,15 +324,20 @@ int main(int argc, char** argv)
     // have less messages on the console.
     tree.sleep(std::chrono::milliseconds(500));
 
+    if (interrupt_requested.load() || !rclcpp::ok()) {
+      break;
+    }
+
     //std::cout << "--- ticking\n";
     status = tree.tickOnce();
     //std::cout << "--- status: " << toStr(status) << "\n\n";
   }
   
-  // Clean shutdown
-  if (g_interrupt_requested) {
-    std::cout << "Halting behavior tree..." << std::endl;
+  std::cout << "Halting behavior tree..." << std::endl;
+  try {
     tree.haltTree();
+  } catch (const std::exception& e) {
+    RCLCPP_WARN(config_nh->get_logger(), "Behavior tree halt reported: %s", e.what());
   }
   
   // Clean up ROS resources

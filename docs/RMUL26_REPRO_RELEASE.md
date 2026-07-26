@@ -29,7 +29,7 @@ Use helper script:
 
 ```bash
 cd sentry_DecisionMaking
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 source install/setup.bash
 bash tools/publish_bt_stubs.sh
 ```
@@ -38,7 +38,7 @@ bash tools/publish_bt_stubs.sh
 
 ```bash
 cd sentry_DecisionMaking
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 source install/setup.bash
 ros2 launch robot_decision decision_node_launch.py \
   map_profile:=RMUL_26 \
@@ -57,4 +57,4 @@ bash tools/setup_behaviortree_ros2_dep.sh
 
 Pinned commit in helper:
 
-- `BehaviorTree.ROS2@cc31ea7b97947f1aac6e8c37df6cec379c84a7d9`
+- `BehaviorTree.ROS2@6c6aa078ee7bc52fec98984bed4964556abf5beb`

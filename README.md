@@ -1,6 +1,6 @@
 # sentry_DecisionMaking
 
-ROS 2 Humble decision package for sentry robot BehaviorTree control.
+Ubuntu 24.04 / ROS 2 Jazzy decision package for sentry robot BehaviorTree control.
 
 Detailed setup and reproducible runbook:
 - `src/README.md`
@@ -11,8 +11,8 @@ Quick start:
 ```bash
 cd sentry_DecisionMaking
 bash tools/setup_behaviortree_ros2_dep.sh
-source /opt/ros/humble/setup.bash
-rosdep install --from-paths src --ignore-src -r -y --rosdistro humble
+source /opt/ros/jazzy/setup.bash
+rosdep install --from-paths src --ignore-src -r -y --rosdistro jazzy
 colcon build --symlink-install
 source install/setup.bash
 ```

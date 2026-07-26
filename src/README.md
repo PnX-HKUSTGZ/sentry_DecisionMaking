@@ -1,4 +1,4 @@
-# sentry_DecisionMaking Reproducible Guide (ROS 2 Humble)
+# sentry_DecisionMaking Reproducible Guide (Ubuntu 24.04 / ROS 2 Jazzy)
 
 This repository contains `robot_decision` and its BehaviorTree runtime dependency.
 The commands below are tested for RMUL_26 simulation with Nav2 `NavigateToPose`.
@@ -7,8 +7,11 @@ The commands below are tested for RMUL_26 simulation with Nav2 `NavigateToPose`.
 
 `robot_decision` depends on `BehaviorTree.ROS2`.
 
-Pinned commit (recommended):
-- `cc31ea7b97947f1aac6e8c37df6cec379c84a7d9`
+Pinned commit (validated on Jazzy):
+- `6c6aa078ee7bc52fec98984bed4964556abf5beb`
+
+The upstream branch is still named `humble`, but this commit contains the
+Jazzy `rclcpp::ServicesQoS()` compatibility path and is built from source here.
 
 Use helper script:
 
@@ -21,12 +24,12 @@ This ensures `src/BehaviorTree.ROS2` exists and is pinned when the folder is a g
 
 ## 2. Build
 
-### 2.1 System ROS 2 Humble
+### 2.1 System ROS 2 Jazzy on Ubuntu 24.04
 
 ```bash
 cd sentry_DecisionMaking
-source /opt/ros/humble/setup.bash
-rosdep install --from-paths src --ignore-src -r -y --rosdistro humble
+source /opt/ros/jazzy/setup.bash
+rosdep install --from-paths src --ignore-src -r -y --rosdistro jazzy
 colcon build --symlink-install
 source install/setup.bash
 ```
@@ -37,7 +40,7 @@ If navigation runs in RoboStack, source the same environment first, then:
 
 ```bash
 cd sentry_DecisionMaking
-rosdep install --from-paths src --ignore-src -r -y --rosdistro humble
+rosdep install --from-paths src --ignore-src -r -y --rosdistro jazzy
 colcon build --symlink-install
 source install/setup.bash
 ```
@@ -48,12 +51,14 @@ Profile config file:
 - `src/robot_decision/config/decision_profiles.yaml`
 
 Default profiles:
-- `default_map_profile: RMUL26`
-- `default_strategy_profile: vp_center_control`
+- `default_map_profile: RMUC26`
+- `default_strategy_profile: rmuc26`
 
 Map profiles currently provided:
 - `RMUL26`
 - `RMUL_26` (alias)
+- `RMUL2026` (navigation-side alias)
+- `RMUC26`
 - `GENERIC`
 
 Strategy profiles currently provided:
@@ -61,6 +66,7 @@ Strategy profiles currently provided:
 - `rmuc_regression`
 - `simple_health`
 - `test_minimal`
+- `rmuc26`
 
 ## 4. Launch (with use_sim_time)
 
