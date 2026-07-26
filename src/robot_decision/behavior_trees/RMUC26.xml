@@ -134,13 +134,14 @@
     <Wait name="DecisionThrottleWait" waittime="100"/>
   </BehaviorTree>
 
-  <!-- A 区点位集合：4 堡垒、5 补给区、6 堡垒前、7 起伏A。 -->
+  <!-- A 区点位集合：4 堡垒、5 补给区、6 堡垒前、7 起伏A、9 不过起伏前哨点。 -->
   <BehaviorTree ID="IsAZone">
     <Fallback name="AZonePoints">
       <CheckCurrentPoint name="AtPoint4" point_key="4"/>
       <CheckCurrentPoint name="AtPoint5" point_key="5"/>
       <CheckCurrentPoint name="AtPoint6" point_key="6"/>
       <CheckCurrentPoint name="AtPoint7" point_key="7"/>
+      <CheckCurrentPoint name="AtPoint9" point_key="9"/>
     </Fallback>
   </BehaviorTree>
 
